@@ -46,684 +46,685 @@
     font-weight: bold;
 }
 </style>
-<h1>api-documentation for
+<h1>api documentation for
     <a
-        
+
         href="https://github.com/request/request#readme"
-        
+
     >request (v2.81.0)</a>
 </h1>
+<h4>Simplified HTTP request client.</h4>
 <div class="apidocSectionDiv"><a
     href="#apidoc.tableOfContents"
     id="apidoc.tableOfContents"
 ><h1>table of contents</h1></a><ol>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.request">module request</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.Request">
             function <span class="apidocSignatureSpan">request.</span>Request
             <span class="apidocSignatureSpan">(options)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.cookie">
             function <span class="apidocSignatureSpan">request.</span>cookie
             <span class="apidocSignatureSpan">(str)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.defaults">
             function <span class="apidocSignatureSpan">request.</span>defaults
             <span class="apidocSignatureSpan">(options, requester)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.del">
             function <span class="apidocSignatureSpan">request.</span>del
             <span class="apidocSignatureSpan">(uri, options, callback)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.delete">
             function <span class="apidocSignatureSpan">request.</span>delete
             <span class="apidocSignatureSpan">(uri, options, callback)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.forever">
             function <span class="apidocSignatureSpan">request.</span>forever
             <span class="apidocSignatureSpan">(agentOptions, optionsArg)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.get">
             function <span class="apidocSignatureSpan">request.</span>get
             <span class="apidocSignatureSpan">(uri, options, callback)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.head">
             function <span class="apidocSignatureSpan">request.</span>head
             <span class="apidocSignatureSpan">(uri, options, callback)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.initParams">
             function <span class="apidocSignatureSpan">request.</span>initParams
             <span class="apidocSignatureSpan">(uri, options, callback)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.jar">
             function <span class="apidocSignatureSpan">request.</span>jar
             <span class="apidocSignatureSpan">(store)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.patch">
             function <span class="apidocSignatureSpan">request.</span>patch
             <span class="apidocSignatureSpan">(uri, options, callback)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.post">
             function <span class="apidocSignatureSpan">request.</span>post
             <span class="apidocSignatureSpan">(uri, options, callback)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.put">
             function <span class="apidocSignatureSpan">request.</span>put
             <span class="apidocSignatureSpan">(uri, options, callback)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">request.</span>Request.prototype</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">request.</span>auth</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">request.</span>cookies</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">request.</span>har</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">request.</span>helpers</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">request.</span>multipart</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">request.</span>oauth</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">request.</span>querystring</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">request.</span>redirect</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">request.</span>tunnel</span>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.request.Request">module request.Request</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.Request.Request">
             function <span class="apidocSignatureSpan">request.</span>Request
             <span class="apidocSignatureSpan">(options)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.Request.super_">
             function <span class="apidocSignatureSpan">request.Request.</span>super_
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">request.Request.</span>defaultProxyHeaderExclusiveList</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">request.Request.</span>defaultProxyHeaderWhiteList</span>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.request.Request.prototype">module request.Request.prototype</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.Request.prototype.abort">
             function <span class="apidocSignatureSpan">request.Request.prototype.</span>abort
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.Request.prototype.auth">
             function <span class="apidocSignatureSpan">request.Request.prototype.</span>auth
             <span class="apidocSignatureSpan">(user, pass, sendImmediately, bearer)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.Request.prototype.aws">
             function <span class="apidocSignatureSpan">request.Request.prototype.</span>aws
             <span class="apidocSignatureSpan">(opts, now)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.Request.prototype.debug">
             function <span class="apidocSignatureSpan">request.Request.prototype.</span>debug
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.Request.prototype.destroy">
             function <span class="apidocSignatureSpan">request.Request.prototype.</span>destroy
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.Request.prototype.enableUnixSocket">
             function <span class="apidocSignatureSpan">request.Request.prototype.</span>enableUnixSocket
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.Request.prototype.end">
             function <span class="apidocSignatureSpan">request.Request.prototype.</span>end
             <span class="apidocSignatureSpan">(chunk)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.Request.prototype.form">
             function <span class="apidocSignatureSpan">request.Request.prototype.</span>form
             <span class="apidocSignatureSpan">(form)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.Request.prototype.getHeader">
             function <span class="apidocSignatureSpan">request.Request.prototype.</span>getHeader
             <span class="apidocSignatureSpan">(name, headers)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.Request.prototype.getNewAgent">
             function <span class="apidocSignatureSpan">request.Request.prototype.</span>getNewAgent
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.Request.prototype.hawk">
             function <span class="apidocSignatureSpan">request.Request.prototype.</span>hawk
             <span class="apidocSignatureSpan">(opts)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.Request.prototype.httpSignature">
             function <span class="apidocSignatureSpan">request.Request.prototype.</span>httpSignature
             <span class="apidocSignatureSpan">(opts)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.Request.prototype.init">
             function <span class="apidocSignatureSpan">request.Request.prototype.</span>init
             <span class="apidocSignatureSpan">(options)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.Request.prototype.jar">
             function <span class="apidocSignatureSpan">request.Request.prototype.</span>jar
             <span class="apidocSignatureSpan">(jar)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.Request.prototype.json">
             function <span class="apidocSignatureSpan">request.Request.prototype.</span>json
             <span class="apidocSignatureSpan">(val)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.Request.prototype.multipart">
             function <span class="apidocSignatureSpan">request.Request.prototype.</span>multipart
             <span class="apidocSignatureSpan">(multipart)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.Request.prototype.oauth">
             function <span class="apidocSignatureSpan">request.Request.prototype.</span>oauth
             <span class="apidocSignatureSpan">(_oauth)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.Request.prototype.onRequestError">
             function <span class="apidocSignatureSpan">request.Request.prototype.</span>onRequestError
             <span class="apidocSignatureSpan">(error)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.Request.prototype.onRequestResponse">
             function <span class="apidocSignatureSpan">request.Request.prototype.</span>onRequestResponse
             <span class="apidocSignatureSpan">(response)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.Request.prototype.pause">
             function <span class="apidocSignatureSpan">request.Request.prototype.</span>pause
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.Request.prototype.pipe">
             function <span class="apidocSignatureSpan">request.Request.prototype.</span>pipe
             <span class="apidocSignatureSpan">(dest, opts)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.Request.prototype.pipeDest">
             function <span class="apidocSignatureSpan">request.Request.prototype.</span>pipeDest
             <span class="apidocSignatureSpan">(dest)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.Request.prototype.qs">
             function <span class="apidocSignatureSpan">request.Request.prototype.</span>qs
             <span class="apidocSignatureSpan">(q, clobber)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.Request.prototype.readResponseBody">
             function <span class="apidocSignatureSpan">request.Request.prototype.</span>readResponseBody
             <span class="apidocSignatureSpan">(response)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.Request.prototype.resume">
             function <span class="apidocSignatureSpan">request.Request.prototype.</span>resume
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.Request.prototype.start">
             function <span class="apidocSignatureSpan">request.Request.prototype.</span>start
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.Request.prototype.toJSON">
             function <span class="apidocSignatureSpan">request.Request.prototype.</span>toJSON
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.Request.prototype.write">
             function <span class="apidocSignatureSpan">request.Request.prototype.</span>write
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.request.auth">module request.auth</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.auth.Auth">
             function <span class="apidocSignatureSpan">request.auth.</span>Auth
             <span class="apidocSignatureSpan">(request)</span>
             </a>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.request.cookies">module request.cookies</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.cookies.jar">
             function <span class="apidocSignatureSpan">request.cookies.</span>jar
             <span class="apidocSignatureSpan">(store)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.cookies.parse">
             function <span class="apidocSignatureSpan">request.cookies.</span>parse
             <span class="apidocSignatureSpan">(str)</span>
             </a>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.request.har">module request.har</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.har.Har">
             function <span class="apidocSignatureSpan">request.har.</span>Har
             <span class="apidocSignatureSpan">(request)</span>
             </a>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.request.helpers">module request.helpers</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.helpers.copy">
             function <span class="apidocSignatureSpan">request.helpers.</span>copy
             <span class="apidocSignatureSpan">(obj)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.helpers.defer">
             function <span class="apidocSignatureSpan">request.helpers.</span>defer
             <span class="apidocSignatureSpan">(callback, arg1, arg2, arg3)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.helpers.isReadStream">
             function <span class="apidocSignatureSpan">request.helpers.</span>isReadStream
             <span class="apidocSignatureSpan">(rs)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.helpers.md5">
             function <span class="apidocSignatureSpan">request.helpers.</span>md5
             <span class="apidocSignatureSpan">(str)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.helpers.paramsHaveRequestBody">
             function <span class="apidocSignatureSpan">request.helpers.</span>paramsHaveRequestBody
             <span class="apidocSignatureSpan">(params)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.helpers.safeStringify">
             function <span class="apidocSignatureSpan">request.helpers.</span>safeStringify
             <span class="apidocSignatureSpan">(obj, replacer)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.helpers.toBase64">
             function <span class="apidocSignatureSpan">request.helpers.</span>toBase64
             <span class="apidocSignatureSpan">(str)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.helpers.version">
             function <span class="apidocSignatureSpan">request.helpers.</span>version
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.request.multipart">module request.multipart</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.multipart.Multipart">
             function <span class="apidocSignatureSpan">request.multipart.</span>Multipart
             <span class="apidocSignatureSpan">(request)</span>
             </a>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.request.oauth">module request.oauth</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.oauth.OAuth">
             function <span class="apidocSignatureSpan">request.oauth.</span>OAuth
             <span class="apidocSignatureSpan">(request)</span>
             </a>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.request.querystring">module request.querystring</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.querystring.Querystring">
             function <span class="apidocSignatureSpan">request.querystring.</span>Querystring
             <span class="apidocSignatureSpan">(request)</span>
             </a>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.request.redirect">module request.redirect</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.redirect.Redirect">
             function <span class="apidocSignatureSpan">request.redirect.</span>Redirect
             <span class="apidocSignatureSpan">(request)</span>
             </a>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.request.tunnel">module request.tunnel</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.request.tunnel.Tunnel">
             function <span class="apidocSignatureSpan">request.tunnel.</span>Tunnel
             <span class="apidocSignatureSpan">(request)</span>
             </a>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
 </ol></div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.request" id="apidoc.module.request">module request</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.request.Request" id="apidoc.element.request.Request">
         function <span class="apidocSignatureSpan">request.</span>Request
@@ -785,9 +786,9 @@ return function (uri, options, callback) {
   params.method = method
 ...</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.request.cookie" id="apidoc.element.request.cookie">
         function <span class="apidocSignatureSpan">request.</span>cookie
@@ -816,9 +817,9 @@ Function that creates a new cookie jar.
 request.jar()
 ...</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.request.defaults" id="apidoc.element.request.defaults">
         function <span class="apidocSignatureSpan">request.</span>defaults
@@ -866,9 +867,9 @@ http.createServer(function (req, resp) {
 ```
 ...</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.request.del" id="apidoc.element.request.del">
         function <span class="apidocSignatureSpan">request.</span>del
@@ -898,9 +899,9 @@ request.delete(url)
 Same as `request()` (for uniformity).
 ...</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.request.delete" id="apidoc.element.request.delete">
         function <span class="apidocSignatureSpan">request.</span>delete
@@ -931,9 +932,9 @@ Same as `request()` (for uniformity).
 ```js
 ...</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.request.forever" id="apidoc.element.request.forever">
         function <span class="apidocSignatureSpan">request.</span>forever
@@ -955,9 +956,9 @@ Same as `request()` (for uniformity).
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.request.get" id="apidoc.element.request.get">
         function <span class="apidocSignatureSpan">request.</span>get
@@ -978,21 +979,21 @@ fs.createReadStream(&#x27;file.json&#x27;).pipe(request.put(&#x27;http://mysite.
 Request can also `pipe` to itself. When doing so, `content-type` and `content-length` are preserved in the PUT headers.
 
 ```js
-request.<span class="apidocCodeKeywordSpan">get</span>(&#x27;http://google.com/img.png&#x27;).pipe(request.put(&#x27;http://mysi\
-te.com/img.png&#x27;))
+request.<span class="apidocCodeKeywordSpan">get</span>(&#x27;http://google.com/img.png&#x27;).pipe(request.put(&#x27;http://mysite
+.com/img.png&#x27;))
 ```
 
-Request emits a &#x22;response&#x22; event when a response is received. The `response` argument will be an instance of [http.Inc\
-omingMessage](https://nodejs.org/api/http.html#http_class_http_incomingmessage).
+Request emits a &#x22;response&#x22; event when a response is received. The `response` argument will be an instance of [http.IncomingMessage
+](https://nodejs.org/api/http.html#http_class_http_incomingmessage).
 
 ```js
 request
 .get(&#x27;http://google.com/img.png&#x27;)
 ...</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.request.head" id="apidoc.element.request.head">
         function <span class="apidocSignatureSpan">request.</span>head
@@ -1023,9 +1024,9 @@ Same as `request()`, but defaults to `method: &#x22;DELETE&#x22;`.
 ```js
 ...</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.request.initParams" id="apidoc.element.request.initParams">
         function <span class="apidocSignatureSpan">request.</span>initParams
@@ -1052,9 +1053,9 @@ Same as `request()`, but defaults to `method: &#x22;DELETE&#x22;`.
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.request.jar" id="apidoc.element.request.jar">
         function <span class="apidocSignatureSpan">request.</span>jar
@@ -1082,9 +1083,9 @@ request.jar()
 ```
 ...</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.request.patch" id="apidoc.element.request.patch">
         function <span class="apidocSignatureSpan">request.</span>patch
@@ -1115,9 +1116,9 @@ Same as `request()`, but defaults to `method: &#x22;POST&#x22;`.
 ```js
 ...</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.request.post" id="apidoc.element.request.post">
         function <span class="apidocSignatureSpan">request.</span>post
@@ -1142,14 +1143,13 @@ request.<span class="apidocCodeKeywordSpan">post</span>(&#x27;http://service.com
 // or
 request.post(&#x27;http://service.com/upload&#x27;).form({key:&#x27;value&#x27;})
 // or
-request.post({url:&#x27;http://service.com/upload&#x27;, form: {key:&#x27;value&#x27;}}, function(err,httpResponse,body){ /* ...\
- */ })
+request.post({url:&#x27;http://service.com/upload&#x27;, form: {key:&#x27;value&#x27;}}, function(err,httpResponse,body){ /* ... */ })
 ```
 ...</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.request.put" id="apidoc.element.request.put">
         function <span class="apidocSignatureSpan">request.</span>put
@@ -1167,13 +1167,13 @@ request.post({url:&#x27;http://service.com/upload&#x27;, form: {key:&#x27;value&
 request(&#x27;http://google.com/doodle.png&#x27;).pipe(fs.createWriteStream(&#x27;doodle.png&#x27;))
 ```
 
-You can also stream a file to a PUT or POST request. This method will also check the file extension against a mapping of file ex\
-tensions to content-types (in this case `application/json`) and use the proper `content-type` in the PUT request (if the headers\
- don’t already provide one).
+You can also stream a file to a PUT or POST request. This method will also check the file extension against a mapping of file extensions
+ to content-types (in this case `application/json`) and use the proper `content-type` in the PUT request (if the headers don’t already
+ provide one).
 
 ```js
-fs.createReadStream(&#x27;file.json&#x27;).pipe(request.<span class="apidocCodeKeywordSpan">put</span>(&#x27;http://mysite.com/o\
-bj.json&#x27;))
+fs.createReadStream(&#x27;file.json&#x27;).pipe(request.<span class="apidocCodeKeywordSpan">put</span>(&#x27;http://mysite.com/obj
+.json&#x27;))
 ```
 
 Request can also `pipe` to itself. When doing so, `content-type` and `content-length` are preserved in the PUT headers.
@@ -1183,34 +1183,34 @@ request.get(&#x27;http://google.com/img.png&#x27;).pipe(request.put(&#x27;http:/
 ```
 ...</pre></li>
     </ul>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.request.Request" id="apidoc.module.request.Request">module request.Request</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.request.Request.Request" id="apidoc.element.request.Request.Request">
         function <span class="apidocSignatureSpan">request.</span>Request
@@ -1272,9 +1272,9 @@ return function (uri, options, callback) {
   params.method = method
 ...</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.request.Request.super_" id="apidoc.element.request.Request.super_">
         function <span class="apidocSignatureSpan">request.Request.</span>super_
@@ -1287,18 +1287,18 @@ return function (uri, options, callback) {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.request.Request.prototype" id="apidoc.module.request.Request.prototype">module request.Request.prototype</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.request.Request.prototype.abort" id="apidoc.element.request.Request.prototype.abort">
         function <span class="apidocSignatureSpan">request.Request.prototype.</span>abort
@@ -1321,9 +1321,9 @@ return function (uri, options, callback) {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.request.Request.prototype.auth" id="apidoc.element.request.Request.prototype.auth">
         function <span class="apidocSignatureSpan">request.Request.prototype.</span>auth
@@ -1346,8 +1346,8 @@ return function (uri, options, callback) {
 ## HTTP Authentication
 
 ```js
-request.get(&#x27;http://some.server.com/&#x27;).<span class="apidocCodeKeywordSpan">auth</span>(&#x27;username&#x27;, &#x27;pas\
-sword&#x27;, false);
+request.get(&#x27;http://some.server.com/&#x27;).<span class="apidocCodeKeywordSpan">auth</span>(&#x27;username&#x27;, &#x27;password
+&#x27;, false);
 // or
 request.get(&#x27;http://some.server.com/&#x27;, {
 &#x27;auth&#x27;: {
@@ -1357,9 +1357,9 @@ request.get(&#x27;http://some.server.com/&#x27;, {
 }
 ...</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.request.Request.prototype.aws" id="apidoc.element.request.Request.prototype.aws">
         function <span class="apidocSignatureSpan">request.Request.prototype.</span>aws
@@ -1428,9 +1428,9 @@ request.get(&#x27;http://some.server.com/&#x27;, {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.request.Request.prototype.debug" id="apidoc.element.request.Request.prototype.debug">
         function <span class="apidocSignatureSpan">request.Request.prototype.</span>debug
@@ -1461,9 +1461,9 @@ case &#x27;bearer&#x27;:
   return self.bearer(self.bearerToken, true)
 ...</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.request.Request.prototype.destroy" id="apidoc.element.request.Request.prototype.destroy">
         function <span class="apidocSignatureSpan">request.Request.prototype.</span>destroy
@@ -1481,9 +1481,9 @@ case &#x27;bearer&#x27;:
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.request.Request.prototype.enableUnixSocket" id="apidoc.element.request.Request.prototype.enableUnixSocket">
         function <span class="apidocSignatureSpan">request.Request.prototype.</span>enableUnixSocket
@@ -1506,9 +1506,9 @@ case &#x27;bearer&#x27;:
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.request.Request.prototype.end" id="apidoc.element.request.Request.prototype.end">
         function <span class="apidocSignatureSpan">request.Request.prototype.</span>end
@@ -1532,9 +1532,9 @@ case &#x27;bearer&#x27;:
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.request.Request.prototype.form" id="apidoc.element.request.Request.prototype.form">
         function <span class="apidocSignatureSpan">request.Request.prototype.</span>form
@@ -1572,17 +1572,16 @@ request.post(&#x27;http://service.com/upload&#x27;, {form:{key:&#x27;value&#x27;
 // or
 request.post(&#x27;http://service.com/upload&#x27;).<span class="apidocCodeKeywordSpan">form</span>({key:&#x27;value&#x27;})
 // or
-request.post({url:&#x27;http://service.com/upload&#x27;, form: {key:&#x27;value&#x27;}}, function(err,httpResponse,body){ /* ...\
- */ })
+request.post({url:&#x27;http://service.com/upload&#x27;, form: {key:&#x27;value&#x27;}}, function(err,httpResponse,body){ /* ... */ })
 ```
 
 
 #### multipart/form-data (Multipart Form Uploads)
 ...</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.request.Request.prototype.getHeader" id="apidoc.element.request.Request.prototype.getHeader">
         function <span class="apidocSignatureSpan">request.Request.prototype.</span>getHeader
@@ -1626,9 +1625,9 @@ if (!chunked) {
       self.request.emit(&#x27;error&#x27;, new Error(&#x27;Body attribute missing in multipart.&#x27;))
 ...</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.request.Request.prototype.getNewAgent" id="apidoc.element.request.Request.prototype.getNewAgent">
         function <span class="apidocSignatureSpan">request.Request.prototype.</span>getNewAgent
@@ -1760,9 +1759,9 @@ if (!chunked) {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.request.Request.prototype.hawk" id="apidoc.element.request.Request.prototype.hawk">
         function <span class="apidocSignatureSpan">request.Request.prototype.</span>hawk
@@ -1776,9 +1775,9 @@ if (!chunked) {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.request.Request.prototype.httpSignature" id="apidoc.element.request.Request.prototype.httpSignature">
         function <span class="apidocSignatureSpan">request.Request.prototype.</span>httpSignature
@@ -1804,9 +1803,9 @@ if (!chunked) {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.request.Request.prototype.init" id="apidoc.element.request.Request.prototype.init">
         function <span class="apidocSignatureSpan">request.Request.prototype.</span>init
@@ -1919,7 +1918,7 @@ if (!chunked) {
 
   // DEPRECATED: Warning for users of the old Unix Sockets URL Scheme
   if (self.uri.protocol === &#x27;unix:&#x27;) {
-    return self.emit(&#x27;error&#x27;, new Error(&#x27;`unix://` URL scheme is no longer supported. Please use the format `http://unix:SOCKET:\
+    return self.emit(&#x27;error&#x27;, new Error(&#x27;`unix://` URL scheme is no longer supported. Please use the format `http://unix:SOCKET:
 PATH`&#x27;))
   }
 
@@ -1939,7 +1938,7 @@ PATH`&#x27;))
     // Detect and reject it as soon as possible
     var faultyUri = url.format(self.uri)
     var message = &#x27;Invalid URI &#x22;&#x27; + faultyUri + &#x27;&#x22;&#x27;
-    if (Object.keys(options) ...</pre></li>
+    if (Object.keys(options). ...</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
   if (!self.removeRefererHeader) {
@@ -1956,9 +1955,9 @@ PATH`&#x27;))
 exports.Redirect = Redirect
 ...</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.request.Request.prototype.jar" id="apidoc.element.request.Request.prototype.jar">
         function <span class="apidocSignatureSpan">request.Request.prototype.</span>jar
@@ -2016,9 +2015,9 @@ request.jar()
 ```
 ...</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.request.Request.prototype.json" id="apidoc.element.request.Request.prototype.json">
         function <span class="apidocSignatureSpan">request.Request.prototype.</span>json
@@ -2064,9 +2063,9 @@ request.jar()
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.request.Request.prototype.multipart" id="apidoc.element.request.Request.prototype.multipart">
         function <span class="apidocSignatureSpan">request.Request.prototype.</span>multipart
@@ -2087,9 +2086,9 @@ request.jar()
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.request.Request.prototype.oauth" id="apidoc.element.request.Request.prototype.oauth">
         function <span class="apidocSignatureSpan">request.Request.prototype.</span>oauth
@@ -2106,9 +2105,9 @@ request.jar()
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.request.Request.prototype.onRequestError" id="apidoc.element.request.Request.prototype.onRequestError">
         function <span class="apidocSignatureSpan">request.Request.prototype.</span>onRequestError
@@ -2136,9 +2135,9 @@ request.jar()
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.request.Request.prototype.onRequestResponse" id="apidoc.element.request.Request.prototype.onRequestResponse">
         function <span class="apidocSignatureSpan">request.Request.prototype.</span>onRequestResponse
@@ -2213,7 +2212,7 @@ request.jar()
       self.strictSSL &#x26;&#x26; (!response.hasOwnProperty(&#x27;socket&#x27;) ||
       !response.socket.authorized)) {
     debug(&#x27;strict ssl error&#x27;, self.uri.href)
-    var sslErr = response.hasOwnProperty(&#x27;socket&#x27;) ? response.socket.authorizationError : self.uri.href + &#x27; does not support SSL\
+    var sslErr = response.hasOwnProperty(&#x27;socket&#x27;) ? response.socket.authorizationError : self.uri.href + &#x27; does not support SSL
 &#x27;
     self.emit(&#x27;error&#x27;, new Error(&#x27;SSL Error: &#x27; + sslErr))
     return
@@ -2276,9 +2275,9 @@ request.jar()
         self.method === &#x27;HEAD&#x27; ...</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.request.Request.prototype.pause" id="apidoc.element.request.Request.prototype.pause">
         function <span class="apidocSignatureSpan">request.Request.prototype.</span>pause
@@ -2296,9 +2295,9 @@ request.jar()
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.request.Request.prototype.pipe" id="apidoc.element.request.Request.prototype.pipe">
         function <span class="apidocSignatureSpan">request.Request.prototype.</span>pipe
@@ -2333,22 +2332,22 @@ request.jar()
 You can stream any response to a file stream.
 
 ```js
-request(&#x27;http://google.com/doodle.png&#x27;).<span class="apidocCodeKeywordSpan">pipe</span>(fs.createWriteStream(&#x27;doo\
-dle.png&#x27;))
+request(&#x27;http://google.com/doodle.png&#x27;).<span class="apidocCodeKeywordSpan">pipe</span>(fs.createWriteStream(&#x27;doodle
+.png&#x27;))
 ```
 
-You can also stream a file to a PUT or POST request. This method will also check the file extension against a mapping of file ex\
-tensions to content-types (in this case `application/json`) and use the proper `content-type` in the PUT request (if the headers\
- don’t already provide one).
+You can also stream a file to a PUT or POST request. This method will also check the file extension against a mapping of file extensions
+ to content-types (in this case `application/json`) and use the proper `content-type` in the PUT request (if the headers don’t already
+ provide one).
 
 ```js
 fs.createReadStream(&#x27;file.json&#x27;).pipe(request.put(&#x27;http://mysite.com/obj.json&#x27;))
 ```
 ...</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.request.Request.prototype.pipeDest" id="apidoc.element.request.Request.prototype.pipeDest">
         function <span class="apidocSignatureSpan">request.Request.prototype.</span>pipeDest
@@ -2396,9 +2395,9 @@ fs.createReadStream(&#x27;file.json&#x27;).pipe(request.put(&#x27;http://mysite.
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.request.Request.prototype.qs" id="apidoc.element.request.Request.prototype.qs">
         function <span class="apidocSignatureSpan">request.Request.prototype.</span>qs
@@ -2437,9 +2436,9 @@ fs.createReadStream(&#x27;file.json&#x27;).pipe(request.put(&#x27;http://mysite.
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.request.Request.prototype.readResponseBody" id="apidoc.element.request.Request.prototype.readResponseBody">
         function <span class="apidocSignatureSpan">request.Request.prototype.</span>readResponseBody
@@ -2485,7 +2484,7 @@ fs.createReadStream(&#x27;file.json&#x27;).pipe(request.put(&#x27;http://mysite.
       bufferLength = 0
     } else if (strings.length) {
       // The UTF8 BOM [0xEF,0xBB,0xBF] is converted to [0xFE,0xFF] in the JS UTC16/UCS2 representation.
-      // Strip this value out when the encoding is set to &#x27;utf8&#x27;, as upstream consumers won&#x27;t expect it and it breaks JSON.parse\
+      // Strip this value out when the encoding is set to &#x27;utf8&#x27;, as upstream consumers won&#x27;t expect it and it breaks JSON.parse
 ().
       if (self.encoding === &#x27;utf8&#x27; &#x26;&#x26; strings[0].length &#x3e; 0 &#x26;&#x26; strings[0][0] === &#x27;\uFEFF&#x27;) {
         strings[0] = strings[0].substring(1)
@@ -2509,9 +2508,9 @@ fs.createReadStream(&#x27;file.json&#x27;).pipe(request.put(&#x27;http://mysite.
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.request.Request.prototype.resume" id="apidoc.element.request.Request.prototype.resume">
         function <span class="apidocSignatureSpan">request.Request.prototype.</span>resume
@@ -2539,16 +2538,16 @@ if (response.resume) {
 }
 
 if (self.redirectsFollowed &#x3e;= self.maxRedirects) {
-  request.emit(&#x27;error&#x27;, new Error(&#x27;Exceeded maxRedirects. Probably stuck in a redirect loop &#x27; + request.uri.\
+  request.emit(&#x27;error&#x27;, new Error(&#x27;Exceeded maxRedirects. Probably stuck in a redirect loop &#x27; + request.uri.
 href))
   return false
 }
 self.redirectsFollowed += 1
 ...</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.request.Request.prototype.start" id="apidoc.element.request.Request.prototype.start">
         function <span class="apidocSignatureSpan">request.Request.prototype.</span>start
@@ -2679,9 +2678,9 @@ self.redirectsFollowed += 1
         var onReqSockConnect = function() { ...</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.request.Request.prototype.toJSON" id="apidoc.element.request.Request.prototype.toJSON">
         function <span class="apidocSignatureSpan">request.Request.prototype.</span>toJSON
@@ -2699,9 +2698,9 @@ self.redirectsFollowed += 1
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.request.Request.prototype.write" id="apidoc.element.request.Request.prototype.write">
         function <span class="apidocSignatureSpan">request.Request.prototype.</span>write
@@ -2722,14 +2721,14 @@ self.redirectsFollowed += 1
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.request.auth" id="apidoc.module.request.auth">module request.auth</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.request.auth.Auth" id="apidoc.element.request.auth.Auth">
         function <span class="apidocSignatureSpan">request.auth.</span>Auth
@@ -2748,14 +2747,14 @@ self.redirectsFollowed += 1
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.request.cookies" id="apidoc.module.request.cookies">module request.cookies</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.request.cookies.jar" id="apidoc.element.request.cookies.jar">
         function <span class="apidocSignatureSpan">request.cookies.</span>jar
@@ -2783,9 +2782,9 @@ request.jar()
 ```
 ...</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.request.cookies.parse" id="apidoc.element.request.cookies.parse">
         function <span class="apidocSignatureSpan">request.cookies.</span>parse
@@ -2820,14 +2819,14 @@ request(options, callback);
 ```
 ...</pre></li>
     </ul>
-    
-    
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.request.har" id="apidoc.module.request.har">module request.har</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.request.har.Har" id="apidoc.element.request.har.Har">
         function <span class="apidocSignatureSpan">request.har.</span>Har
@@ -2840,14 +2839,14 @@ request(options, callback);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.request.helpers" id="apidoc.module.request.helpers">module request.helpers</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.request.helpers.copy" id="apidoc.element.request.helpers.copy">
         function <span class="apidocSignatureSpan">request.helpers.</span>copy
@@ -2864,9 +2863,9 @@ request(options, callback);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.request.helpers.defer" id="apidoc.element.request.helpers.defer">
         function <span class="apidocSignatureSpan">request.helpers.</span>defer
@@ -2902,9 +2901,9 @@ request(options, callback);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.request.helpers.isReadStream" id="apidoc.element.request.helpers.isReadStream">
         function <span class="apidocSignatureSpan">request.helpers.</span>isReadStream
@@ -2917,9 +2916,9 @@ request(options, callback);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.request.helpers.md5" id="apidoc.element.request.helpers.md5">
         function <span class="apidocSignatureSpan">request.helpers.</span>md5
@@ -2932,9 +2931,9 @@ request(options, callback);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.request.helpers.paramsHaveRequestBody" id="apidoc.element.request.helpers.paramsHaveRequestBody">
         function <span class="apidocSignatureSpan">request.helpers.</span>paramsHaveRequestBody
@@ -2952,9 +2951,9 @@ request(options, callback);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.request.helpers.safeStringify" id="apidoc.element.request.helpers.safeStringify">
         function <span class="apidocSignatureSpan">request.helpers.</span>safeStringify
@@ -2973,9 +2972,9 @@ request(options, callback);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.request.helpers.toBase64" id="apidoc.element.request.helpers.toBase64">
         function <span class="apidocSignatureSpan">request.helpers.</span>toBase64
@@ -2988,9 +2987,9 @@ request(options, callback);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.request.helpers.version" id="apidoc.element.request.helpers.version">
         function <span class="apidocSignatureSpan">request.helpers.</span>version
@@ -3008,14 +3007,14 @@ request(options, callback);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.request.multipart" id="apidoc.module.request.multipart">module request.multipart</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.request.multipart.Multipart" id="apidoc.element.request.multipart.Multipart">
         function <span class="apidocSignatureSpan">request.multipart.</span>Multipart
@@ -3031,14 +3030,14 @@ request(options, callback);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.request.oauth" id="apidoc.module.request.oauth">module request.oauth</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.request.oauth.OAuth" id="apidoc.element.request.oauth.OAuth">
         function <span class="apidocSignatureSpan">request.oauth.</span>OAuth
@@ -3052,14 +3051,14 @@ request(options, callback);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.request.querystring" id="apidoc.module.request.querystring">module request.querystring</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.request.querystring.Querystring" id="apidoc.element.request.querystring.Querystring">
         function <span class="apidocSignatureSpan">request.querystring.</span>Querystring
@@ -3076,14 +3075,14 @@ request(options, callback);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.request.redirect" id="apidoc.module.request.redirect">module request.redirect</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.request.redirect.Redirect" id="apidoc.element.request.redirect.Redirect">
         function <span class="apidocSignatureSpan">request.redirect.</span>Redirect
@@ -3105,14 +3104,14 @@ request(options, callback);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.request.tunnel" id="apidoc.module.request.tunnel">module request.tunnel</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.request.tunnel.Tunnel" id="apidoc.element.request.tunnel.Tunnel">
         function <span class="apidocSignatureSpan">request.tunnel.</span>Tunnel
@@ -3130,8 +3129,8 @@ request(options, callback);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
+
+
 </div>
 
 <div class="apidocFooterDiv">
