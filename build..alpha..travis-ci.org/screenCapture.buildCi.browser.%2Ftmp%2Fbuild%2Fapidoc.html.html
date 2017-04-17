@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://github.com/request/request#readme"
-
-    >request (v2.81.0)</a>
+    <a href="https://github.com/request/request#readme">request (v2.81.0)</a>
 </h1>
 <h4>Simplified HTTP request client.</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.request">module request</a><ol>
 
@@ -1558,21 +1551,21 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function request(uri, options, callback) {
-  if (typeof uri === &#x27;undefined&#x27;) {
-    throw new Error(&#x27;undefined is not a valid uri or options object.&#x27;)
+  if (typeof uri === 'undefined') {
+    throw new Error('undefined is not a valid uri or options object.')
   }
 
   var params = initParams(uri, options, callback)
 
-  if (params.method === &#x27;HEAD&#x27; &#x26;&#x26; paramsHaveRequestBody(params)) {
-    throw new Error(&#x27;HTTP HEAD requests MUST NOT include a request body.&#x27;)
+  if (params.method === 'HEAD' &amp;&amp; paramsHaveRequestBody(params)) {
+    throw new Error('HTTP HEAD requests MUST NOT include a request body.')
   }
 
   return new request.Request(params)
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 har.postData = har.postData || {}
-har.postData.mimeType = har.postData.mimeType || &#x27;application/octet-stream&#x27;
+har.postData.mimeType = har.postData.mimeType || 'application/octet-stream'
 
 har.bodySize = 0
 har.headersSize = 0
@@ -1638,8 +1631,8 @@ var req = this.prep(har)
 
 var params = initParams(uri, options, callback)
 
-if (params.method === &#x27;HEAD&#x27; &#x26;&#x26; paramsHaveRequestBody(params)) {
-  throw new Error(&#x27;HTTP HEAD requests MUST NOT include a request body.&#x27;)
+if (params.method === 'HEAD' &amp;&amp; paramsHaveRequestBody(params)) {
+  throw new Error('HTTP HEAD requests MUST NOT include a request body.')
 }
 
 return new request.<span class="apidocCodeKeywordSpan">Request</span>(params)
@@ -1673,7 +1666,7 @@ return function (uri, options, callback) {
     self.response.destroy()
   }
 
-  self.emit(&#x27;abort&#x27;)
+  self.emit('abort')
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -1714,14 +1707,14 @@ return function (uri, options, callback) {
     return self
   }
 
-  if (opts.sign_version == 4 || opts.sign_version == &#x27;4&#x27;) {
+  if (opts.sign_version == 4 || opts.sign_version == '4') {
     // use aws4
     var options = {
       host: self.uri.host,
       path: self.uri.path,
       method: self.method,
       headers: {
-        &#x27;content-type&#x27;: self.getHeader(&#x27;content-type&#x27;) || &#x27;&#x27;
+        'content-type': self.getHeader('content-type') || ''
       },
       body: self.body
     }
@@ -1730,37 +1723,37 @@ return function (uri, options, callback) {
       secretAccessKey: opts.secret,
       sessionToken: opts.session
     })
-    self.setHeader(&#x27;authorization&#x27;, signRes.headers.Authorization)
-    self.setHeader(&#x27;x-amz-date&#x27;, signRes.headers[&#x27;X-Amz-Date&#x27;])
-    if (signRes.headers[&#x27;X-Amz-Security-Token&#x27;]) {
-      self.setHeader(&#x27;x-amz-security-token&#x27;, signRes.headers[&#x27;X-Amz-Security-Token&#x27;])
+    self.setHeader('authorization', signRes.headers.Authorization)
+    self.setHeader('x-amz-date', signRes.headers['X-Amz-Date'])
+    if (signRes.headers['X-Amz-Security-Token']) {
+      self.setHeader('x-amz-security-token', signRes.headers['X-Amz-Security-Token'])
     }
   }
   else {
     // default: use aws-sign2
     var date = new Date()
-    self.setHeader(&#x27;date&#x27;, date.toUTCString())
+    self.setHeader('date', date.toUTCString())
     var auth =
       { key: opts.key
       , secret: opts.secret
       , verb: self.method.toUpperCase()
       , date: date
-      , contentType: self.getHeader(&#x27;content-type&#x27;) || &#x27;&#x27;
-      , md5: self.getHeader(&#x27;content-md5&#x27;) || &#x27;&#x27;
+      , contentType: self.getHeader('content-type') || ''
+      , md5: self.getHeader('content-md5') || ''
       , amazonHeaders: aws2.canonicalizeHeaders(self.headers)
       }
     var path = self.uri.path
-    if (opts.bucket &#x26;&#x26; path) {
-      auth.resource = &#x27;/&#x27; + opts.bucket + path
-    } else if (opts.bucket &#x26;&#x26; !path) {
-      auth.resource = &#x27;/&#x27; + opts.bucket
-    } else if (!opts.bucket &#x26;&#x26; path) {
+    if (opts.bucket &amp;&amp; path) {
+      auth.resource = '/' + opts.bucket + path
+    } else if (opts.bucket &amp;&amp; !path) {
+      auth.resource = '/' + opts.bucket
+    } else if (!opts.bucket &amp;&amp; path) {
       auth.resource = path
-    } else if (!opts.bucket &#x26;&#x26; !path) {
-      auth.resource = &#x27;/&#x27;
+    } else if (!opts.bucket &amp;&amp; !path) {
+      auth.resource = '/'
     }
     auth.resource = aws2.canonicalizeResource(auth.resource)
-    self.setHeader(&#x27;authorization&#x27;, aws2.authorization(auth))
+    self.setHeader('authorization', aws2.authorization(auth))
   }
 
   return self
@@ -1779,7 +1772,7 @@ return function (uri, options, callback) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function debug() {
   if (Request.debug) {
-    console.error(&#x27;REQUEST %s&#x27;, util.format.apply(util, arguments))
+    console.error('REQUEST %s', util.format.apply(util, arguments))
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -1815,8 +1808,8 @@ return function (uri, options, callback) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">Request.prototype.enableUnixSocket = function () {
-  // Get the socket &#x26; request paths from the URL
-  var unixParts = this.uri.path.split(&#x27;:&#x27;)
+  // Get the socket &amp; request paths from the URL
+  var unixParts = this.uri.path.split(':')
     , host = unixParts[0]
     , path = unixParts[1]
   // Apply unix properties to request
@@ -1868,19 +1861,19 @@ return function (uri, options, callback) {
     <li>description and source-code<pre class="apidocCodePre">Request.prototype.form = function (form) {
   var self = this
   if (form) {
-    if (!/^application\/x-www-form-urlencoded\b/.test(self.getHeader(&#x27;content-type&#x27;))) {
-      self.setHeader(&#x27;content-type&#x27;, &#x27;application/x-www-form-urlencoded&#x27;)
+    if (!/^application\/x-www-form-urlencoded\b/.test(self.getHeader('content-type'))) {
+      self.setHeader('content-type', 'application/x-www-form-urlencoded')
     }
-    self.body = (typeof form === &#x27;string&#x27;)
-      ? self._qs.rfc3986(form.toString(&#x27;utf8&#x27;))
-      : self._qs.stringify(form).toString(&#x27;utf8&#x27;)
+    self.body = (typeof form === 'string')
+      ? self._qs.rfc3986(form.toString('utf8'))
+      : self._qs.stringify(form).toString('utf8')
     return self
   }
   // create form-data object
   self._form = new FormData()
-  self._form.on(&#x27;error&#x27;, function(err) {
-    err.message = &#x27;form-data: &#x27; + err.message
-    self.emit(&#x27;error&#x27;, err)
+  self._form.on('error', function(err) {
+    err.message = 'form-data: ' + err.message
+    self.emit('error', err)
     self.abort()
   })
   return self._form
@@ -1907,7 +1900,7 @@ return function (uri, options, callback) {
     if (key.length !== name.length) {
       return
     }
-    re = new RegExp(name, &#x27;i&#x27;)
+    re = new RegExp(name, 'i')
     match = key.match(re)
     if (match) {
       result = headers[key]
@@ -1948,11 +1941,11 @@ return function (uri, options, callback) {
   if (self.secureOptions) {
     options.secureOptions = self.secureOptions
   }
-  if (typeof self.rejectUnauthorized !== &#x27;undefined&#x27;) {
+  if (typeof self.rejectUnauthorized !== 'undefined') {
     options.rejectUnauthorized = self.rejectUnauthorized
   }
 
-  if (self.cert &#x26;&#x26; self.key) {
+  if (self.cert &amp;&amp; self.key) {
     options.key = self.key
     options.cert = self.cert
   }
@@ -1965,7 +1958,7 @@ return function (uri, options, callback) {
     options.passphrase = self.passphrase
   }
 
-  var poolKey = &#x27;&#x27;
+  var poolKey = ''
 
   // different types of agents are in different pools
   if (Agent !== self.httpModule.Agent) {
@@ -1974,68 +1967,68 @@ return function (uri, options, callback) {
 
   // ca option is only relevant if proxy or destination are https
   var proxy = self.proxy
-  if (typeof proxy === &#x27;string&#x27;) {
+  if (typeof proxy === 'string') {
     proxy = url.parse(proxy)
   }
-  var isHttps = (proxy &#x26;&#x26; proxy.protocol === &#x27;https:&#x27;) || this.uri.protocol === &#x27;https:&#x27;
+  var isHttps = (proxy &amp;&amp; proxy.protocol === 'https:') || this.uri.protocol === 'https:'
 
   if (isHttps) {
     if (options.ca) {
       if (poolKey) {
-        poolKey += &#x27;:&#x27;
+        poolKey += ':'
       }
       poolKey += options.ca
     }
 
-    if (typeof options.rejectUnauthorized !== &#x27;undefined&#x27;) {
+    if (typeof options.rejectUnauthorized !== 'undefined') {
       if (poolKey) {
-        poolKey += &#x27;:&#x27;
+        poolKey += ':'
       }
       poolKey += options.rejectUnauthorized
     }
 
     if (options.cert) {
       if (poolKey) {
-        poolKey += &#x27;:&#x27;
+        poolKey += ':'
       }
-      poolKey += options.cert.toString(&#x27;ascii&#x27;) + options.key.toString(&#x27;ascii&#x27;)
+      poolKey += options.cert.toString('ascii') + options.key.toString('ascii')
     }
 
     if (options.pfx) {
       if (poolKey) {
-        poolKey += &#x27;:&#x27;
+        poolKey += ':'
       }
-      poolKey += options.pfx.toString(&#x27;ascii&#x27;)
+      poolKey += options.pfx.toString('ascii')
     }
 
     if (options.ciphers) {
       if (poolKey) {
-        poolKey += &#x27;:&#x27;
+        poolKey += ':'
       }
       poolKey += options.ciphers
     }
 
     if (options.secureProtocol) {
       if (poolKey) {
-        poolKey += &#x27;:&#x27;
+        poolKey += ':'
       }
       poolKey += options.secureProtocol
     }
 
     if (options.secureOptions) {
       if (poolKey) {
-        poolKey += &#x27;:&#x27;
+        poolKey += ':'
       }
       poolKey += options.secureOptions
     }
   }
 
-  if (self.pool === globalPool &#x26;&#x26; !poolKey &#x26;&#x26; Object.keys(options).length === 0 &#x26;&#x26; self.httpModule.globalAgent) {
+  if (self.pool === globalPool &amp;&amp; !poolKey &amp;&amp; Object.keys(options).length === 0 &amp;&amp; self.httpModule.globalAgent) {
     // not doing anything special.  Use the globalAgent
     return self.httpModule.globalAgent
   }
 
-  // we&#x27;re using a stored agent.  Make sure it&#x27;s protocol-specific
+  // we're using a stored agent.  Make sure it's protocol-specific
   poolKey = self.uri.protocol + poolKey
 
   // generate a new agent for this setting if none yet exists
@@ -2063,7 +2056,7 @@ return function (uri, options, callback) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">Request.prototype.hawk = function (opts) {
   var self = this
-  self.setHeader(&#x27;Authorization&#x27;, hawk.client.header(self.uri, self.method, opts).field)
+  self.setHeader('Authorization', hawk.client.header(self.uri, self.method, opts).field)
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -2089,7 +2082,7 @@ return function (uri, options, callback) {
     method: self.method,
     path: self.path
   }, opts)
-  debug(&#x27;httpSignature authorization&#x27;, self.getHeader(&#x27;authorization&#x27;))
+  debug('httpSignature authorization', self.getHeader('authorization'))
 
   return self
 }</pre></li>
@@ -2118,7 +2111,7 @@ return function (uri, options, callback) {
   // Delete headers with value undefined since they break
   // ClientRequest.OutgoingMessage.setHeader in node 0.12
   for (var headerName in self.headers) {
-    if (typeof self.headers[headerName] === &#x27;undefined&#x27;) {
+    if (typeof self.headers[headerName] === 'undefined') {
       delete self.headers[headerName]
     }
   }
@@ -2126,7 +2119,7 @@ return function (uri, options, callback) {
   caseless.httpify(self, self.headers)
 
   if (!self.method) {
-    self.method = options.method || &#x27;GET&#x27;
+    self.method = options.method || 'GET'
   }
   if (!self.localAddress) {
     self.localAddress = options.localAddress
@@ -2135,14 +2128,14 @@ return function (uri, options, callback) {
   self._qs.init(options)
 
   debug(options)
-  if (!self.pool &#x26;&#x26; self.pool !== false) {
+  if (!self.pool &amp;&amp; self.pool !== false) {
     self.pool = globalPool
   }
   self.dests = self.dests || []
   self.__isRequestRequest = true
 
   // Protect against double callback
-  if (!self._callback &#x26;&#x26; self.callback) {
+  if (!self._callback &amp;&amp; self.callback) {
     self._callback = self.callback
     self.callback = function () {
       if (self._callbackCalled) {
@@ -2151,55 +2144,55 @@ return function (uri, options, callback) {
       self._callbackCalled = true
       self._callback.apply(self, arguments)
     }
-    self.on(&#x27;error&#x27;, self.callback.bind())
-    self.on(&#x27;complete&#x27;, self.callback.bind(self, null))
+    self.on('error', self.callback.bind())
+    self.on('complete', self.callback.bind(self, null))
   }
 
   // People use this property instead all the time, so support it
-  if (!self.uri &#x26;&#x26; self.url) {
+  if (!self.uri &amp;&amp; self.url) {
     self.uri = self.url
     delete self.url
   }
 
-  // If there&#x27;s a baseUrl, then use it as the base URL (i.e. uri must be
+  // If there's a baseUrl, then use it as the base URL (i.e. uri must be
   // specified as a relative path and is appended to baseUrl).
   if (self.baseUrl) {
-    if (typeof self.baseUrl !== &#x27;string&#x27;) {
-      return self.emit(&#x27;error&#x27;, new Error(&#x27;options.baseUrl must be a string&#x27;))
+    if (typeof self.baseUrl !== 'string') {
+      return self.emit('error', new Error('options.baseUrl must be a string'))
     }
 
-    if (typeof self.uri !== &#x27;string&#x27;) {
-      return self.emit(&#x27;error&#x27;, new Error(&#x27;options.uri must be a string when using options.baseUrl&#x27;))
+    if (typeof self.uri !== 'string') {
+      return self.emit('error', new Error('options.uri must be a string when using options.baseUrl'))
     }
 
-    if (self.uri.indexOf(&#x27;//&#x27;) === 0 || self.uri.indexOf(&#x27;://&#x27;) !== -1) {
-      return self.emit(&#x27;error&#x27;, new Error(&#x27;options.uri must be a path when using options.baseUrl&#x27;))
+    if (self.uri.indexOf('//') === 0 || self.uri.indexOf('://') !== -1) {
+      return self.emit('error', new Error('options.uri must be a path when using options.baseUrl'))
     }
 
-    // Handle all cases to make sure that there&#x27;s only one slash between
+    // Handle all cases to make sure that there's only one slash between
     // baseUrl and uri.
-    var baseUrlEndsWithSlash = self.baseUrl.lastIndexOf(&#x27;/&#x27;) === self.baseUrl.length - 1
-    var uriStartsWithSlash = self.uri.indexOf(&#x27;/&#x27;) === 0
+    var baseUrlEndsWithSlash = self.baseUrl.lastIndexOf('/') === self.baseUrl.length - 1
+    var uriStartsWithSlash = self.uri.indexOf('/') === 0
 
-    if (baseUrlEndsWithSlash &#x26;&#x26; uriStartsWithSlash) {
+    if (baseUrlEndsWithSlash &amp;&amp; uriStartsWithSlash) {
       self.uri = self.baseUrl + self.uri.slice(1)
     } else if (baseUrlEndsWithSlash || uriStartsWithSlash) {
       self.uri = self.baseUrl + self.uri
-    } else if (self.uri === &#x27;&#x27;) {
+    } else if (self.uri === '') {
       self.uri = self.baseUrl
     } else {
-      self.uri = self.baseUrl + &#x27;/&#x27; + self.uri
+      self.uri = self.baseUrl + '/' + self.uri
     }
     delete self.baseUrl
   }
 
-  // A URI is needed by this point, emit error if we haven&#x27;t been able to get one
+  // A URI is needed by this point, emit error if we haven't been able to get one
   if (!self.uri) {
-    return self.emit(&#x27;error&#x27;, new Error(&#x27;options.uri is a required argument&#x27;))
+    return self.emit('error', new Error('options.uri is a required argument'))
   }
 
   // If a string URI/URL was given, parse it into a URL object
-  if (typeof self.uri === &#x27;string&#x27;) {
+  if (typeof self.uri === 'string') {
     self.uri = url.parse(self.uri)
   }
 
@@ -2209,13 +2202,13 @@ return function (uri, options, callback) {
   }
 
   // DEPRECATED: Warning for users of the old Unix Sockets URL Scheme
-  if (self.uri.protocol === &#x27;unix:&#x27;) {
-    return self.emit(&#x27;error&#x27;, new Error(&#x27;`unix://` URL scheme is no longer supported. Please use the format `http://unix:SOCKET:
-PATH`&#x27;))
+  if (self.uri.protocol === 'unix:') {
+    return self.emit('error', new Error('`unix://` URL scheme is no longer supported. Please use the format `http://unix:SOCKET:
+PATH`'))
   }
 
   // Support Unix Sockets
-  if (self.uri.host === &#x27;unix&#x27;) {
+  if (self.uri.host === 'unix') {
     self.enableUnixSocket()
   }
 
@@ -2223,13 +2216,13 @@ PATH`&#x27;))
     self.rejectUnauthorized = false
   }
 
-  if (!self.uri.pathname) {self.uri.pathname = &#x27;/&#x27;}
+  if (!self.uri.pathname) {self.uri.pathname = '/'}
 
-  if (!(self.uri.host || (self.uri.hostname &#x26;&#x26; self.uri.port)) &#x26;&#x26; !self.uri.isUnix) {
-    // Invalid URI: it may generate lot of bad errors, like &#x27;TypeError: Cannot call method `indexOf` of undefined&#x27; in CookieJar
+  if (!(self.uri.host || (self.uri.hostname &amp;&amp; self.uri.port)) &amp;&amp; !self.uri.isUnix) {
+    // Invalid URI: it may generate lot of bad errors, like 'TypeError: Cannot call method `indexOf` of undefined' in CookieJar
     // Detect and reject it as soon as possible
     var faultyUri = url.format(self.uri)
-    var message = &#x27;Invalid URI &#x22;&#x27; + faultyUri + &#x27;&#x22;&#x27;
+    var message = 'Invalid URI "' + faultyUri + '"'
     if (Object.keys(options). ...</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -2248,7 +2241,7 @@ PATH`&#x27;))
   var cookies
 
   if (self._redirect.redirectsFollowed === 0) {
-    self.originalCookieHeader = self.getHeader(&#x27;cookie&#x27;)
+    self.originalCookieHeader = self.getHeader('cookie')
   }
 
   if (!jar) {
@@ -2256,7 +2249,7 @@ PATH`&#x27;))
     cookies = false
     self._disableCookies = true
   } else {
-    var targetCookieJar = (jar &#x26;&#x26; jar.getCookieString) ? jar : globalCookieJar
+    var targetCookieJar = (jar &amp;&amp; jar.getCookieString) ? jar : globalCookieJar
     var urihref = self.uri.href
     //fetch cookie in the Specified host
     if (targetCookieJar) {
@@ -2265,12 +2258,12 @@ PATH`&#x27;))
   }
 
   //if need cookie and cookie is not empty
-  if (cookies &#x26;&#x26; cookies.length) {
+  if (cookies &amp;&amp; cookies.length) {
     if (self.originalCookieHeader) {
-      // Don&#x27;t overwrite existing Cookie header
-      self.setHeader(&#x27;cookie&#x27;, self.originalCookieHeader + &#x27;; &#x27; + cookies)
+      // Don't overwrite existing Cookie header
+      self.setHeader('cookie', self.originalCookieHeader + '; ' + cookies)
     } else {
-      self.setHeader(&#x27;cookie&#x27;, cookies)
+      self.setHeader('cookie', cookies)
     }
   }
   self._jar = jar
@@ -2291,34 +2284,34 @@ PATH`&#x27;))
     <li>description and source-code<pre class="apidocCodePre">Request.prototype.json = function (val) {
   var self = this
 
-  if (!self.hasHeader(&#x27;accept&#x27;)) {
-    self.setHeader(&#x27;accept&#x27;, &#x27;application/json&#x27;)
+  if (!self.hasHeader('accept')) {
+    self.setHeader('accept', 'application/json')
   }
 
-  if (typeof self.jsonReplacer === &#x27;function&#x27;) {
+  if (typeof self.jsonReplacer === 'function') {
     self._jsonReplacer = self.jsonReplacer
   }
 
   self._json = true
-  if (typeof val === &#x27;boolean&#x27;) {
+  if (typeof val === 'boolean') {
     if (self.body !== undefined) {
-      if (!/^application\/x-www-form-urlencoded\b/.test(self.getHeader(&#x27;content-type&#x27;))) {
+      if (!/^application\/x-www-form-urlencoded\b/.test(self.getHeader('content-type'))) {
         self.body = safeStringify(self.body, self._jsonReplacer)
       } else {
         self.body = self._qs.rfc3986(self.body)
       }
-      if (!self.hasHeader(&#x27;content-type&#x27;)) {
-        self.setHeader(&#x27;content-type&#x27;, &#x27;application/json&#x27;)
+      if (!self.hasHeader('content-type')) {
+        self.setHeader('content-type', 'application/json')
       }
     }
   } else {
     self.body = safeStringify(val, self._jsonReplacer)
-    if (!self.hasHeader(&#x27;content-type&#x27;)) {
-      self.setHeader(&#x27;content-type&#x27;, &#x27;application/json&#x27;)
+    if (!self.hasHeader('content-type')) {
+      self.setHeader('content-type', 'application/json')
     }
   }
 
-  if (typeof self.jsonReviver === &#x27;function&#x27;) {
+  if (typeof self.jsonReviver === 'function') {
     self._jsonReviver = self.jsonReviver
   }
 
@@ -2383,18 +2376,18 @@ PATH`&#x27;))
   if (self._aborted) {
     return
   }
-  if (self.req &#x26;&#x26; self.req._reusedSocket &#x26;&#x26; error.code === &#x27;ECONNRESET&#x27;
-      &#x26;&#x26; self.agent.addRequestNoreuse) {
+  if (self.req &amp;&amp; self.req._reusedSocket &amp;&amp; error.code === 'ECONNRESET'
+      &amp;&amp; self.agent.addRequestNoreuse) {
     self.agent = { addRequest: self.agent.addRequestNoreuse.bind(self.agent) }
     self.start()
     self.req.end()
     return
   }
-  if (self.timeout &#x26;&#x26; self.timeoutTimer) {
+  if (self.timeout &amp;&amp; self.timeoutTimer) {
     clearTimeout(self.timeoutTimer)
     self.timeoutTimer = null
   }
-  self.emit(&#x27;error&#x27;, error)
+  self.emit('error', error)
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -2415,13 +2408,13 @@ PATH`&#x27;))
     self.timings.response = now() - self.startTimeNow
   }
 
-  debug(&#x27;onRequestResponse&#x27;, self.uri.href, response.statusCode, response.headers)
-  response.on(&#x27;end&#x27;, function() {
+  debug('onRequestResponse', self.uri.href, response.statusCode, response.headers)
+  response.on('end', function() {
     if (self.timing) {
       self.timings.end = now() - self.startTimeNow
       response.timingStart = self.startTime
 
-      // fill in the blanks for any periods that didn&#x27;t trigger, such as
+      // fill in the blanks for any periods that didn't trigger, such as
       // no lookup or connect due to keep alive
       if (!self.timings.socket) {
         self.timings.socket = 0
@@ -2436,7 +2429,7 @@ PATH`&#x27;))
         self.timings.response = self.timings.connect
       }
 
-      debug(&#x27;elapsed time&#x27;, self.timings.end)
+      debug('elapsed time', self.timings.end)
 
       // elapsedTime includes all redirects
       self.elapsedTime += Math.round(self.timings.end)
@@ -2457,11 +2450,11 @@ PATH`&#x27;))
         total: self.timings.end
       }
     }
-    debug(&#x27;response end&#x27;, self.uri.href, response.statusCode, response.headers)
+    debug('response end', self.uri.href, response.statusCode, response.headers)
   })
 
   if (self._aborted) {
-    debug(&#x27;aborted&#x27;, self.uri.href)
+    debug('aborted', self.uri.href)
     response.resume()
     return
   }
@@ -2471,13 +2464,13 @@ PATH`&#x27;))
   response.toJSON = responseToJSON
 
   // XXX This is different on 0.10, because SSL is strict by default
-  if (self.httpModule === https &#x26;&#x26;
-      self.strictSSL &#x26;&#x26; (!response.hasOwnProperty(&#x27;socket&#x27;) ||
+  if (self.httpModule === https &amp;&amp;
+      self.strictSSL &amp;&amp; (!response.hasOwnProperty('socket') ||
       !response.socket.authorized)) {
-    debug(&#x27;strict ssl error&#x27;, self.uri.href)
-    var sslErr = response.hasOwnProperty(&#x27;socket&#x27;) ? response.socket.authorizationError : self.uri.href + &#x27; does not support SSL
-&#x27;
-    self.emit(&#x27;error&#x27;, new Error(&#x27;SSL Error: &#x27; + sslErr))
+    debug('strict ssl error', self.uri.href)
+    var sslErr = response.hasOwnProperty('socket') ? response.socket.authorizationError : self.uri.href + ' does not support SSL
+'
+    self.emit('error', new Error('SSL Error: ' + sslErr))
     return
   }
 
@@ -2485,32 +2478,32 @@ PATH`&#x27;))
   // remove any authorization headers).  Also remember the case of the header
   // name because lots of broken servers expect Host instead of host and we
   // want the caller to be able to specify this.
-  self.originalHost = self.getHeader(&#x27;host&#x27;)
+  self.originalHost = self.getHeader('host')
   if (!self.originalHostHeaderName) {
-    self.originalHostHeaderName = self.hasHeader(&#x27;host&#x27;)
+    self.originalHostHeaderName = self.hasHeader('host')
   }
   if (self.setHost) {
-    self.removeHeader(&#x27;host&#x27;)
+    self.removeHeader('host')
   }
-  if (self.timeout &#x26;&#x26; self.timeoutTimer) {
+  if (self.timeout &amp;&amp; self.timeoutTimer) {
     clearTimeout(self.timeoutTimer)
     self.timeoutTimer = null
   }
 
-  var targetCookieJar = (self._jar &#x26;&#x26; self._jar.setCookie) ? self._jar : globalCookieJar
+  var targetCookieJar = (self._jar &amp;&amp; self._jar.setCookie) ? self._jar : globalCookieJar
   var addCookie = function (cookie) {
-    //set the cookie if it&#x27;s domain in the href&#x27;s domain.
+    //set the cookie if it's domain in the href's domain.
     try {
       targetCookieJar.setCookie(cookie, self.uri.href, {ignoreError: true})
     } catch (e) {
-      self.emit(&#x27;error&#x27;, e)
+      self.emit('error', e)
     }
   }
 
   response.caseless = caseless(response.headers)
 
-  if (response.caseless.has(&#x27;set-cookie&#x27;) &#x26;&#x26; (!self._disableCookies)) {
-    var headerName = response.caseless.has(&#x27;set-cookie&#x27;)
+  if (response.caseless.has('set-cookie') &amp;&amp; (!self._disableCookies)) {
+    var headerName = response.caseless.has('set-cookie')
     if (Array.isArray(response.headers[headerName])) {
       response.headers[headerName].forEach(addCookie)
     } else {
@@ -2523,19 +2516,19 @@ PATH`&#x27;))
   } else {
     // Be a good stream and emit end when the response is finished.
     // Hack to emit end on close because of a core bug that never fires end
-    response.on(&#x27;close&#x27;, function () {
+    response.on('close', function () {
       if (!self._ended) {
-        self.response.emit(&#x27;end&#x27;)
+        self.response.emit('end')
       }
     })
 
-    response.once(&#x27;end&#x27;, function () {
+    response.once('end', function () {
       self._ended = true
     })
 
     var noBody = function (code) {
       return (
-        self.method === &#x27;HEAD&#x27; ...</pre></li>
+        self.method === 'HEAD' ...</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
@@ -2573,9 +2566,9 @@ PATH`&#x27;))
 
   if (self.response) {
     if (self._destdata) {
-      self.emit(&#x27;error&#x27;, new Error(&#x27;You cannot pipe after data has been emitted from the response.&#x27;))
+      self.emit('error', new Error('You cannot pipe after data has been emitted from the response.'))
     } else if (self._ended) {
-      self.emit(&#x27;error&#x27;, new Error(&#x27;You cannot pipe after the response has been ended.&#x27;))
+      self.emit('error', new Error('You cannot pipe after the response has been ended.'))
     } else {
       stream.Stream.prototype.pipe.call(self, dest, opts)
       self.pipeDest(dest)
@@ -2603,9 +2596,9 @@ PATH`&#x27;))
   var self = this
   var response = self.response
   // Called after the response is received
-  if (dest.headers &#x26;&#x26; !dest.headersSent) {
-    if (response.caseless.has(&#x27;content-type&#x27;)) {
-      var ctname = response.caseless.has(&#x27;content-type&#x27;)
+  if (dest.headers &amp;&amp; !dest.headersSent) {
+    if (response.caseless.has('content-type')) {
+      var ctname = response.caseless.has('content-type')
       if (dest.setHeader) {
         dest.setHeader(ctname, response.headers[ctname])
       }
@@ -2614,8 +2607,8 @@ PATH`&#x27;))
       }
     }
 
-    if (response.caseless.has(&#x27;content-length&#x27;)) {
-      var clname = response.caseless.has(&#x27;content-length&#x27;)
+    if (response.caseless.has('content-length')) {
+      var clname = response.caseless.has('content-length')
       if (dest.setHeader) {
         dest.setHeader(clname, response.headers[clname])
       } else {
@@ -2623,11 +2616,11 @@ PATH`&#x27;))
       }
     }
   }
-  if (dest.setHeader &#x26;&#x26; !dest.headersSent) {
+  if (dest.setHeader &amp;&amp; !dest.headersSent) {
     for (var i in response.headers) {
       // If the response content is being decoded, the Content-Encoding header
-      // of the response doesn&#x27;t represent the piped content, so don&#x27;t pass it.
-      if (!self.gzip || i !== &#x27;content-encoding&#x27;) {
+      // of the response doesn't represent the piped content, so don't pass it.
+      if (!self.gzip || i !== 'content-encoding') {
         dest.setHeader(i, response.headers[i])
       }
     }
@@ -2652,7 +2645,7 @@ PATH`&#x27;))
     <li>description and source-code<pre class="apidocCodePre">Request.prototype.qs = function (q, clobber) {
   var self = this
   var base
-  if (!clobber &#x26;&#x26; self.uri.query) {
+  if (!clobber &amp;&amp; self.uri.query) {
     base = self._qs.parse(self.uri.query)
   } else {
     base = {}
@@ -2664,15 +2657,15 @@ PATH`&#x27;))
 
   var qs = self._qs.stringify(base)
 
-  if (qs === &#x27;&#x27;) {
+  if (qs === '') {
     return self
   }
 
-  self.uri = url.parse(self.uri.href.split(&#x27;?&#x27;)[0] + &#x27;?&#x27; + qs)
+  self.uri = url.parse(self.uri.href.split('?')[0] + '?' + qs)
   self.url = self.uri
   self.path = self.uri.path
 
-  if (self.uri.host === &#x27;unix&#x27;) {
+  if (self.uri.host === 'unix') {
     self.enableUnixSocket()
   }
 
@@ -2692,12 +2685,12 @@ PATH`&#x27;))
     <ul>
     <li>description and source-code<pre class="apidocCodePre">Request.prototype.readResponseBody = function (response) {
   var self = this
-  debug(&#x27;reading response\&#x27;s body&#x27;)
+  debug('reading response\'s body')
   var buffers = []
     , bufferLength = 0
     , strings = []
 
-  self.on(&#x27;data&#x27;, function (chunk) {
+  self.on('data', function (chunk) {
     if (!Buffer.isBuffer(chunk)) {
       strings.push(chunk)
     } else if (chunk.length) {
@@ -2705,10 +2698,10 @@ PATH`&#x27;))
       buffers.push(chunk)
     }
   })
-  self.on(&#x27;end&#x27;, function () {
-    debug(&#x27;end event&#x27;, self.uri.href)
+  self.on('end', function () {
+    debug('end event', self.uri.href)
     if (self._aborted) {
-      debug(&#x27;aborted&#x27;, self.uri.href)
+      debug('aborted', self.uri.href)
       // `buffer` is defined in the parent scope and used in a closure it exists for the life of the request.
       // This can lead to leaky behavior if the user retains a reference to the request object.
       buffers = []
@@ -2717,7 +2710,7 @@ PATH`&#x27;))
     }
 
     if (bufferLength) {
-      debug(&#x27;has body&#x27;, self.uri.href, bufferLength)
+      debug('has body', self.uri.href, bufferLength)
       response.body = Buffer.concat(buffers, bufferLength)
       if (self.encoding !== null) {
         response.body = response.body.toString(self.encoding)
@@ -2728,26 +2721,26 @@ PATH`&#x27;))
       bufferLength = 0
     } else if (strings.length) {
       // The UTF8 BOM [0xEF,0xBB,0xBF] is converted to [0xFE,0xFF] in the JS UTC16/UCS2 representation.
-      // Strip this value out when the encoding is set to &#x27;utf8&#x27;, as upstream consumers won&#x27;t expect it and it breaks JSON.parse
+      // Strip this value out when the encoding is set to 'utf8', as upstream consumers won't expect it and it breaks JSON.parse
 ().
-      if (self.encoding === &#x27;utf8&#x27; &#x26;&#x26; strings[0].length &#x3e; 0 &#x26;&#x26; strings[0][0] === &#x27;\uFEFF&#x27;) {
+      if (self.encoding === 'utf8' &amp;&amp; strings[0].length &gt; 0 &amp;&amp; strings[0][0] === '\uFEFF') {
         strings[0] = strings[0].substring(1)
       }
-      response.body = strings.join(&#x27;&#x27;)
+      response.body = strings.join('')
     }
 
     if (self._json) {
       try {
         response.body = JSON.parse(response.body, self._jsonReviver)
       } catch (e) {
-        debug(&#x27;invalid JSON received&#x27;, self.uri.href)
+        debug('invalid JSON received', self.uri.href)
       }
     }
-    debug(&#x27;emitting complete&#x27;, self.uri.href)
-    if (typeof response.body === &#x27;undefined&#x27; &#x26;&#x26; !self._json) {
-      response.body = self.encoding === null ? Buffer.alloc(0) : &#x27;&#x27;
+    debug('emitting complete', self.uri.href)
+    if (typeof response.body === 'undefined' &amp;&amp; !self._json) {
+      response.body = self.encoding === null ? Buffer.alloc(0) : ''
     }
-    self.emit(&#x27;complete&#x27;, response, response.body)
+    self.emit('complete', response, response.body)
   })
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -2788,9 +2781,9 @@ PATH`&#x27;))
   var self = this
 
   if (self.timing) {
-    // All timings will be relative to this request&#x27;s startTime.  In order to do this,
+    // All timings will be relative to this request's startTime.  In order to do this,
     // we need to capture the wall-clock start time (via Date), immediately followed
-    // by the high-resolution timer (via now()).  While these two won&#x27;t be set
+    // by the high-resolution timer (via now()).  While these two won't be set
     // at the _exact_ same time, they should be close enough to be able to calculate
     // high-resolution, monotonically non-decreasing timestamps relative to startTime.
     var startTime = new Date().getTime()
@@ -2802,22 +2795,22 @@ PATH`&#x27;))
   }
 
   self._started = true
-  self.method = self.method || &#x27;GET&#x27;
+  self.method = self.method || 'GET'
   self.href = self.uri.href
 
-  if (self.src &#x26;&#x26; self.src.stat &#x26;&#x26; self.src.stat.size &#x26;&#x26; !self.hasHeader(&#x27;content-length&#x27;)) {
-    self.setHeader(&#x27;content-length&#x27;, self.src.stat.size)
+  if (self.src &amp;&amp; self.src.stat &amp;&amp; self.src.stat.size &amp;&amp; !self.hasHeader('content-length')) {
+    self.setHeader('content-length', self.src.stat.size)
   }
   if (self._aws) {
     self.aws(self._aws, true)
   }
 
   // We have a method named auth, which is completely different from the http.request
-  // auth option.  If we don&#x27;t remove it, we&#x27;re gonna have a bad time.
+  // auth option.  If we don't remove it, we're gonna have a bad time.
   var reqOptions = copy(self)
   delete reqOptions.auth
 
-  debug(&#x27;make request&#x27;, self.uri.href)
+  debug('make request', self.uri.href)
 
   // node v6.8.0 now supports a `timeout` value in `http.request()`, but we
   // should delete it for now since we handle timeouts manually for better
@@ -2827,7 +2820,7 @@ PATH`&#x27;))
   try {
     self.req = self.httpModule.request(reqOptions)
   } catch (err) {
-    self.emit(&#x27;error&#x27;, err)
+    self.emit('error', err)
     return
   }
 
@@ -2841,20 +2834,20 @@ PATH`&#x27;))
   }
 
   var timeout
-  if (self.timeout &#x26;&#x26; !self.timeoutTimer) {
-    if (self.timeout &#x3c; 0) {
+  if (self.timeout &amp;&amp; !self.timeoutTimer) {
+    if (self.timeout &lt; 0) {
       timeout = 0
-    } else if (typeof self.timeout === &#x27;number&#x27; &#x26;&#x26; isFinite(self.timeout)) {
+    } else if (typeof self.timeout === 'number' &amp;&amp; isFinite(self.timeout)) {
       timeout = self.timeout
     }
   }
 
-  self.req.on(&#x27;response&#x27;, self.onRequestResponse.bind(self))
-  self.req.on(&#x27;error&#x27;, self.onRequestError.bind(self))
-  self.req.on(&#x27;drain&#x27;, function() {
-    self.emit(&#x27;drain&#x27;)
+  self.req.on('response', self.onRequestResponse.bind(self))
+  self.req.on('error', self.onRequestError.bind(self))
+  self.req.on('drain', function() {
+    self.emit('drain')
   })
-  self.req.on(&#x27;socket&#x27;, function(socket) {
+  self.req.on('socket', function(socket) {
     // `._connecting` was the old property which was made public in node v6.1.0
     var isConnecting = socket._connecting || socket.connecting
     if (self.timing) {
@@ -2869,13 +2862,13 @@ PATH`&#x27;))
           self.timings.connect = now() - self.startTimeNow
         }
 
-        socket.once(&#x27;lookup&#x27;, onLookupTiming)
-        socket.once(&#x27;connect&#x27;, onConnectTiming)
+        socket.once('lookup', onLookupTiming)
+        socket.once('connect', onConnectTiming)
 
         // clean up timing event listeners if needed on error
-        self.req.once(&#x27;error&#x27;, function() {
-          socket.removeListener(&#x27;lookup&#x27;, onLookupTiming)
-          socket.removeListener(&#x27;connect&#x27;, onConnectTiming)
+        self.req.once('error', function() {
+          socket.removeListener('lookup', onLookupTiming)
+          socket.removeListener('connect', onConnectTiming)
         })
       }
     }
@@ -2884,23 +2877,23 @@ PATH`&#x27;))
       // This timeout sets the amount of time to wait *between* bytes sent
       // from the server once connected.
       //
-      // In particular, it&#x27;s useful for erroring if the server fails to send
+      // In particular, it's useful for erroring if the server fails to send
       // data halfway through streaming a response.
       self.req.setTimeout(timeout, function () {
         if (self.req) {
           self.abort()
-          var e = new Error(&#x27;ESOCKETTIMEDOUT&#x27;)
-          e.code = &#x27;ESOCKETTIMEDOUT&#x27;
+          var e = new Error('ESOCKETTIMEDOUT')
+          e.code = 'ESOCKETTIMEDOUT'
           e.connect = false
-          self.emit(&#x27;error&#x27;, e)
+          self.emit('error', e)
         }
       })
     }
     if (timeout !== undefined) {
-      // Only start the connection timer if we&#x27;re actually connecting a new
-      // socket, otherwise if we&#x27;re already connected (because this is a
-      // keep-alive connection) do not bother. This is important since we won&#x27;t
-      // get a &#x27;connect&#x27; event for an already connected socket.
+      // Only start the connection timer if we're actually connecting a new
+      // socket, otherwise if we're already connected (because this is a
+      // keep-alive connection) do not bother. This is important since we won't
+      // get a 'connect' event for an already connected socket.
       if (isConnecting) {
         var onReqSockConnect = function() { ...</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -2969,7 +2962,7 @@ request.get(url)
 Function that creates a new cookie.
 
 ```js
-request.<span class="apidocCodeKeywordSpan">cookie</span>(&#x27;key1=value1&#x27;)
+request.<span class="apidocCodeKeywordSpan">cookie</span>('key1=value1')
 ```
 ### request.jar()
 
@@ -2994,14 +2987,14 @@ request.jar()
 
   options = options || {}
 
-  if (typeof options === &#x27;function&#x27;) {
+  if (typeof options === 'function') {
     requester = options
     options = {}
   }
 
   var defaults      = wrapRequestMethod(self, options, requester)
 
-  var verbs = [&#x27;get&#x27;, &#x27;head&#x27;, &#x27;post&#x27;, &#x27;put&#x27;, &#x27;patch&#x27;, &#x27;del&#x27;, &#x27;delete&#x27;]
+  var verbs = ['get', 'head', 'post', 'put', 'patch', 'del', 'delete']
   verbs.forEach(function(verb) {
     defaults[verb]  = wrapRequestMethod(self[verb], options, requester, verb)
   })
@@ -3013,17 +3006,17 @@ request.jar()
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 ```js
-req.pipe(request(&#x27;http://mysite.com/doodle.png&#x27;)).pipe(resp)
+req.pipe(request('http://mysite.com/doodle.png')).pipe(resp)
 ```
 
 Also, none of this new functionality conflicts with requests previous features, it just expands them.
 
 ```js
-var r = request.<span class="apidocCodeKeywordSpan">defaults</span>({&#x27;proxy&#x27;:&#x27;http://localproxy.com&#x27;})
+var r = request.<span class="apidocCodeKeywordSpan">defaults</span>({'proxy':'http://localproxy.com'})
 
 http.createServer(function (req, resp) {
-  if (req.url === &#x27;/doodle.png&#x27;) {
-    r.get(&#x27;http://google.com/doodle.png&#x27;).pipe(resp)
+  if (req.url === '/doodle.png') {
+    r.get('http://google.com/doodle.png').pipe(resp)
   }
 })
 ```
@@ -3049,7 +3042,7 @@ http.createServer(function (req, resp) {
 
 ### request.del / request.delete
 
-Same as `request()`, but defaults to `method: &#x22;DELETE&#x22;`.
+Same as `request()`, but defaults to `method: "DELETE"`.
 
 ```js
 request.<span class="apidocCodeKeywordSpan">del</span>(url)
@@ -3080,7 +3073,7 @@ Same as `request()` (for uniformity).
 
 ### request.del / request.delete
 
-Same as `request()`, but defaults to `method: &#x22;DELETE&#x22;`.
+Same as `request()`, but defaults to `method: "DELETE"`.
 
 ```js
 request.del(url)
@@ -3135,22 +3128,22 @@ Same as `request()` (for uniformity).
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 ```js
-fs.createReadStream(&#x27;file.json&#x27;).pipe(request.put(&#x27;http://mysite.com/obj.json&#x27;))
+fs.createReadStream('file.json').pipe(request.put('http://mysite.com/obj.json'))
 ```
 
 Request can also `pipe` to itself. When doing so, `content-type` and `content-length` are preserved in the PUT headers.
 
 ```js
-request.<span class="apidocCodeKeywordSpan">get</span>(&#x27;http://google.com/img.png&#x27;).pipe(request.put(&#x27;http://mysite
-.com/img.png&#x27;))
+request.<span class="apidocCodeKeywordSpan">get</span>('http://google.com/img.png').pipe(request.put('http://mysite
+.com/img.png'))
 ```
 
-Request emits a &#x22;response&#x22; event when a response is received. The `response` argument will be an instance of [http.IncomingMessage
+Request emits a "response" event when a response is received. The `response` argument will be an instance of [http.IncomingMessage
 ](https://nodejs.org/api/http.html#http_class_http_incomingmessage).
 
 ```js
 request
-.get(&#x27;http://google.com/img.png&#x27;)
+.get('http://google.com/img.png')
 ...</pre></li>
     </ul>
 
@@ -3168,28 +3161,28 @@ request
   // environmental variables (NO_PROXY, HTTP_PROXY, etc.)
   // respect NO_PROXY environment variables (see: http://lynx.isc.org/current/breakout/lynx_help/keystrokes/environments.html)
 
-  var noProxy = process.env.NO_PROXY || process.env.no_proxy || &#x27;&#x27;
+  var noProxy = process.env.NO_PROXY || process.env.no_proxy || ''
 
   // if the noProxy is a wildcard then return null
 
-  if (noProxy === &#x27;*&#x27;) {
+  if (noProxy === '*') {
     return null
   }
 
   // if the noProxy is not empty and the uri is found return null
 
-  if (noProxy !== &#x27;&#x27; &#x26;&#x26; uriInNoProxy(uri, noProxy)) {
+  if (noProxy !== '' &amp;&amp; uriInNoProxy(uri, noProxy)) {
     return null
   }
 
   // Check for HTTP or HTTPS Proxy in environment Else default to null
 
-  if (uri.protocol === &#x27;http:&#x27;) {
+  if (uri.protocol === 'http:') {
     return process.env.HTTP_PROXY ||
            process.env.http_proxy || null
   }
 
-  if (uri.protocol === &#x27;https:&#x27;) {
+  if (uri.protocol === 'https:') {
     return process.env.HTTPS_PROXY ||
            process.env.https_proxy ||
            process.env.HTTP_PROXY  ||
@@ -3223,7 +3216,7 @@ request
 
 ### request.head
 
-Same as `request()`, but defaults to `method: &#x22;HEAD&#x22;`.
+Same as `request()`, but defaults to `method: "HEAD"`.
 
 ```js
 request.<span class="apidocCodeKeywordSpan">head</span>(url)
@@ -3231,7 +3224,7 @@ request.<span class="apidocCodeKeywordSpan">head</span>(url)
 
 ### request.del / request.delete
 
-Same as `request()`, but defaults to `method: &#x22;DELETE&#x22;`.
+Same as `request()`, but defaults to `method: "DELETE"`.
 
 ```js
 ...</pre></li>
@@ -3247,14 +3240,14 @@ Same as `request()`, but defaults to `method: &#x22;DELETE&#x22;`.
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function initParams(uri, options, callback) {
-  if (typeof options === &#x27;function&#x27;) {
+  if (typeof options === 'function') {
     callback = options
   }
 
   var params = {}
-  if (typeof options === &#x27;object&#x27;) {
+  if (typeof options === 'object') {
     extend(params, options, {uri: uri})
-  } else if (typeof uri === &#x27;string&#x27;) {
+  } else if (typeof uri === 'string') {
     extend(params, {uri: uri})
   } else {
     extend(params, uri)
@@ -3284,7 +3277,7 @@ Same as `request()`, but defaults to `method: &#x22;DELETE&#x22;`.
 Function that creates a new cookie.
 
 ```js
-request.cookie(&#x27;key1=value1&#x27;)
+request.cookie('key1=value1')
 ```
 ### request.<span class="apidocCodeKeywordSpan">jar</span>()
 
@@ -3315,7 +3308,7 @@ request.jar()
 
 ### request.patch
 
-Same as `request()`, but defaults to `method: &#x22;PATCH&#x22;`.
+Same as `request()`, but defaults to `method: "PATCH"`.
 
 ```js
 request.<span class="apidocCodeKeywordSpan">patch</span>(url)
@@ -3323,7 +3316,7 @@ request.<span class="apidocCodeKeywordSpan">patch</span>(url)
 
 ### request.post
 
-Same as `request()`, but defaults to `method: &#x22;POST&#x22;`.
+Same as `request()`, but defaults to `method: "POST"`.
 
 ```js
 ...</pre></li>
@@ -3351,11 +3344,11 @@ Same as `request()`, but defaults to `method: &#x22;POST&#x22;`.
 URL-encoded forms are simple.
 
 ```js
-request.<span class="apidocCodeKeywordSpan">post</span>(&#x27;http://service.com/upload&#x27;, {form:{key:&#x27;value&#x27;}})
+request.<span class="apidocCodeKeywordSpan">post</span>('http://service.com/upload', {form:{key:'value'}})
 // or
-request.post(&#x27;http://service.com/upload&#x27;).form({key:&#x27;value&#x27;})
+request.post('http://service.com/upload').form({key:'value'})
 // or
-request.post({url:&#x27;http://service.com/upload&#x27;, form: {key:&#x27;value&#x27;}}, function(err,httpResponse,body){ /* ... */ })
+request.post({url:'http://service.com/upload', form: {key:'value'}}, function(err,httpResponse,body){ /* ... */ })
 ```
 ...</pre></li>
     </ul>
@@ -3376,22 +3369,22 @@ request.post({url:&#x27;http://service.com/upload&#x27;, form: {key:&#x27;value&
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 ```js
-request(&#x27;http://google.com/doodle.png&#x27;).pipe(fs.createWriteStream(&#x27;doodle.png&#x27;))
+request('http://google.com/doodle.png').pipe(fs.createWriteStream('doodle.png'))
 ```
 
 You can also stream a file to a PUT or POST request. This method will also check the file extension against a mapping of file extensions
- to content-types (in this case `application/json`) and use the proper `content-type` in the PUT request (if the headers don’t already
+ to content-types (in this case `application/json`) and use the proper `content-type` in the PUT request (if the headers donâ€™t already
  provide one).
 
 ```js
-fs.createReadStream(&#x27;file.json&#x27;).pipe(request.<span class="apidocCodeKeywordSpan">put</span>(&#x27;http://mysite.com/obj
-.json&#x27;))
+fs.createReadStream('file.json').pipe(request.<span class="apidocCodeKeywordSpan">put</span>('http://mysite.com/obj
+.json'))
 ```
 
 Request can also `pipe` to itself. When doing so, `content-type` and `content-length` are preserved in the PUT headers.
 
 ```js
-request.get(&#x27;http://google.com/img.png&#x27;).pipe(request.put(&#x27;http://mysite.com/img.png&#x27;))
+request.get('http://google.com/img.png').pipe(request.put('http://mysite.com/img.png'))
 ```
 ...</pre></li>
     </ul>
@@ -3415,16 +3408,16 @@ request.get(&#x27;http://google.com/img.png&#x27;).pipe(request.put(&#x27;http:/
 ## Examples:
 
 ```js
-var request = require(&#x27;request&#x27;)
+var request = require('request')
   , rand = Math.floor(Math.random()*100000000).<span class="apidocCodeKeywordSpan">toString</span>()
   ;
 request(
-  { method: &#x27;PUT&#x27;
-  , uri: &#x27;http://mikeal.iriscouch.com/testjs/&#x27; + rand
+  { method: 'PUT'
+  , uri: 'http://mikeal.iriscouch.com/testjs/' + rand
   , multipart:
-    [ { &#x27;content-type&#x27;: &#x27;application/json&#x27;
-      ,  body: JSON.stringify({foo: &#x27;bar&#x27;, _attachments: {&#x27;message.txt&#x27;: {follows: true, length: 18, &#x27;content_type
-&#x27;: &#x27;text/plain&#x27; }}})
+    [ { 'content-type': 'application/json'
+      ,  body: JSON.stringify({foo: 'bar', _attachments: {'message.txt': {follows: true, length: 18, 'content_type
+': 'text/plain' }}})
 ...</pre></li>
     </ul>
 
@@ -3502,8 +3495,8 @@ request(
 
 var params = initParams(uri, options, callback)
 
-if (params.method === &#x27;HEAD&#x27; &#x26;&#x26; paramsHaveRequestBody(params)) {
-  throw new Error(&#x27;HTTP HEAD requests MUST NOT include a request body.&#x27;)
+if (params.method === 'HEAD' &amp;&amp; paramsHaveRequestBody(params)) {
+  throw new Error('HTTP HEAD requests MUST NOT include a request body.')
 }
 
 return new request.<span class="apidocCodeKeywordSpan">Request</span>(params)
@@ -3561,7 +3554,7 @@ return function (uri, options, callback) {
     self.response.destroy()
   }
 
-  self.emit(&#x27;abort&#x27;)
+  self.emit('abort')
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -3590,14 +3583,14 @@ return function (uri, options, callback) {
 ## HTTP Authentication
 
 ```js
-request.get(&#x27;http://some.server.com/&#x27;).<span class="apidocCodeKeywordSpan">auth</span>(&#x27;username&#x27;, &#x27;password
-&#x27;, false);
+request.get('http://some.server.com/').<span class="apidocCodeKeywordSpan">auth</span>('username', 'password
+', false);
 // or
-request.get(&#x27;http://some.server.com/&#x27;, {
-&#x27;auth&#x27;: {
-  &#x27;user&#x27;: &#x27;username&#x27;,
-  &#x27;pass&#x27;: &#x27;password&#x27;,
-  &#x27;sendImmediately&#x27;: false
+request.get('http://some.server.com/', {
+'auth': {
+  'user': 'username',
+  'pass': 'password',
+  'sendImmediately': false
 }
 ...</pre></li>
     </ul>
@@ -3619,14 +3612,14 @@ request.get(&#x27;http://some.server.com/&#x27;, {
     return self
   }
 
-  if (opts.sign_version == 4 || opts.sign_version == &#x27;4&#x27;) {
+  if (opts.sign_version == 4 || opts.sign_version == '4') {
     // use aws4
     var options = {
       host: self.uri.host,
       path: self.uri.path,
       method: self.method,
       headers: {
-        &#x27;content-type&#x27;: self.getHeader(&#x27;content-type&#x27;) || &#x27;&#x27;
+        'content-type': self.getHeader('content-type') || ''
       },
       body: self.body
     }
@@ -3635,37 +3628,37 @@ request.get(&#x27;http://some.server.com/&#x27;, {
       secretAccessKey: opts.secret,
       sessionToken: opts.session
     })
-    self.setHeader(&#x27;authorization&#x27;, signRes.headers.Authorization)
-    self.setHeader(&#x27;x-amz-date&#x27;, signRes.headers[&#x27;X-Amz-Date&#x27;])
-    if (signRes.headers[&#x27;X-Amz-Security-Token&#x27;]) {
-      self.setHeader(&#x27;x-amz-security-token&#x27;, signRes.headers[&#x27;X-Amz-Security-Token&#x27;])
+    self.setHeader('authorization', signRes.headers.Authorization)
+    self.setHeader('x-amz-date', signRes.headers['X-Amz-Date'])
+    if (signRes.headers['X-Amz-Security-Token']) {
+      self.setHeader('x-amz-security-token', signRes.headers['X-Amz-Security-Token'])
     }
   }
   else {
     // default: use aws-sign2
     var date = new Date()
-    self.setHeader(&#x27;date&#x27;, date.toUTCString())
+    self.setHeader('date', date.toUTCString())
     var auth =
       { key: opts.key
       , secret: opts.secret
       , verb: self.method.toUpperCase()
       , date: date
-      , contentType: self.getHeader(&#x27;content-type&#x27;) || &#x27;&#x27;
-      , md5: self.getHeader(&#x27;content-md5&#x27;) || &#x27;&#x27;
+      , contentType: self.getHeader('content-type') || ''
+      , md5: self.getHeader('content-md5') || ''
       , amazonHeaders: aws2.canonicalizeHeaders(self.headers)
       }
     var path = self.uri.path
-    if (opts.bucket &#x26;&#x26; path) {
-      auth.resource = &#x27;/&#x27; + opts.bucket + path
-    } else if (opts.bucket &#x26;&#x26; !path) {
-      auth.resource = &#x27;/&#x27; + opts.bucket
-    } else if (!opts.bucket &#x26;&#x26; path) {
+    if (opts.bucket &amp;&amp; path) {
+      auth.resource = '/' + opts.bucket + path
+    } else if (opts.bucket &amp;&amp; !path) {
+      auth.resource = '/' + opts.bucket
+    } else if (!opts.bucket &amp;&amp; path) {
       auth.resource = path
-    } else if (!opts.bucket &#x26;&#x26; !path) {
-      auth.resource = &#x27;/&#x27;
+    } else if (!opts.bucket &amp;&amp; !path) {
+      auth.resource = '/'
     }
     auth.resource = aws2.canonicalizeResource(auth.resource)
-    self.setHeader(&#x27;authorization&#x27;, aws2.authorization(auth))
+    self.setHeader('authorization', aws2.authorization(auth))
   }
 
   return self
@@ -3684,7 +3677,7 @@ request.get(&#x27;http://some.server.com/&#x27;, {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function debug() {
   if (Request.debug) {
-    console.error(&#x27;REQUEST %s&#x27;, util.format.apply(util, arguments))
+    console.error('REQUEST %s', util.format.apply(util, arguments))
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
@@ -3693,15 +3686,15 @@ request.get(&#x27;http://some.server.com/&#x27;, {
 
   var c = caseless(response.headers)
 
-  var authHeader = c.get(&#x27;www-authenticate&#x27;)
-  var authVerb = authHeader &#x26;&#x26; authHeader.split(&#x27; &#x27;)[0].toLowerCase()
-  request.<span class="apidocCodeKeywordSpan">debug</span>(&#x27;reauth&#x27;, authVerb)
+  var authHeader = c.get('www-authenticate')
+  var authVerb = authHeader &amp;&amp; authHeader.split(' ')[0].toLowerCase()
+  request.<span class="apidocCodeKeywordSpan">debug</span>('reauth', authVerb)
 
   switch (authVerb) {
-case &#x27;basic&#x27;:
+case 'basic':
   return self.basic(self.user, self.pass, true)
 
-case &#x27;bearer&#x27;:
+case 'bearer':
   return self.bearer(self.bearerToken, true)
 ...</pre></li>
     </ul>
@@ -3736,8 +3729,8 @@ case &#x27;bearer&#x27;:
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">enableUnixSocket = function () {
-  // Get the socket &#x26; request paths from the URL
-  var unixParts = this.uri.path.split(&#x27;:&#x27;)
+  // Get the socket &amp; request paths from the URL
+  var unixParts = this.uri.path.split(':')
     , host = unixParts[0]
     , path = unixParts[1]
   // Apply unix properties to request
@@ -3789,19 +3782,19 @@ case &#x27;bearer&#x27;:
     <li>description and source-code<pre class="apidocCodePre">form = function (form) {
   var self = this
   if (form) {
-    if (!/^application\/x-www-form-urlencoded\b/.test(self.getHeader(&#x27;content-type&#x27;))) {
-      self.setHeader(&#x27;content-type&#x27;, &#x27;application/x-www-form-urlencoded&#x27;)
+    if (!/^application\/x-www-form-urlencoded\b/.test(self.getHeader('content-type'))) {
+      self.setHeader('content-type', 'application/x-www-form-urlencoded')
     }
-    self.body = (typeof form === &#x27;string&#x27;)
-      ? self._qs.rfc3986(form.toString(&#x27;utf8&#x27;))
-      : self._qs.stringify(form).toString(&#x27;utf8&#x27;)
+    self.body = (typeof form === 'string')
+      ? self._qs.rfc3986(form.toString('utf8'))
+      : self._qs.stringify(form).toString('utf8')
     return self
   }
   // create form-data object
   self._form = new FormData()
-  self._form.on(&#x27;error&#x27;, function(err) {
-    err.message = &#x27;form-data: &#x27; + err.message
-    self.emit(&#x27;error&#x27;, err)
+  self._form.on('error', function(err) {
+    err.message = 'form-data: ' + err.message
+    self.emit('error', err)
     self.abort()
   })
   return self._form
@@ -3812,11 +3805,11 @@ case &#x27;bearer&#x27;:
 URL-encoded forms are simple.
 
 ```js
-request.post(&#x27;http://service.com/upload&#x27;, {form:{key:&#x27;value&#x27;}})
+request.post('http://service.com/upload', {form:{key:'value'}})
 // or
-request.post(&#x27;http://service.com/upload&#x27;).<span class="apidocCodeKeywordSpan">form</span>({key:&#x27;value&#x27;})
+request.post('http://service.com/upload').<span class="apidocCodeKeywordSpan">form</span>({key:'value'})
 // or
-request.post({url:&#x27;http://service.com/upload&#x27;, form: {key:&#x27;value&#x27;}}, function(err,httpResponse,body){ /* ... */ })
+request.post({url:'http://service.com/upload', form: {key:'value'}}, function(err,httpResponse,body){ /* ... */ })
 ```
 
 
@@ -3843,7 +3836,7 @@ request.post({url:&#x27;http://service.com/upload&#x27;, form: {key:&#x27;value&
     if (key.length !== name.length) {
       return
     }
-    re = new RegExp(name, &#x27;i&#x27;)
+    re = new RegExp(name, 'i')
     match = key.match(re)
     if (match) {
       result = headers[key]
@@ -3852,21 +3845,21 @@ request.post({url:&#x27;http://service.com/upload&#x27;, form: {key:&#x27;value&
   return result
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-  self.request.emit(&#x27;error&#x27;, new Error(&#x27;Argument error, options.multipart.&#x27;))
+  self.request.emit('error', new Error('Argument error, options.multipart.'))
 }
 
 if (options.chunked !== undefined) {
   chunked = options.chunked
 }
 
-if (self.request.<span class="apidocCodeKeywordSpan">getHeader</span>(&#x27;transfer-encoding&#x27;) === &#x27;chunked&#x27;) {
+if (self.request.<span class="apidocCodeKeywordSpan">getHeader</span>('transfer-encoding') === 'chunked') {
   chunked = true
 }
 
 if (!chunked) {
   parts.forEach(function (part) {
-    if (typeof part.body === &#x27;undefined&#x27;) {
-      self.request.emit(&#x27;error&#x27;, new Error(&#x27;Body attribute missing in multipart.&#x27;))
+    if (typeof part.body === 'undefined') {
+      self.request.emit('error', new Error('Body attribute missing in multipart.'))
 ...</pre></li>
     </ul>
 
@@ -3900,11 +3893,11 @@ if (!chunked) {
   if (self.secureOptions) {
     options.secureOptions = self.secureOptions
   }
-  if (typeof self.rejectUnauthorized !== &#x27;undefined&#x27;) {
+  if (typeof self.rejectUnauthorized !== 'undefined') {
     options.rejectUnauthorized = self.rejectUnauthorized
   }
 
-  if (self.cert &#x26;&#x26; self.key) {
+  if (self.cert &amp;&amp; self.key) {
     options.key = self.key
     options.cert = self.cert
   }
@@ -3917,7 +3910,7 @@ if (!chunked) {
     options.passphrase = self.passphrase
   }
 
-  var poolKey = &#x27;&#x27;
+  var poolKey = ''
 
   // different types of agents are in different pools
   if (Agent !== self.httpModule.Agent) {
@@ -3926,68 +3919,68 @@ if (!chunked) {
 
   // ca option is only relevant if proxy or destination are https
   var proxy = self.proxy
-  if (typeof proxy === &#x27;string&#x27;) {
+  if (typeof proxy === 'string') {
     proxy = url.parse(proxy)
   }
-  var isHttps = (proxy &#x26;&#x26; proxy.protocol === &#x27;https:&#x27;) || this.uri.protocol === &#x27;https:&#x27;
+  var isHttps = (proxy &amp;&amp; proxy.protocol === 'https:') || this.uri.protocol === 'https:'
 
   if (isHttps) {
     if (options.ca) {
       if (poolKey) {
-        poolKey += &#x27;:&#x27;
+        poolKey += ':'
       }
       poolKey += options.ca
     }
 
-    if (typeof options.rejectUnauthorized !== &#x27;undefined&#x27;) {
+    if (typeof options.rejectUnauthorized !== 'undefined') {
       if (poolKey) {
-        poolKey += &#x27;:&#x27;
+        poolKey += ':'
       }
       poolKey += options.rejectUnauthorized
     }
 
     if (options.cert) {
       if (poolKey) {
-        poolKey += &#x27;:&#x27;
+        poolKey += ':'
       }
-      poolKey += options.cert.toString(&#x27;ascii&#x27;) + options.key.toString(&#x27;ascii&#x27;)
+      poolKey += options.cert.toString('ascii') + options.key.toString('ascii')
     }
 
     if (options.pfx) {
       if (poolKey) {
-        poolKey += &#x27;:&#x27;
+        poolKey += ':'
       }
-      poolKey += options.pfx.toString(&#x27;ascii&#x27;)
+      poolKey += options.pfx.toString('ascii')
     }
 
     if (options.ciphers) {
       if (poolKey) {
-        poolKey += &#x27;:&#x27;
+        poolKey += ':'
       }
       poolKey += options.ciphers
     }
 
     if (options.secureProtocol) {
       if (poolKey) {
-        poolKey += &#x27;:&#x27;
+        poolKey += ':'
       }
       poolKey += options.secureProtocol
     }
 
     if (options.secureOptions) {
       if (poolKey) {
-        poolKey += &#x27;:&#x27;
+        poolKey += ':'
       }
       poolKey += options.secureOptions
     }
   }
 
-  if (self.pool === globalPool &#x26;&#x26; !poolKey &#x26;&#x26; Object.keys(options).length === 0 &#x26;&#x26; self.httpModule.globalAgent) {
+  if (self.pool === globalPool &amp;&amp; !poolKey &amp;&amp; Object.keys(options).length === 0 &amp;&amp; self.httpModule.globalAgent) {
     // not doing anything special.  Use the globalAgent
     return self.httpModule.globalAgent
   }
 
-  // we&#x27;re using a stored agent.  Make sure it&#x27;s protocol-specific
+  // we're using a stored agent.  Make sure it's protocol-specific
   poolKey = self.uri.protocol + poolKey
 
   // generate a new agent for this setting if none yet exists
@@ -4015,7 +4008,7 @@ if (!chunked) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">hawk = function (opts) {
   var self = this
-  self.setHeader(&#x27;Authorization&#x27;, hawk.client.header(self.uri, self.method, opts).field)
+  self.setHeader('Authorization', hawk.client.header(self.uri, self.method, opts).field)
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -4041,7 +4034,7 @@ if (!chunked) {
     method: self.method,
     path: self.path
   }, opts)
-  debug(&#x27;httpSignature authorization&#x27;, self.getHeader(&#x27;authorization&#x27;))
+  debug('httpSignature authorization', self.getHeader('authorization'))
 
   return self
 }</pre></li>
@@ -4070,7 +4063,7 @@ if (!chunked) {
   // Delete headers with value undefined since they break
   // ClientRequest.OutgoingMessage.setHeader in node 0.12
   for (var headerName in self.headers) {
-    if (typeof self.headers[headerName] === &#x27;undefined&#x27;) {
+    if (typeof self.headers[headerName] === 'undefined') {
       delete self.headers[headerName]
     }
   }
@@ -4078,7 +4071,7 @@ if (!chunked) {
   caseless.httpify(self, self.headers)
 
   if (!self.method) {
-    self.method = options.method || &#x27;GET&#x27;
+    self.method = options.method || 'GET'
   }
   if (!self.localAddress) {
     self.localAddress = options.localAddress
@@ -4087,14 +4080,14 @@ if (!chunked) {
   self._qs.init(options)
 
   debug(options)
-  if (!self.pool &#x26;&#x26; self.pool !== false) {
+  if (!self.pool &amp;&amp; self.pool !== false) {
     self.pool = globalPool
   }
   self.dests = self.dests || []
   self.__isRequestRequest = true
 
   // Protect against double callback
-  if (!self._callback &#x26;&#x26; self.callback) {
+  if (!self._callback &amp;&amp; self.callback) {
     self._callback = self.callback
     self.callback = function () {
       if (self._callbackCalled) {
@@ -4103,55 +4096,55 @@ if (!chunked) {
       self._callbackCalled = true
       self._callback.apply(self, arguments)
     }
-    self.on(&#x27;error&#x27;, self.callback.bind())
-    self.on(&#x27;complete&#x27;, self.callback.bind(self, null))
+    self.on('error', self.callback.bind())
+    self.on('complete', self.callback.bind(self, null))
   }
 
   // People use this property instead all the time, so support it
-  if (!self.uri &#x26;&#x26; self.url) {
+  if (!self.uri &amp;&amp; self.url) {
     self.uri = self.url
     delete self.url
   }
 
-  // If there&#x27;s a baseUrl, then use it as the base URL (i.e. uri must be
+  // If there's a baseUrl, then use it as the base URL (i.e. uri must be
   // specified as a relative path and is appended to baseUrl).
   if (self.baseUrl) {
-    if (typeof self.baseUrl !== &#x27;string&#x27;) {
-      return self.emit(&#x27;error&#x27;, new Error(&#x27;options.baseUrl must be a string&#x27;))
+    if (typeof self.baseUrl !== 'string') {
+      return self.emit('error', new Error('options.baseUrl must be a string'))
     }
 
-    if (typeof self.uri !== &#x27;string&#x27;) {
-      return self.emit(&#x27;error&#x27;, new Error(&#x27;options.uri must be a string when using options.baseUrl&#x27;))
+    if (typeof self.uri !== 'string') {
+      return self.emit('error', new Error('options.uri must be a string when using options.baseUrl'))
     }
 
-    if (self.uri.indexOf(&#x27;//&#x27;) === 0 || self.uri.indexOf(&#x27;://&#x27;) !== -1) {
-      return self.emit(&#x27;error&#x27;, new Error(&#x27;options.uri must be a path when using options.baseUrl&#x27;))
+    if (self.uri.indexOf('//') === 0 || self.uri.indexOf('://') !== -1) {
+      return self.emit('error', new Error('options.uri must be a path when using options.baseUrl'))
     }
 
-    // Handle all cases to make sure that there&#x27;s only one slash between
+    // Handle all cases to make sure that there's only one slash between
     // baseUrl and uri.
-    var baseUrlEndsWithSlash = self.baseUrl.lastIndexOf(&#x27;/&#x27;) === self.baseUrl.length - 1
-    var uriStartsWithSlash = self.uri.indexOf(&#x27;/&#x27;) === 0
+    var baseUrlEndsWithSlash = self.baseUrl.lastIndexOf('/') === self.baseUrl.length - 1
+    var uriStartsWithSlash = self.uri.indexOf('/') === 0
 
-    if (baseUrlEndsWithSlash &#x26;&#x26; uriStartsWithSlash) {
+    if (baseUrlEndsWithSlash &amp;&amp; uriStartsWithSlash) {
       self.uri = self.baseUrl + self.uri.slice(1)
     } else if (baseUrlEndsWithSlash || uriStartsWithSlash) {
       self.uri = self.baseUrl + self.uri
-    } else if (self.uri === &#x27;&#x27;) {
+    } else if (self.uri === '') {
       self.uri = self.baseUrl
     } else {
-      self.uri = self.baseUrl + &#x27;/&#x27; + self.uri
+      self.uri = self.baseUrl + '/' + self.uri
     }
     delete self.baseUrl
   }
 
-  // A URI is needed by this point, emit error if we haven&#x27;t been able to get one
+  // A URI is needed by this point, emit error if we haven't been able to get one
   if (!self.uri) {
-    return self.emit(&#x27;error&#x27;, new Error(&#x27;options.uri is a required argument&#x27;))
+    return self.emit('error', new Error('options.uri is a required argument'))
   }
 
   // If a string URI/URL was given, parse it into a URL object
-  if (typeof self.uri === &#x27;string&#x27;) {
+  if (typeof self.uri === 'string') {
     self.uri = url.parse(self.uri)
   }
 
@@ -4161,13 +4154,13 @@ if (!chunked) {
   }
 
   // DEPRECATED: Warning for users of the old Unix Sockets URL Scheme
-  if (self.uri.protocol === &#x27;unix:&#x27;) {
-    return self.emit(&#x27;error&#x27;, new Error(&#x27;`unix://` URL scheme is no longer supported. Please use the format `http://unix:SOCKET:
-PATH`&#x27;))
+  if (self.uri.protocol === 'unix:') {
+    return self.emit('error', new Error('`unix://` URL scheme is no longer supported. Please use the format `http://unix:SOCKET:
+PATH`'))
   }
 
   // Support Unix Sockets
-  if (self.uri.host === &#x27;unix&#x27;) {
+  if (self.uri.host === 'unix') {
     self.enableUnixSocket()
   }
 
@@ -4175,21 +4168,21 @@ PATH`&#x27;))
     self.rejectUnauthorized = false
   }
 
-  if (!self.uri.pathname) {self.uri.pathname = &#x27;/&#x27;}
+  if (!self.uri.pathname) {self.uri.pathname = '/'}
 
-  if (!(self.uri.host || (self.uri.hostname &#x26;&#x26; self.uri.port)) &#x26;&#x26; !self.uri.isUnix) {
-    // Invalid URI: it may generate lot of bad errors, like &#x27;TypeError: Cannot call method `indexOf` of undefined&#x27; in CookieJar
+  if (!(self.uri.host || (self.uri.hostname &amp;&amp; self.uri.port)) &amp;&amp; !self.uri.isUnix) {
+    // Invalid URI: it may generate lot of bad errors, like 'TypeError: Cannot call method `indexOf` of undefined' in CookieJar
     // Detect and reject it as soon as possible
     var faultyUri = url.format(self.uri)
-    var message = &#x27;Invalid URI &#x22;&#x27; + faultyUri + &#x27;&#x22;&#x27;
+    var message = 'Invalid URI "' + faultyUri + '"'
     if (Object.keys(options). ...</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
   if (!self.removeRefererHeader) {
-    request.setHeader(&#x27;referer&#x27;, uriPrev.href)
+    request.setHeader('referer', uriPrev.href)
   }
 
-  request.emit(&#x27;redirect&#x27;)
+  request.emit('redirect')
 
   request.<span class="apidocCodeKeywordSpan">init</span>()
 
@@ -4214,7 +4207,7 @@ exports.Redirect = Redirect
   var cookies
 
   if (self._redirect.redirectsFollowed === 0) {
-    self.originalCookieHeader = self.getHeader(&#x27;cookie&#x27;)
+    self.originalCookieHeader = self.getHeader('cookie')
   }
 
   if (!jar) {
@@ -4222,7 +4215,7 @@ exports.Redirect = Redirect
     cookies = false
     self._disableCookies = true
   } else {
-    var targetCookieJar = (jar &#x26;&#x26; jar.getCookieString) ? jar : globalCookieJar
+    var targetCookieJar = (jar &amp;&amp; jar.getCookieString) ? jar : globalCookieJar
     var urihref = self.uri.href
     //fetch cookie in the Specified host
     if (targetCookieJar) {
@@ -4231,12 +4224,12 @@ exports.Redirect = Redirect
   }
 
   //if need cookie and cookie is not empty
-  if (cookies &#x26;&#x26; cookies.length) {
+  if (cookies &amp;&amp; cookies.length) {
     if (self.originalCookieHeader) {
-      // Don&#x27;t overwrite existing Cookie header
-      self.setHeader(&#x27;cookie&#x27;, self.originalCookieHeader + &#x27;; &#x27; + cookies)
+      // Don't overwrite existing Cookie header
+      self.setHeader('cookie', self.originalCookieHeader + '; ' + cookies)
     } else {
-      self.setHeader(&#x27;cookie&#x27;, cookies)
+      self.setHeader('cookie', cookies)
     }
   }
   self._jar = jar
@@ -4248,7 +4241,7 @@ exports.Redirect = Redirect
 Function that creates a new cookie.
 
 ```js
-request.cookie(&#x27;key1=value1&#x27;)
+request.cookie('key1=value1')
 ```
 ### request.<span class="apidocCodeKeywordSpan">jar</span>()
 
@@ -4272,34 +4265,34 @@ request.jar()
     <li>description and source-code<pre class="apidocCodePre">json = function (val) {
   var self = this
 
-  if (!self.hasHeader(&#x27;accept&#x27;)) {
-    self.setHeader(&#x27;accept&#x27;, &#x27;application/json&#x27;)
+  if (!self.hasHeader('accept')) {
+    self.setHeader('accept', 'application/json')
   }
 
-  if (typeof self.jsonReplacer === &#x27;function&#x27;) {
+  if (typeof self.jsonReplacer === 'function') {
     self._jsonReplacer = self.jsonReplacer
   }
 
   self._json = true
-  if (typeof val === &#x27;boolean&#x27;) {
+  if (typeof val === 'boolean') {
     if (self.body !== undefined) {
-      if (!/^application\/x-www-form-urlencoded\b/.test(self.getHeader(&#x27;content-type&#x27;))) {
+      if (!/^application\/x-www-form-urlencoded\b/.test(self.getHeader('content-type'))) {
         self.body = safeStringify(self.body, self._jsonReplacer)
       } else {
         self.body = self._qs.rfc3986(self.body)
       }
-      if (!self.hasHeader(&#x27;content-type&#x27;)) {
-        self.setHeader(&#x27;content-type&#x27;, &#x27;application/json&#x27;)
+      if (!self.hasHeader('content-type')) {
+        self.setHeader('content-type', 'application/json')
       }
     }
   } else {
     self.body = safeStringify(val, self._jsonReplacer)
-    if (!self.hasHeader(&#x27;content-type&#x27;)) {
-      self.setHeader(&#x27;content-type&#x27;, &#x27;application/json&#x27;)
+    if (!self.hasHeader('content-type')) {
+      self.setHeader('content-type', 'application/json')
     }
   }
 
-  if (typeof self.jsonReviver === &#x27;function&#x27;) {
+  if (typeof self.jsonReviver === 'function') {
     self._jsonReviver = self.jsonReviver
   }
 
@@ -4364,18 +4357,18 @@ request.jar()
   if (self._aborted) {
     return
   }
-  if (self.req &#x26;&#x26; self.req._reusedSocket &#x26;&#x26; error.code === &#x27;ECONNRESET&#x27;
-      &#x26;&#x26; self.agent.addRequestNoreuse) {
+  if (self.req &amp;&amp; self.req._reusedSocket &amp;&amp; error.code === 'ECONNRESET'
+      &amp;&amp; self.agent.addRequestNoreuse) {
     self.agent = { addRequest: self.agent.addRequestNoreuse.bind(self.agent) }
     self.start()
     self.req.end()
     return
   }
-  if (self.timeout &#x26;&#x26; self.timeoutTimer) {
+  if (self.timeout &amp;&amp; self.timeoutTimer) {
     clearTimeout(self.timeoutTimer)
     self.timeoutTimer = null
   }
-  self.emit(&#x27;error&#x27;, error)
+  self.emit('error', error)
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -4396,13 +4389,13 @@ request.jar()
     self.timings.response = now() - self.startTimeNow
   }
 
-  debug(&#x27;onRequestResponse&#x27;, self.uri.href, response.statusCode, response.headers)
-  response.on(&#x27;end&#x27;, function() {
+  debug('onRequestResponse', self.uri.href, response.statusCode, response.headers)
+  response.on('end', function() {
     if (self.timing) {
       self.timings.end = now() - self.startTimeNow
       response.timingStart = self.startTime
 
-      // fill in the blanks for any periods that didn&#x27;t trigger, such as
+      // fill in the blanks for any periods that didn't trigger, such as
       // no lookup or connect due to keep alive
       if (!self.timings.socket) {
         self.timings.socket = 0
@@ -4417,7 +4410,7 @@ request.jar()
         self.timings.response = self.timings.connect
       }
 
-      debug(&#x27;elapsed time&#x27;, self.timings.end)
+      debug('elapsed time', self.timings.end)
 
       // elapsedTime includes all redirects
       self.elapsedTime += Math.round(self.timings.end)
@@ -4438,11 +4431,11 @@ request.jar()
         total: self.timings.end
       }
     }
-    debug(&#x27;response end&#x27;, self.uri.href, response.statusCode, response.headers)
+    debug('response end', self.uri.href, response.statusCode, response.headers)
   })
 
   if (self._aborted) {
-    debug(&#x27;aborted&#x27;, self.uri.href)
+    debug('aborted', self.uri.href)
     response.resume()
     return
   }
@@ -4452,13 +4445,13 @@ request.jar()
   response.toJSON = responseToJSON
 
   // XXX This is different on 0.10, because SSL is strict by default
-  if (self.httpModule === https &#x26;&#x26;
-      self.strictSSL &#x26;&#x26; (!response.hasOwnProperty(&#x27;socket&#x27;) ||
+  if (self.httpModule === https &amp;&amp;
+      self.strictSSL &amp;&amp; (!response.hasOwnProperty('socket') ||
       !response.socket.authorized)) {
-    debug(&#x27;strict ssl error&#x27;, self.uri.href)
-    var sslErr = response.hasOwnProperty(&#x27;socket&#x27;) ? response.socket.authorizationError : self.uri.href + &#x27; does not support SSL
-&#x27;
-    self.emit(&#x27;error&#x27;, new Error(&#x27;SSL Error: &#x27; + sslErr))
+    debug('strict ssl error', self.uri.href)
+    var sslErr = response.hasOwnProperty('socket') ? response.socket.authorizationError : self.uri.href + ' does not support SSL
+'
+    self.emit('error', new Error('SSL Error: ' + sslErr))
     return
   }
 
@@ -4466,32 +4459,32 @@ request.jar()
   // remove any authorization headers).  Also remember the case of the header
   // name because lots of broken servers expect Host instead of host and we
   // want the caller to be able to specify this.
-  self.originalHost = self.getHeader(&#x27;host&#x27;)
+  self.originalHost = self.getHeader('host')
   if (!self.originalHostHeaderName) {
-    self.originalHostHeaderName = self.hasHeader(&#x27;host&#x27;)
+    self.originalHostHeaderName = self.hasHeader('host')
   }
   if (self.setHost) {
-    self.removeHeader(&#x27;host&#x27;)
+    self.removeHeader('host')
   }
-  if (self.timeout &#x26;&#x26; self.timeoutTimer) {
+  if (self.timeout &amp;&amp; self.timeoutTimer) {
     clearTimeout(self.timeoutTimer)
     self.timeoutTimer = null
   }
 
-  var targetCookieJar = (self._jar &#x26;&#x26; self._jar.setCookie) ? self._jar : globalCookieJar
+  var targetCookieJar = (self._jar &amp;&amp; self._jar.setCookie) ? self._jar : globalCookieJar
   var addCookie = function (cookie) {
-    //set the cookie if it&#x27;s domain in the href&#x27;s domain.
+    //set the cookie if it's domain in the href's domain.
     try {
       targetCookieJar.setCookie(cookie, self.uri.href, {ignoreError: true})
     } catch (e) {
-      self.emit(&#x27;error&#x27;, e)
+      self.emit('error', e)
     }
   }
 
   response.caseless = caseless(response.headers)
 
-  if (response.caseless.has(&#x27;set-cookie&#x27;) &#x26;&#x26; (!self._disableCookies)) {
-    var headerName = response.caseless.has(&#x27;set-cookie&#x27;)
+  if (response.caseless.has('set-cookie') &amp;&amp; (!self._disableCookies)) {
+    var headerName = response.caseless.has('set-cookie')
     if (Array.isArray(response.headers[headerName])) {
       response.headers[headerName].forEach(addCookie)
     } else {
@@ -4504,19 +4497,19 @@ request.jar()
   } else {
     // Be a good stream and emit end when the response is finished.
     // Hack to emit end on close because of a core bug that never fires end
-    response.on(&#x27;close&#x27;, function () {
+    response.on('close', function () {
       if (!self._ended) {
-        self.response.emit(&#x27;end&#x27;)
+        self.response.emit('end')
       }
     })
 
-    response.once(&#x27;end&#x27;, function () {
+    response.once('end', function () {
       self._ended = true
     })
 
     var noBody = function (code) {
       return (
-        self.method === &#x27;HEAD&#x27; ...</pre></li>
+        self.method === 'HEAD' ...</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
@@ -4554,9 +4547,9 @@ request.jar()
 
   if (self.response) {
     if (self._destdata) {
-      self.emit(&#x27;error&#x27;, new Error(&#x27;You cannot pipe after data has been emitted from the response.&#x27;))
+      self.emit('error', new Error('You cannot pipe after data has been emitted from the response.'))
     } else if (self._ended) {
-      self.emit(&#x27;error&#x27;, new Error(&#x27;You cannot pipe after the response has been ended.&#x27;))
+      self.emit('error', new Error('You cannot pipe after the response has been ended.'))
     } else {
       stream.Stream.prototype.pipe.call(self, dest, opts)
       self.pipeDest(dest)
@@ -4576,16 +4569,16 @@ request.jar()
 You can stream any response to a file stream.
 
 ```js
-request(&#x27;http://google.com/doodle.png&#x27;).<span class="apidocCodeKeywordSpan">pipe</span>(fs.createWriteStream(&#x27;doodle
-.png&#x27;))
+request('http://google.com/doodle.png').<span class="apidocCodeKeywordSpan">pipe</span>(fs.createWriteStream('doodle
+.png'))
 ```
 
 You can also stream a file to a PUT or POST request. This method will also check the file extension against a mapping of file extensions
- to content-types (in this case `application/json`) and use the proper `content-type` in the PUT request (if the headers don’t already
+ to content-types (in this case `application/json`) and use the proper `content-type` in the PUT request (if the headers donâ€™t already
  provide one).
 
 ```js
-fs.createReadStream(&#x27;file.json&#x27;).pipe(request.put(&#x27;http://mysite.com/obj.json&#x27;))
+fs.createReadStream('file.json').pipe(request.put('http://mysite.com/obj.json'))
 ```
 ...</pre></li>
     </ul>
@@ -4603,9 +4596,9 @@ fs.createReadStream(&#x27;file.json&#x27;).pipe(request.put(&#x27;http://mysite.
   var self = this
   var response = self.response
   // Called after the response is received
-  if (dest.headers &#x26;&#x26; !dest.headersSent) {
-    if (response.caseless.has(&#x27;content-type&#x27;)) {
-      var ctname = response.caseless.has(&#x27;content-type&#x27;)
+  if (dest.headers &amp;&amp; !dest.headersSent) {
+    if (response.caseless.has('content-type')) {
+      var ctname = response.caseless.has('content-type')
       if (dest.setHeader) {
         dest.setHeader(ctname, response.headers[ctname])
       }
@@ -4614,8 +4607,8 @@ fs.createReadStream(&#x27;file.json&#x27;).pipe(request.put(&#x27;http://mysite.
       }
     }
 
-    if (response.caseless.has(&#x27;content-length&#x27;)) {
-      var clname = response.caseless.has(&#x27;content-length&#x27;)
+    if (response.caseless.has('content-length')) {
+      var clname = response.caseless.has('content-length')
       if (dest.setHeader) {
         dest.setHeader(clname, response.headers[clname])
       } else {
@@ -4623,11 +4616,11 @@ fs.createReadStream(&#x27;file.json&#x27;).pipe(request.put(&#x27;http://mysite.
       }
     }
   }
-  if (dest.setHeader &#x26;&#x26; !dest.headersSent) {
+  if (dest.setHeader &amp;&amp; !dest.headersSent) {
     for (var i in response.headers) {
       // If the response content is being decoded, the Content-Encoding header
-      // of the response doesn&#x27;t represent the piped content, so don&#x27;t pass it.
-      if (!self.gzip || i !== &#x27;content-encoding&#x27;) {
+      // of the response doesn't represent the piped content, so don't pass it.
+      if (!self.gzip || i !== 'content-encoding') {
         dest.setHeader(i, response.headers[i])
       }
     }
@@ -4652,7 +4645,7 @@ fs.createReadStream(&#x27;file.json&#x27;).pipe(request.put(&#x27;http://mysite.
     <li>description and source-code<pre class="apidocCodePre">qs = function (q, clobber) {
   var self = this
   var base
-  if (!clobber &#x26;&#x26; self.uri.query) {
+  if (!clobber &amp;&amp; self.uri.query) {
     base = self._qs.parse(self.uri.query)
   } else {
     base = {}
@@ -4664,15 +4657,15 @@ fs.createReadStream(&#x27;file.json&#x27;).pipe(request.put(&#x27;http://mysite.
 
   var qs = self._qs.stringify(base)
 
-  if (qs === &#x27;&#x27;) {
+  if (qs === '') {
     return self
   }
 
-  self.uri = url.parse(self.uri.href.split(&#x27;?&#x27;)[0] + &#x27;?&#x27; + qs)
+  self.uri = url.parse(self.uri.href.split('?')[0] + '?' + qs)
   self.url = self.uri
   self.path = self.uri.path
 
-  if (self.uri.host === &#x27;unix&#x27;) {
+  if (self.uri.host === 'unix') {
     self.enableUnixSocket()
   }
 
@@ -4692,12 +4685,12 @@ fs.createReadStream(&#x27;file.json&#x27;).pipe(request.put(&#x27;http://mysite.
     <ul>
     <li>description and source-code<pre class="apidocCodePre">readResponseBody = function (response) {
   var self = this
-  debug(&#x27;reading response\&#x27;s body&#x27;)
+  debug('reading response\'s body')
   var buffers = []
     , bufferLength = 0
     , strings = []
 
-  self.on(&#x27;data&#x27;, function (chunk) {
+  self.on('data', function (chunk) {
     if (!Buffer.isBuffer(chunk)) {
       strings.push(chunk)
     } else if (chunk.length) {
@@ -4705,10 +4698,10 @@ fs.createReadStream(&#x27;file.json&#x27;).pipe(request.put(&#x27;http://mysite.
       buffers.push(chunk)
     }
   })
-  self.on(&#x27;end&#x27;, function () {
-    debug(&#x27;end event&#x27;, self.uri.href)
+  self.on('end', function () {
+    debug('end event', self.uri.href)
     if (self._aborted) {
-      debug(&#x27;aborted&#x27;, self.uri.href)
+      debug('aborted', self.uri.href)
       // `buffer` is defined in the parent scope and used in a closure it exists for the life of the request.
       // This can lead to leaky behavior if the user retains a reference to the request object.
       buffers = []
@@ -4717,7 +4710,7 @@ fs.createReadStream(&#x27;file.json&#x27;).pipe(request.put(&#x27;http://mysite.
     }
 
     if (bufferLength) {
-      debug(&#x27;has body&#x27;, self.uri.href, bufferLength)
+      debug('has body', self.uri.href, bufferLength)
       response.body = Buffer.concat(buffers, bufferLength)
       if (self.encoding !== null) {
         response.body = response.body.toString(self.encoding)
@@ -4728,26 +4721,26 @@ fs.createReadStream(&#x27;file.json&#x27;).pipe(request.put(&#x27;http://mysite.
       bufferLength = 0
     } else if (strings.length) {
       // The UTF8 BOM [0xEF,0xBB,0xBF] is converted to [0xFE,0xFF] in the JS UTC16/UCS2 representation.
-      // Strip this value out when the encoding is set to &#x27;utf8&#x27;, as upstream consumers won&#x27;t expect it and it breaks JSON.parse
+      // Strip this value out when the encoding is set to 'utf8', as upstream consumers won't expect it and it breaks JSON.parse
 ().
-      if (self.encoding === &#x27;utf8&#x27; &#x26;&#x26; strings[0].length &#x3e; 0 &#x26;&#x26; strings[0][0] === &#x27;\uFEFF&#x27;) {
+      if (self.encoding === 'utf8' &amp;&amp; strings[0].length &gt; 0 &amp;&amp; strings[0][0] === '\uFEFF') {
         strings[0] = strings[0].substring(1)
       }
-      response.body = strings.join(&#x27;&#x27;)
+      response.body = strings.join('')
     }
 
     if (self._json) {
       try {
         response.body = JSON.parse(response.body, self._jsonReviver)
       } catch (e) {
-        debug(&#x27;invalid JSON received&#x27;, self.uri.href)
+        debug('invalid JSON received', self.uri.href)
       }
     }
-    debug(&#x27;emitting complete&#x27;, self.uri.href)
-    if (typeof response.body === &#x27;undefined&#x27; &#x26;&#x26; !self._json) {
-      response.body = self.encoding === null ? Buffer.alloc(0) : &#x27;&#x27;
+    debug('emitting complete', self.uri.href)
+    if (typeof response.body === 'undefined' &amp;&amp; !self._json) {
+      response.body = self.encoding === null ? Buffer.alloc(0) : ''
     }
-    self.emit(&#x27;complete&#x27;, response, response.body)
+    self.emit('complete', response, response.body)
   })
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -4772,7 +4765,7 @@ fs.createReadStream(&#x27;file.json&#x27;).pipe(request.put(&#x27;http://mysite.
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
-request.debug(&#x27;redirect to&#x27;, redirectTo)
+request.debug('redirect to', redirectTo)
 
 // ignore any potential response body.  it cannot possibly be useful
 // to us at this point.
@@ -4781,8 +4774,8 @@ if (response.resume) {
   response.<span class="apidocCodeKeywordSpan">resume</span>()
 }
 
-if (self.redirectsFollowed &#x3e;= self.maxRedirects) {
-  request.emit(&#x27;error&#x27;, new Error(&#x27;Exceeded maxRedirects. Probably stuck in a redirect loop &#x27; + request.uri.
+if (self.redirectsFollowed &gt;= self.maxRedirects) {
+  request.emit('error', new Error('Exceeded maxRedirects. Probably stuck in a redirect loop ' + request.uri.
 href))
   return false
 }
@@ -4805,9 +4798,9 @@ self.redirectsFollowed += 1
   var self = this
 
   if (self.timing) {
-    // All timings will be relative to this request&#x27;s startTime.  In order to do this,
+    // All timings will be relative to this request's startTime.  In order to do this,
     // we need to capture the wall-clock start time (via Date), immediately followed
-    // by the high-resolution timer (via now()).  While these two won&#x27;t be set
+    // by the high-resolution timer (via now()).  While these two won't be set
     // at the _exact_ same time, they should be close enough to be able to calculate
     // high-resolution, monotonically non-decreasing timestamps relative to startTime.
     var startTime = new Date().getTime()
@@ -4819,22 +4812,22 @@ self.redirectsFollowed += 1
   }
 
   self._started = true
-  self.method = self.method || &#x27;GET&#x27;
+  self.method = self.method || 'GET'
   self.href = self.uri.href
 
-  if (self.src &#x26;&#x26; self.src.stat &#x26;&#x26; self.src.stat.size &#x26;&#x26; !self.hasHeader(&#x27;content-length&#x27;)) {
-    self.setHeader(&#x27;content-length&#x27;, self.src.stat.size)
+  if (self.src &amp;&amp; self.src.stat &amp;&amp; self.src.stat.size &amp;&amp; !self.hasHeader('content-length')) {
+    self.setHeader('content-length', self.src.stat.size)
   }
   if (self._aws) {
     self.aws(self._aws, true)
   }
 
   // We have a method named auth, which is completely different from the http.request
-  // auth option.  If we don&#x27;t remove it, we&#x27;re gonna have a bad time.
+  // auth option.  If we don't remove it, we're gonna have a bad time.
   var reqOptions = copy(self)
   delete reqOptions.auth
 
-  debug(&#x27;make request&#x27;, self.uri.href)
+  debug('make request', self.uri.href)
 
   // node v6.8.0 now supports a `timeout` value in `http.request()`, but we
   // should delete it for now since we handle timeouts manually for better
@@ -4844,7 +4837,7 @@ self.redirectsFollowed += 1
   try {
     self.req = self.httpModule.request(reqOptions)
   } catch (err) {
-    self.emit(&#x27;error&#x27;, err)
+    self.emit('error', err)
     return
   }
 
@@ -4858,20 +4851,20 @@ self.redirectsFollowed += 1
   }
 
   var timeout
-  if (self.timeout &#x26;&#x26; !self.timeoutTimer) {
-    if (self.timeout &#x3c; 0) {
+  if (self.timeout &amp;&amp; !self.timeoutTimer) {
+    if (self.timeout &lt; 0) {
       timeout = 0
-    } else if (typeof self.timeout === &#x27;number&#x27; &#x26;&#x26; isFinite(self.timeout)) {
+    } else if (typeof self.timeout === 'number' &amp;&amp; isFinite(self.timeout)) {
       timeout = self.timeout
     }
   }
 
-  self.req.on(&#x27;response&#x27;, self.onRequestResponse.bind(self))
-  self.req.on(&#x27;error&#x27;, self.onRequestError.bind(self))
-  self.req.on(&#x27;drain&#x27;, function() {
-    self.emit(&#x27;drain&#x27;)
+  self.req.on('response', self.onRequestResponse.bind(self))
+  self.req.on('error', self.onRequestError.bind(self))
+  self.req.on('drain', function() {
+    self.emit('drain')
   })
-  self.req.on(&#x27;socket&#x27;, function(socket) {
+  self.req.on('socket', function(socket) {
     // `._connecting` was the old property which was made public in node v6.1.0
     var isConnecting = socket._connecting || socket.connecting
     if (self.timing) {
@@ -4886,13 +4879,13 @@ self.redirectsFollowed += 1
           self.timings.connect = now() - self.startTimeNow
         }
 
-        socket.once(&#x27;lookup&#x27;, onLookupTiming)
-        socket.once(&#x27;connect&#x27;, onConnectTiming)
+        socket.once('lookup', onLookupTiming)
+        socket.once('connect', onConnectTiming)
 
         // clean up timing event listeners if needed on error
-        self.req.once(&#x27;error&#x27;, function() {
-          socket.removeListener(&#x27;lookup&#x27;, onLookupTiming)
-          socket.removeListener(&#x27;connect&#x27;, onConnectTiming)
+        self.req.once('error', function() {
+          socket.removeListener('lookup', onLookupTiming)
+          socket.removeListener('connect', onConnectTiming)
         })
       }
     }
@@ -4901,23 +4894,23 @@ self.redirectsFollowed += 1
       // This timeout sets the amount of time to wait *between* bytes sent
       // from the server once connected.
       //
-      // In particular, it&#x27;s useful for erroring if the server fails to send
+      // In particular, it's useful for erroring if the server fails to send
       // data halfway through streaming a response.
       self.req.setTimeout(timeout, function () {
         if (self.req) {
           self.abort()
-          var e = new Error(&#x27;ESOCKETTIMEDOUT&#x27;)
-          e.code = &#x27;ESOCKETTIMEDOUT&#x27;
+          var e = new Error('ESOCKETTIMEDOUT')
+          e.code = 'ESOCKETTIMEDOUT'
           e.connect = false
-          self.emit(&#x27;error&#x27;, e)
+          self.emit('error', e)
         }
       })
     }
     if (timeout !== undefined) {
-      // Only start the connection timer if we&#x27;re actually connecting a new
-      // socket, otherwise if we&#x27;re already connected (because this is a
-      // keep-alive connection) do not bother. This is important since we won&#x27;t
-      // get a &#x27;connect&#x27; event for an already connected socket.
+      // Only start the connection timer if we're actually connecting a new
+      // socket, otherwise if we're already connected (because this is a
+      // keep-alive connection) do not bother. This is important since we won't
+      // get a 'connect' event for an already connected socket.
       if (isConnecting) {
         var onReqSockConnect = function() { ...</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -4991,7 +4984,7 @@ self.redirectsFollowed += 1
     self.response.destroy()
   }
 
-  self.emit(&#x27;abort&#x27;)
+  self.emit('abort')
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -5025,14 +5018,14 @@ self.redirectsFollowed += 1
 ## HTTP Authentication
 
 ```js
-request.get(&#x27;http://some.server.com/&#x27;).<span class="apidocCodeKeywordSpan">auth</span>(&#x27;username&#x27;, &#x27;password
-&#x27;, false);
+request.get('http://some.server.com/').<span class="apidocCodeKeywordSpan">auth</span>('username', 'password
+', false);
 // or
-request.get(&#x27;http://some.server.com/&#x27;, {
-&#x27;auth&#x27;: {
-  &#x27;user&#x27;: &#x27;username&#x27;,
-  &#x27;pass&#x27;: &#x27;password&#x27;,
-  &#x27;sendImmediately&#x27;: false
+request.get('http://some.server.com/', {
+'auth': {
+  'user': 'username',
+  'pass': 'password',
+  'sendImmediately': false
 }
 ...</pre></li>
     </ul>
@@ -5059,14 +5052,14 @@ request.get(&#x27;http://some.server.com/&#x27;, {
     return self
   }
 
-  if (opts.sign_version == 4 || opts.sign_version == &#x27;4&#x27;) {
+  if (opts.sign_version == 4 || opts.sign_version == '4') {
     // use aws4
     var options = {
       host: self.uri.host,
       path: self.uri.path,
       method: self.method,
       headers: {
-        &#x27;content-type&#x27;: self.getHeader(&#x27;content-type&#x27;) || &#x27;&#x27;
+        'content-type': self.getHeader('content-type') || ''
       },
       body: self.body
     }
@@ -5075,37 +5068,37 @@ request.get(&#x27;http://some.server.com/&#x27;, {
       secretAccessKey: opts.secret,
       sessionToken: opts.session
     })
-    self.setHeader(&#x27;authorization&#x27;, signRes.headers.Authorization)
-    self.setHeader(&#x27;x-amz-date&#x27;, signRes.headers[&#x27;X-Amz-Date&#x27;])
-    if (signRes.headers[&#x27;X-Amz-Security-Token&#x27;]) {
-      self.setHeader(&#x27;x-amz-security-token&#x27;, signRes.headers[&#x27;X-Amz-Security-Token&#x27;])
+    self.setHeader('authorization', signRes.headers.Authorization)
+    self.setHeader('x-amz-date', signRes.headers['X-Amz-Date'])
+    if (signRes.headers['X-Amz-Security-Token']) {
+      self.setHeader('x-amz-security-token', signRes.headers['X-Amz-Security-Token'])
     }
   }
   else {
     // default: use aws-sign2
     var date = new Date()
-    self.setHeader(&#x27;date&#x27;, date.toUTCString())
+    self.setHeader('date', date.toUTCString())
     var auth =
       { key: opts.key
       , secret: opts.secret
       , verb: self.method.toUpperCase()
       , date: date
-      , contentType: self.getHeader(&#x27;content-type&#x27;) || &#x27;&#x27;
-      , md5: self.getHeader(&#x27;content-md5&#x27;) || &#x27;&#x27;
+      , contentType: self.getHeader('content-type') || ''
+      , md5: self.getHeader('content-md5') || ''
       , amazonHeaders: aws2.canonicalizeHeaders(self.headers)
       }
     var path = self.uri.path
-    if (opts.bucket &#x26;&#x26; path) {
-      auth.resource = &#x27;/&#x27; + opts.bucket + path
-    } else if (opts.bucket &#x26;&#x26; !path) {
-      auth.resource = &#x27;/&#x27; + opts.bucket
-    } else if (!opts.bucket &#x26;&#x26; path) {
+    if (opts.bucket &amp;&amp; path) {
+      auth.resource = '/' + opts.bucket + path
+    } else if (opts.bucket &amp;&amp; !path) {
+      auth.resource = '/' + opts.bucket
+    } else if (!opts.bucket &amp;&amp; path) {
       auth.resource = path
-    } else if (!opts.bucket &#x26;&#x26; !path) {
-      auth.resource = &#x27;/&#x27;
+    } else if (!opts.bucket &amp;&amp; !path) {
+      auth.resource = '/'
     }
     auth.resource = aws2.canonicalizeResource(auth.resource)
-    self.setHeader(&#x27;authorization&#x27;, aws2.authorization(auth))
+    self.setHeader('authorization', aws2.authorization(auth))
   }
 
   return self
@@ -5129,7 +5122,7 @@ request.get(&#x27;http://some.server.com/&#x27;, {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function debug() {
   if (Request.debug) {
-    console.error(&#x27;REQUEST %s&#x27;, util.format.apply(util, arguments))
+    console.error('REQUEST %s', util.format.apply(util, arguments))
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
@@ -5138,15 +5131,15 @@ request.get(&#x27;http://some.server.com/&#x27;, {
 
   var c = caseless(response.headers)
 
-  var authHeader = c.get(&#x27;www-authenticate&#x27;)
-  var authVerb = authHeader &#x26;&#x26; authHeader.split(&#x27; &#x27;)[0].toLowerCase()
-  request.<span class="apidocCodeKeywordSpan">debug</span>(&#x27;reauth&#x27;, authVerb)
+  var authHeader = c.get('www-authenticate')
+  var authVerb = authHeader &amp;&amp; authHeader.split(' ')[0].toLowerCase()
+  request.<span class="apidocCodeKeywordSpan">debug</span>('reauth', authVerb)
 
   switch (authVerb) {
-case &#x27;basic&#x27;:
+case 'basic':
   return self.basic(self.user, self.pass, true)
 
-case &#x27;bearer&#x27;:
+case 'bearer':
   return self.bearer(self.bearerToken, true)
 ...</pre></li>
     </ul>
@@ -5191,8 +5184,8 @@ case &#x27;bearer&#x27;:
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">enableUnixSocket = function () {
-  // Get the socket &#x26; request paths from the URL
-  var unixParts = this.uri.path.split(&#x27;:&#x27;)
+  // Get the socket &amp; request paths from the URL
+  var unixParts = this.uri.path.split(':')
     , host = unixParts[0]
     , path = unixParts[1]
   // Apply unix properties to request
@@ -5254,19 +5247,19 @@ case &#x27;bearer&#x27;:
     <li>description and source-code<pre class="apidocCodePre">form = function (form) {
   var self = this
   if (form) {
-    if (!/^application\/x-www-form-urlencoded\b/.test(self.getHeader(&#x27;content-type&#x27;))) {
-      self.setHeader(&#x27;content-type&#x27;, &#x27;application/x-www-form-urlencoded&#x27;)
+    if (!/^application\/x-www-form-urlencoded\b/.test(self.getHeader('content-type'))) {
+      self.setHeader('content-type', 'application/x-www-form-urlencoded')
     }
-    self.body = (typeof form === &#x27;string&#x27;)
-      ? self._qs.rfc3986(form.toString(&#x27;utf8&#x27;))
-      : self._qs.stringify(form).toString(&#x27;utf8&#x27;)
+    self.body = (typeof form === 'string')
+      ? self._qs.rfc3986(form.toString('utf8'))
+      : self._qs.stringify(form).toString('utf8')
     return self
   }
   // create form-data object
   self._form = new FormData()
-  self._form.on(&#x27;error&#x27;, function(err) {
-    err.message = &#x27;form-data: &#x27; + err.message
-    self.emit(&#x27;error&#x27;, err)
+  self._form.on('error', function(err) {
+    err.message = 'form-data: ' + err.message
+    self.emit('error', err)
     self.abort()
   })
   return self._form
@@ -5277,11 +5270,11 @@ case &#x27;bearer&#x27;:
 URL-encoded forms are simple.
 
 ```js
-request.post(&#x27;http://service.com/upload&#x27;, {form:{key:&#x27;value&#x27;}})
+request.post('http://service.com/upload', {form:{key:'value'}})
 // or
-request.post(&#x27;http://service.com/upload&#x27;).<span class="apidocCodeKeywordSpan">form</span>({key:&#x27;value&#x27;})
+request.post('http://service.com/upload').<span class="apidocCodeKeywordSpan">form</span>({key:'value'})
 // or
-request.post({url:&#x27;http://service.com/upload&#x27;, form: {key:&#x27;value&#x27;}}, function(err,httpResponse,body){ /* ... */ })
+request.post({url:'http://service.com/upload', form: {key:'value'}}, function(err,httpResponse,body){ /* ... */ })
 ```
 
 
@@ -5313,7 +5306,7 @@ request.post({url:&#x27;http://service.com/upload&#x27;, form: {key:&#x27;value&
     if (key.length !== name.length) {
       return
     }
-    re = new RegExp(name, &#x27;i&#x27;)
+    re = new RegExp(name, 'i')
     match = key.match(re)
     if (match) {
       result = headers[key]
@@ -5322,21 +5315,21 @@ request.post({url:&#x27;http://service.com/upload&#x27;, form: {key:&#x27;value&
   return result
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-  self.request.emit(&#x27;error&#x27;, new Error(&#x27;Argument error, options.multipart.&#x27;))
+  self.request.emit('error', new Error('Argument error, options.multipart.'))
 }
 
 if (options.chunked !== undefined) {
   chunked = options.chunked
 }
 
-if (self.request.<span class="apidocCodeKeywordSpan">getHeader</span>(&#x27;transfer-encoding&#x27;) === &#x27;chunked&#x27;) {
+if (self.request.<span class="apidocCodeKeywordSpan">getHeader</span>('transfer-encoding') === 'chunked') {
   chunked = true
 }
 
 if (!chunked) {
   parts.forEach(function (part) {
-    if (typeof part.body === &#x27;undefined&#x27;) {
-      self.request.emit(&#x27;error&#x27;, new Error(&#x27;Body attribute missing in multipart.&#x27;))
+    if (typeof part.body === 'undefined') {
+      self.request.emit('error', new Error('Body attribute missing in multipart.'))
 ...</pre></li>
     </ul>
 
@@ -5375,11 +5368,11 @@ if (!chunked) {
   if (self.secureOptions) {
     options.secureOptions = self.secureOptions
   }
-  if (typeof self.rejectUnauthorized !== &#x27;undefined&#x27;) {
+  if (typeof self.rejectUnauthorized !== 'undefined') {
     options.rejectUnauthorized = self.rejectUnauthorized
   }
 
-  if (self.cert &#x26;&#x26; self.key) {
+  if (self.cert &amp;&amp; self.key) {
     options.key = self.key
     options.cert = self.cert
   }
@@ -5392,7 +5385,7 @@ if (!chunked) {
     options.passphrase = self.passphrase
   }
 
-  var poolKey = &#x27;&#x27;
+  var poolKey = ''
 
   // different types of agents are in different pools
   if (Agent !== self.httpModule.Agent) {
@@ -5401,68 +5394,68 @@ if (!chunked) {
 
   // ca option is only relevant if proxy or destination are https
   var proxy = self.proxy
-  if (typeof proxy === &#x27;string&#x27;) {
+  if (typeof proxy === 'string') {
     proxy = url.parse(proxy)
   }
-  var isHttps = (proxy &#x26;&#x26; proxy.protocol === &#x27;https:&#x27;) || this.uri.protocol === &#x27;https:&#x27;
+  var isHttps = (proxy &amp;&amp; proxy.protocol === 'https:') || this.uri.protocol === 'https:'
 
   if (isHttps) {
     if (options.ca) {
       if (poolKey) {
-        poolKey += &#x27;:&#x27;
+        poolKey += ':'
       }
       poolKey += options.ca
     }
 
-    if (typeof options.rejectUnauthorized !== &#x27;undefined&#x27;) {
+    if (typeof options.rejectUnauthorized !== 'undefined') {
       if (poolKey) {
-        poolKey += &#x27;:&#x27;
+        poolKey += ':'
       }
       poolKey += options.rejectUnauthorized
     }
 
     if (options.cert) {
       if (poolKey) {
-        poolKey += &#x27;:&#x27;
+        poolKey += ':'
       }
-      poolKey += options.cert.toString(&#x27;ascii&#x27;) + options.key.toString(&#x27;ascii&#x27;)
+      poolKey += options.cert.toString('ascii') + options.key.toString('ascii')
     }
 
     if (options.pfx) {
       if (poolKey) {
-        poolKey += &#x27;:&#x27;
+        poolKey += ':'
       }
-      poolKey += options.pfx.toString(&#x27;ascii&#x27;)
+      poolKey += options.pfx.toString('ascii')
     }
 
     if (options.ciphers) {
       if (poolKey) {
-        poolKey += &#x27;:&#x27;
+        poolKey += ':'
       }
       poolKey += options.ciphers
     }
 
     if (options.secureProtocol) {
       if (poolKey) {
-        poolKey += &#x27;:&#x27;
+        poolKey += ':'
       }
       poolKey += options.secureProtocol
     }
 
     if (options.secureOptions) {
       if (poolKey) {
-        poolKey += &#x27;:&#x27;
+        poolKey += ':'
       }
       poolKey += options.secureOptions
     }
   }
 
-  if (self.pool === globalPool &#x26;&#x26; !poolKey &#x26;&#x26; Object.keys(options).length === 0 &#x26;&#x26; self.httpModule.globalAgent) {
+  if (self.pool === globalPool &amp;&amp; !poolKey &amp;&amp; Object.keys(options).length === 0 &amp;&amp; self.httpModule.globalAgent) {
     // not doing anything special.  Use the globalAgent
     return self.httpModule.globalAgent
   }
 
-  // we&#x27;re using a stored agent.  Make sure it&#x27;s protocol-specific
+  // we're using a stored agent.  Make sure it's protocol-specific
   poolKey = self.uri.protocol + poolKey
 
   // generate a new agent for this setting if none yet exists
@@ -5495,7 +5488,7 @@ if (!chunked) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">hawk = function (opts) {
   var self = this
-  self.setHeader(&#x27;Authorization&#x27;, hawk.client.header(self.uri, self.method, opts).field)
+  self.setHeader('Authorization', hawk.client.header(self.uri, self.method, opts).field)
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -5526,7 +5519,7 @@ if (!chunked) {
     method: self.method,
     path: self.path
   }, opts)
-  debug(&#x27;httpSignature authorization&#x27;, self.getHeader(&#x27;authorization&#x27;))
+  debug('httpSignature authorization', self.getHeader('authorization'))
 
   return self
 }</pre></li>
@@ -5560,7 +5553,7 @@ if (!chunked) {
   // Delete headers with value undefined since they break
   // ClientRequest.OutgoingMessage.setHeader in node 0.12
   for (var headerName in self.headers) {
-    if (typeof self.headers[headerName] === &#x27;undefined&#x27;) {
+    if (typeof self.headers[headerName] === 'undefined') {
       delete self.headers[headerName]
     }
   }
@@ -5568,7 +5561,7 @@ if (!chunked) {
   caseless.httpify(self, self.headers)
 
   if (!self.method) {
-    self.method = options.method || &#x27;GET&#x27;
+    self.method = options.method || 'GET'
   }
   if (!self.localAddress) {
     self.localAddress = options.localAddress
@@ -5577,14 +5570,14 @@ if (!chunked) {
   self._qs.init(options)
 
   debug(options)
-  if (!self.pool &#x26;&#x26; self.pool !== false) {
+  if (!self.pool &amp;&amp; self.pool !== false) {
     self.pool = globalPool
   }
   self.dests = self.dests || []
   self.__isRequestRequest = true
 
   // Protect against double callback
-  if (!self._callback &#x26;&#x26; self.callback) {
+  if (!self._callback &amp;&amp; self.callback) {
     self._callback = self.callback
     self.callback = function () {
       if (self._callbackCalled) {
@@ -5593,55 +5586,55 @@ if (!chunked) {
       self._callbackCalled = true
       self._callback.apply(self, arguments)
     }
-    self.on(&#x27;error&#x27;, self.callback.bind())
-    self.on(&#x27;complete&#x27;, self.callback.bind(self, null))
+    self.on('error', self.callback.bind())
+    self.on('complete', self.callback.bind(self, null))
   }
 
   // People use this property instead all the time, so support it
-  if (!self.uri &#x26;&#x26; self.url) {
+  if (!self.uri &amp;&amp; self.url) {
     self.uri = self.url
     delete self.url
   }
 
-  // If there&#x27;s a baseUrl, then use it as the base URL (i.e. uri must be
+  // If there's a baseUrl, then use it as the base URL (i.e. uri must be
   // specified as a relative path and is appended to baseUrl).
   if (self.baseUrl) {
-    if (typeof self.baseUrl !== &#x27;string&#x27;) {
-      return self.emit(&#x27;error&#x27;, new Error(&#x27;options.baseUrl must be a string&#x27;))
+    if (typeof self.baseUrl !== 'string') {
+      return self.emit('error', new Error('options.baseUrl must be a string'))
     }
 
-    if (typeof self.uri !== &#x27;string&#x27;) {
-      return self.emit(&#x27;error&#x27;, new Error(&#x27;options.uri must be a string when using options.baseUrl&#x27;))
+    if (typeof self.uri !== 'string') {
+      return self.emit('error', new Error('options.uri must be a string when using options.baseUrl'))
     }
 
-    if (self.uri.indexOf(&#x27;//&#x27;) === 0 || self.uri.indexOf(&#x27;://&#x27;) !== -1) {
-      return self.emit(&#x27;error&#x27;, new Error(&#x27;options.uri must be a path when using options.baseUrl&#x27;))
+    if (self.uri.indexOf('//') === 0 || self.uri.indexOf('://') !== -1) {
+      return self.emit('error', new Error('options.uri must be a path when using options.baseUrl'))
     }
 
-    // Handle all cases to make sure that there&#x27;s only one slash between
+    // Handle all cases to make sure that there's only one slash between
     // baseUrl and uri.
-    var baseUrlEndsWithSlash = self.baseUrl.lastIndexOf(&#x27;/&#x27;) === self.baseUrl.length - 1
-    var uriStartsWithSlash = self.uri.indexOf(&#x27;/&#x27;) === 0
+    var baseUrlEndsWithSlash = self.baseUrl.lastIndexOf('/') === self.baseUrl.length - 1
+    var uriStartsWithSlash = self.uri.indexOf('/') === 0
 
-    if (baseUrlEndsWithSlash &#x26;&#x26; uriStartsWithSlash) {
+    if (baseUrlEndsWithSlash &amp;&amp; uriStartsWithSlash) {
       self.uri = self.baseUrl + self.uri.slice(1)
     } else if (baseUrlEndsWithSlash || uriStartsWithSlash) {
       self.uri = self.baseUrl + self.uri
-    } else if (self.uri === &#x27;&#x27;) {
+    } else if (self.uri === '') {
       self.uri = self.baseUrl
     } else {
-      self.uri = self.baseUrl + &#x27;/&#x27; + self.uri
+      self.uri = self.baseUrl + '/' + self.uri
     }
     delete self.baseUrl
   }
 
-  // A URI is needed by this point, emit error if we haven&#x27;t been able to get one
+  // A URI is needed by this point, emit error if we haven't been able to get one
   if (!self.uri) {
-    return self.emit(&#x27;error&#x27;, new Error(&#x27;options.uri is a required argument&#x27;))
+    return self.emit('error', new Error('options.uri is a required argument'))
   }
 
   // If a string URI/URL was given, parse it into a URL object
-  if (typeof self.uri === &#x27;string&#x27;) {
+  if (typeof self.uri === 'string') {
     self.uri = url.parse(self.uri)
   }
 
@@ -5651,13 +5644,13 @@ if (!chunked) {
   }
 
   // DEPRECATED: Warning for users of the old Unix Sockets URL Scheme
-  if (self.uri.protocol === &#x27;unix:&#x27;) {
-    return self.emit(&#x27;error&#x27;, new Error(&#x27;`unix://` URL scheme is no longer supported. Please use the format `http://unix:SOCKET:
-PATH`&#x27;))
+  if (self.uri.protocol === 'unix:') {
+    return self.emit('error', new Error('`unix://` URL scheme is no longer supported. Please use the format `http://unix:SOCKET:
+PATH`'))
   }
 
   // Support Unix Sockets
-  if (self.uri.host === &#x27;unix&#x27;) {
+  if (self.uri.host === 'unix') {
     self.enableUnixSocket()
   }
 
@@ -5665,21 +5658,21 @@ PATH`&#x27;))
     self.rejectUnauthorized = false
   }
 
-  if (!self.uri.pathname) {self.uri.pathname = &#x27;/&#x27;}
+  if (!self.uri.pathname) {self.uri.pathname = '/'}
 
-  if (!(self.uri.host || (self.uri.hostname &#x26;&#x26; self.uri.port)) &#x26;&#x26; !self.uri.isUnix) {
-    // Invalid URI: it may generate lot of bad errors, like &#x27;TypeError: Cannot call method `indexOf` of undefined&#x27; in CookieJar
+  if (!(self.uri.host || (self.uri.hostname &amp;&amp; self.uri.port)) &amp;&amp; !self.uri.isUnix) {
+    // Invalid URI: it may generate lot of bad errors, like 'TypeError: Cannot call method `indexOf` of undefined' in CookieJar
     // Detect and reject it as soon as possible
     var faultyUri = url.format(self.uri)
-    var message = &#x27;Invalid URI &#x22;&#x27; + faultyUri + &#x27;&#x22;&#x27;
+    var message = 'Invalid URI "' + faultyUri + '"'
     if (Object.keys(options). ...</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
   if (!self.removeRefererHeader) {
-    request.setHeader(&#x27;referer&#x27;, uriPrev.href)
+    request.setHeader('referer', uriPrev.href)
   }
 
-  request.emit(&#x27;redirect&#x27;)
+  request.emit('redirect')
 
   request.<span class="apidocCodeKeywordSpan">init</span>()
 
@@ -5709,7 +5702,7 @@ exports.Redirect = Redirect
   var cookies
 
   if (self._redirect.redirectsFollowed === 0) {
-    self.originalCookieHeader = self.getHeader(&#x27;cookie&#x27;)
+    self.originalCookieHeader = self.getHeader('cookie')
   }
 
   if (!jar) {
@@ -5717,7 +5710,7 @@ exports.Redirect = Redirect
     cookies = false
     self._disableCookies = true
   } else {
-    var targetCookieJar = (jar &#x26;&#x26; jar.getCookieString) ? jar : globalCookieJar
+    var targetCookieJar = (jar &amp;&amp; jar.getCookieString) ? jar : globalCookieJar
     var urihref = self.uri.href
     //fetch cookie in the Specified host
     if (targetCookieJar) {
@@ -5726,12 +5719,12 @@ exports.Redirect = Redirect
   }
 
   //if need cookie and cookie is not empty
-  if (cookies &#x26;&#x26; cookies.length) {
+  if (cookies &amp;&amp; cookies.length) {
     if (self.originalCookieHeader) {
-      // Don&#x27;t overwrite existing Cookie header
-      self.setHeader(&#x27;cookie&#x27;, self.originalCookieHeader + &#x27;; &#x27; + cookies)
+      // Don't overwrite existing Cookie header
+      self.setHeader('cookie', self.originalCookieHeader + '; ' + cookies)
     } else {
-      self.setHeader(&#x27;cookie&#x27;, cookies)
+      self.setHeader('cookie', cookies)
     }
   }
   self._jar = jar
@@ -5743,7 +5736,7 @@ exports.Redirect = Redirect
 Function that creates a new cookie.
 
 ```js
-request.cookie(&#x27;key1=value1&#x27;)
+request.cookie('key1=value1')
 ```
 ### request.<span class="apidocCodeKeywordSpan">jar</span>()
 
@@ -5772,34 +5765,34 @@ request.jar()
     <li>description and source-code<pre class="apidocCodePre">json = function (val) {
   var self = this
 
-  if (!self.hasHeader(&#x27;accept&#x27;)) {
-    self.setHeader(&#x27;accept&#x27;, &#x27;application/json&#x27;)
+  if (!self.hasHeader('accept')) {
+    self.setHeader('accept', 'application/json')
   }
 
-  if (typeof self.jsonReplacer === &#x27;function&#x27;) {
+  if (typeof self.jsonReplacer === 'function') {
     self._jsonReplacer = self.jsonReplacer
   }
 
   self._json = true
-  if (typeof val === &#x27;boolean&#x27;) {
+  if (typeof val === 'boolean') {
     if (self.body !== undefined) {
-      if (!/^application\/x-www-form-urlencoded\b/.test(self.getHeader(&#x27;content-type&#x27;))) {
+      if (!/^application\/x-www-form-urlencoded\b/.test(self.getHeader('content-type'))) {
         self.body = safeStringify(self.body, self._jsonReplacer)
       } else {
         self.body = self._qs.rfc3986(self.body)
       }
-      if (!self.hasHeader(&#x27;content-type&#x27;)) {
-        self.setHeader(&#x27;content-type&#x27;, &#x27;application/json&#x27;)
+      if (!self.hasHeader('content-type')) {
+        self.setHeader('content-type', 'application/json')
       }
     }
   } else {
     self.body = safeStringify(val, self._jsonReplacer)
-    if (!self.hasHeader(&#x27;content-type&#x27;)) {
-      self.setHeader(&#x27;content-type&#x27;, &#x27;application/json&#x27;)
+    if (!self.hasHeader('content-type')) {
+      self.setHeader('content-type', 'application/json')
     }
   }
 
-  if (typeof self.jsonReviver === &#x27;function&#x27;) {
+  if (typeof self.jsonReviver === 'function') {
     self._jsonReviver = self.jsonReviver
   }
 
@@ -5879,18 +5872,18 @@ request.jar()
   if (self._aborted) {
     return
   }
-  if (self.req &#x26;&#x26; self.req._reusedSocket &#x26;&#x26; error.code === &#x27;ECONNRESET&#x27;
-      &#x26;&#x26; self.agent.addRequestNoreuse) {
+  if (self.req &amp;&amp; self.req._reusedSocket &amp;&amp; error.code === 'ECONNRESET'
+      &amp;&amp; self.agent.addRequestNoreuse) {
     self.agent = { addRequest: self.agent.addRequestNoreuse.bind(self.agent) }
     self.start()
     self.req.end()
     return
   }
-  if (self.timeout &#x26;&#x26; self.timeoutTimer) {
+  if (self.timeout &amp;&amp; self.timeoutTimer) {
     clearTimeout(self.timeoutTimer)
     self.timeoutTimer = null
   }
-  self.emit(&#x27;error&#x27;, error)
+  self.emit('error', error)
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -5916,13 +5909,13 @@ request.jar()
     self.timings.response = now() - self.startTimeNow
   }
 
-  debug(&#x27;onRequestResponse&#x27;, self.uri.href, response.statusCode, response.headers)
-  response.on(&#x27;end&#x27;, function() {
+  debug('onRequestResponse', self.uri.href, response.statusCode, response.headers)
+  response.on('end', function() {
     if (self.timing) {
       self.timings.end = now() - self.startTimeNow
       response.timingStart = self.startTime
 
-      // fill in the blanks for any periods that didn&#x27;t trigger, such as
+      // fill in the blanks for any periods that didn't trigger, such as
       // no lookup or connect due to keep alive
       if (!self.timings.socket) {
         self.timings.socket = 0
@@ -5937,7 +5930,7 @@ request.jar()
         self.timings.response = self.timings.connect
       }
 
-      debug(&#x27;elapsed time&#x27;, self.timings.end)
+      debug('elapsed time', self.timings.end)
 
       // elapsedTime includes all redirects
       self.elapsedTime += Math.round(self.timings.end)
@@ -5958,11 +5951,11 @@ request.jar()
         total: self.timings.end
       }
     }
-    debug(&#x27;response end&#x27;, self.uri.href, response.statusCode, response.headers)
+    debug('response end', self.uri.href, response.statusCode, response.headers)
   })
 
   if (self._aborted) {
-    debug(&#x27;aborted&#x27;, self.uri.href)
+    debug('aborted', self.uri.href)
     response.resume()
     return
   }
@@ -5972,13 +5965,13 @@ request.jar()
   response.toJSON = responseToJSON
 
   // XXX This is different on 0.10, because SSL is strict by default
-  if (self.httpModule === https &#x26;&#x26;
-      self.strictSSL &#x26;&#x26; (!response.hasOwnProperty(&#x27;socket&#x27;) ||
+  if (self.httpModule === https &amp;&amp;
+      self.strictSSL &amp;&amp; (!response.hasOwnProperty('socket') ||
       !response.socket.authorized)) {
-    debug(&#x27;strict ssl error&#x27;, self.uri.href)
-    var sslErr = response.hasOwnProperty(&#x27;socket&#x27;) ? response.socket.authorizationError : self.uri.href + &#x27; does not support SSL
-&#x27;
-    self.emit(&#x27;error&#x27;, new Error(&#x27;SSL Error: &#x27; + sslErr))
+    debug('strict ssl error', self.uri.href)
+    var sslErr = response.hasOwnProperty('socket') ? response.socket.authorizationError : self.uri.href + ' does not support SSL
+'
+    self.emit('error', new Error('SSL Error: ' + sslErr))
     return
   }
 
@@ -5986,32 +5979,32 @@ request.jar()
   // remove any authorization headers).  Also remember the case of the header
   // name because lots of broken servers expect Host instead of host and we
   // want the caller to be able to specify this.
-  self.originalHost = self.getHeader(&#x27;host&#x27;)
+  self.originalHost = self.getHeader('host')
   if (!self.originalHostHeaderName) {
-    self.originalHostHeaderName = self.hasHeader(&#x27;host&#x27;)
+    self.originalHostHeaderName = self.hasHeader('host')
   }
   if (self.setHost) {
-    self.removeHeader(&#x27;host&#x27;)
+    self.removeHeader('host')
   }
-  if (self.timeout &#x26;&#x26; self.timeoutTimer) {
+  if (self.timeout &amp;&amp; self.timeoutTimer) {
     clearTimeout(self.timeoutTimer)
     self.timeoutTimer = null
   }
 
-  var targetCookieJar = (self._jar &#x26;&#x26; self._jar.setCookie) ? self._jar : globalCookieJar
+  var targetCookieJar = (self._jar &amp;&amp; self._jar.setCookie) ? self._jar : globalCookieJar
   var addCookie = function (cookie) {
-    //set the cookie if it&#x27;s domain in the href&#x27;s domain.
+    //set the cookie if it's domain in the href's domain.
     try {
       targetCookieJar.setCookie(cookie, self.uri.href, {ignoreError: true})
     } catch (e) {
-      self.emit(&#x27;error&#x27;, e)
+      self.emit('error', e)
     }
   }
 
   response.caseless = caseless(response.headers)
 
-  if (response.caseless.has(&#x27;set-cookie&#x27;) &#x26;&#x26; (!self._disableCookies)) {
-    var headerName = response.caseless.has(&#x27;set-cookie&#x27;)
+  if (response.caseless.has('set-cookie') &amp;&amp; (!self._disableCookies)) {
+    var headerName = response.caseless.has('set-cookie')
     if (Array.isArray(response.headers[headerName])) {
       response.headers[headerName].forEach(addCookie)
     } else {
@@ -6024,19 +6017,19 @@ request.jar()
   } else {
     // Be a good stream and emit end when the response is finished.
     // Hack to emit end on close because of a core bug that never fires end
-    response.on(&#x27;close&#x27;, function () {
+    response.on('close', function () {
       if (!self._ended) {
-        self.response.emit(&#x27;end&#x27;)
+        self.response.emit('end')
       }
     })
 
-    response.once(&#x27;end&#x27;, function () {
+    response.once('end', function () {
       self._ended = true
     })
 
     var noBody = function (code) {
       return (
-        self.method === &#x27;HEAD&#x27; ...</pre></li>
+        self.method === 'HEAD' ...</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
@@ -6084,9 +6077,9 @@ request.jar()
 
   if (self.response) {
     if (self._destdata) {
-      self.emit(&#x27;error&#x27;, new Error(&#x27;You cannot pipe after data has been emitted from the response.&#x27;))
+      self.emit('error', new Error('You cannot pipe after data has been emitted from the response.'))
     } else if (self._ended) {
-      self.emit(&#x27;error&#x27;, new Error(&#x27;You cannot pipe after the response has been ended.&#x27;))
+      self.emit('error', new Error('You cannot pipe after the response has been ended.'))
     } else {
       stream.Stream.prototype.pipe.call(self, dest, opts)
       self.pipeDest(dest)
@@ -6106,16 +6099,16 @@ request.jar()
 You can stream any response to a file stream.
 
 ```js
-request(&#x27;http://google.com/doodle.png&#x27;).<span class="apidocCodeKeywordSpan">pipe</span>(fs.createWriteStream(&#x27;doodle
-.png&#x27;))
+request('http://google.com/doodle.png').<span class="apidocCodeKeywordSpan">pipe</span>(fs.createWriteStream('doodle
+.png'))
 ```
 
 You can also stream a file to a PUT or POST request. This method will also check the file extension against a mapping of file extensions
- to content-types (in this case `application/json`) and use the proper `content-type` in the PUT request (if the headers don’t already
+ to content-types (in this case `application/json`) and use the proper `content-type` in the PUT request (if the headers donâ€™t already
  provide one).
 
 ```js
-fs.createReadStream(&#x27;file.json&#x27;).pipe(request.put(&#x27;http://mysite.com/obj.json&#x27;))
+fs.createReadStream('file.json').pipe(request.put('http://mysite.com/obj.json'))
 ```
 ...</pre></li>
     </ul>
@@ -6138,9 +6131,9 @@ fs.createReadStream(&#x27;file.json&#x27;).pipe(request.put(&#x27;http://mysite.
   var self = this
   var response = self.response
   // Called after the response is received
-  if (dest.headers &#x26;&#x26; !dest.headersSent) {
-    if (response.caseless.has(&#x27;content-type&#x27;)) {
-      var ctname = response.caseless.has(&#x27;content-type&#x27;)
+  if (dest.headers &amp;&amp; !dest.headersSent) {
+    if (response.caseless.has('content-type')) {
+      var ctname = response.caseless.has('content-type')
       if (dest.setHeader) {
         dest.setHeader(ctname, response.headers[ctname])
       }
@@ -6149,8 +6142,8 @@ fs.createReadStream(&#x27;file.json&#x27;).pipe(request.put(&#x27;http://mysite.
       }
     }
 
-    if (response.caseless.has(&#x27;content-length&#x27;)) {
-      var clname = response.caseless.has(&#x27;content-length&#x27;)
+    if (response.caseless.has('content-length')) {
+      var clname = response.caseless.has('content-length')
       if (dest.setHeader) {
         dest.setHeader(clname, response.headers[clname])
       } else {
@@ -6158,11 +6151,11 @@ fs.createReadStream(&#x27;file.json&#x27;).pipe(request.put(&#x27;http://mysite.
       }
     }
   }
-  if (dest.setHeader &#x26;&#x26; !dest.headersSent) {
+  if (dest.setHeader &amp;&amp; !dest.headersSent) {
     for (var i in response.headers) {
       // If the response content is being decoded, the Content-Encoding header
-      // of the response doesn&#x27;t represent the piped content, so don&#x27;t pass it.
-      if (!self.gzip || i !== &#x27;content-encoding&#x27;) {
+      // of the response doesn't represent the piped content, so don't pass it.
+      if (!self.gzip || i !== 'content-encoding') {
         dest.setHeader(i, response.headers[i])
       }
     }
@@ -6192,7 +6185,7 @@ fs.createReadStream(&#x27;file.json&#x27;).pipe(request.put(&#x27;http://mysite.
     <li>description and source-code<pre class="apidocCodePre">qs = function (q, clobber) {
   var self = this
   var base
-  if (!clobber &#x26;&#x26; self.uri.query) {
+  if (!clobber &amp;&amp; self.uri.query) {
     base = self._qs.parse(self.uri.query)
   } else {
     base = {}
@@ -6204,15 +6197,15 @@ fs.createReadStream(&#x27;file.json&#x27;).pipe(request.put(&#x27;http://mysite.
 
   var qs = self._qs.stringify(base)
 
-  if (qs === &#x27;&#x27;) {
+  if (qs === '') {
     return self
   }
 
-  self.uri = url.parse(self.uri.href.split(&#x27;?&#x27;)[0] + &#x27;?&#x27; + qs)
+  self.uri = url.parse(self.uri.href.split('?')[0] + '?' + qs)
   self.url = self.uri
   self.path = self.uri.path
 
-  if (self.uri.host === &#x27;unix&#x27;) {
+  if (self.uri.host === 'unix') {
     self.enableUnixSocket()
   }
 
@@ -6237,12 +6230,12 @@ fs.createReadStream(&#x27;file.json&#x27;).pipe(request.put(&#x27;http://mysite.
     <ul>
     <li>description and source-code<pre class="apidocCodePre">readResponseBody = function (response) {
   var self = this
-  debug(&#x27;reading response\&#x27;s body&#x27;)
+  debug('reading response\'s body')
   var buffers = []
     , bufferLength = 0
     , strings = []
 
-  self.on(&#x27;data&#x27;, function (chunk) {
+  self.on('data', function (chunk) {
     if (!Buffer.isBuffer(chunk)) {
       strings.push(chunk)
     } else if (chunk.length) {
@@ -6250,10 +6243,10 @@ fs.createReadStream(&#x27;file.json&#x27;).pipe(request.put(&#x27;http://mysite.
       buffers.push(chunk)
     }
   })
-  self.on(&#x27;end&#x27;, function () {
-    debug(&#x27;end event&#x27;, self.uri.href)
+  self.on('end', function () {
+    debug('end event', self.uri.href)
     if (self._aborted) {
-      debug(&#x27;aborted&#x27;, self.uri.href)
+      debug('aborted', self.uri.href)
       // `buffer` is defined in the parent scope and used in a closure it exists for the life of the request.
       // This can lead to leaky behavior if the user retains a reference to the request object.
       buffers = []
@@ -6262,7 +6255,7 @@ fs.createReadStream(&#x27;file.json&#x27;).pipe(request.put(&#x27;http://mysite.
     }
 
     if (bufferLength) {
-      debug(&#x27;has body&#x27;, self.uri.href, bufferLength)
+      debug('has body', self.uri.href, bufferLength)
       response.body = Buffer.concat(buffers, bufferLength)
       if (self.encoding !== null) {
         response.body = response.body.toString(self.encoding)
@@ -6273,26 +6266,26 @@ fs.createReadStream(&#x27;file.json&#x27;).pipe(request.put(&#x27;http://mysite.
       bufferLength = 0
     } else if (strings.length) {
       // The UTF8 BOM [0xEF,0xBB,0xBF] is converted to [0xFE,0xFF] in the JS UTC16/UCS2 representation.
-      // Strip this value out when the encoding is set to &#x27;utf8&#x27;, as upstream consumers won&#x27;t expect it and it breaks JSON.parse
+      // Strip this value out when the encoding is set to 'utf8', as upstream consumers won't expect it and it breaks JSON.parse
 ().
-      if (self.encoding === &#x27;utf8&#x27; &#x26;&#x26; strings[0].length &#x3e; 0 &#x26;&#x26; strings[0][0] === &#x27;\uFEFF&#x27;) {
+      if (self.encoding === 'utf8' &amp;&amp; strings[0].length &gt; 0 &amp;&amp; strings[0][0] === '\uFEFF') {
         strings[0] = strings[0].substring(1)
       }
-      response.body = strings.join(&#x27;&#x27;)
+      response.body = strings.join('')
     }
 
     if (self._json) {
       try {
         response.body = JSON.parse(response.body, self._jsonReviver)
       } catch (e) {
-        debug(&#x27;invalid JSON received&#x27;, self.uri.href)
+        debug('invalid JSON received', self.uri.href)
       }
     }
-    debug(&#x27;emitting complete&#x27;, self.uri.href)
-    if (typeof response.body === &#x27;undefined&#x27; &#x26;&#x26; !self._json) {
-      response.body = self.encoding === null ? Buffer.alloc(0) : &#x27;&#x27;
+    debug('emitting complete', self.uri.href)
+    if (typeof response.body === 'undefined' &amp;&amp; !self._json) {
+      response.body = self.encoding === null ? Buffer.alloc(0) : ''
     }
-    self.emit(&#x27;complete&#x27;, response, response.body)
+    self.emit('complete', response, response.body)
   })
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -6322,7 +6315,7 @@ fs.createReadStream(&#x27;file.json&#x27;).pipe(request.put(&#x27;http://mysite.
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
-request.debug(&#x27;redirect to&#x27;, redirectTo)
+request.debug('redirect to', redirectTo)
 
 // ignore any potential response body.  it cannot possibly be useful
 // to us at this point.
@@ -6331,8 +6324,8 @@ if (response.resume) {
   response.<span class="apidocCodeKeywordSpan">resume</span>()
 }
 
-if (self.redirectsFollowed &#x3e;= self.maxRedirects) {
-  request.emit(&#x27;error&#x27;, new Error(&#x27;Exceeded maxRedirects. Probably stuck in a redirect loop &#x27; + request.uri.
+if (self.redirectsFollowed &gt;= self.maxRedirects) {
+  request.emit('error', new Error('Exceeded maxRedirects. Probably stuck in a redirect loop ' + request.uri.
 href))
   return false
 }
@@ -6360,9 +6353,9 @@ self.redirectsFollowed += 1
   var self = this
 
   if (self.timing) {
-    // All timings will be relative to this request&#x27;s startTime.  In order to do this,
+    // All timings will be relative to this request's startTime.  In order to do this,
     // we need to capture the wall-clock start time (via Date), immediately followed
-    // by the high-resolution timer (via now()).  While these two won&#x27;t be set
+    // by the high-resolution timer (via now()).  While these two won't be set
     // at the _exact_ same time, they should be close enough to be able to calculate
     // high-resolution, monotonically non-decreasing timestamps relative to startTime.
     var startTime = new Date().getTime()
@@ -6374,22 +6367,22 @@ self.redirectsFollowed += 1
   }
 
   self._started = true
-  self.method = self.method || &#x27;GET&#x27;
+  self.method = self.method || 'GET'
   self.href = self.uri.href
 
-  if (self.src &#x26;&#x26; self.src.stat &#x26;&#x26; self.src.stat.size &#x26;&#x26; !self.hasHeader(&#x27;content-length&#x27;)) {
-    self.setHeader(&#x27;content-length&#x27;, self.src.stat.size)
+  if (self.src &amp;&amp; self.src.stat &amp;&amp; self.src.stat.size &amp;&amp; !self.hasHeader('content-length')) {
+    self.setHeader('content-length', self.src.stat.size)
   }
   if (self._aws) {
     self.aws(self._aws, true)
   }
 
   // We have a method named auth, which is completely different from the http.request
-  // auth option.  If we don&#x27;t remove it, we&#x27;re gonna have a bad time.
+  // auth option.  If we don't remove it, we're gonna have a bad time.
   var reqOptions = copy(self)
   delete reqOptions.auth
 
-  debug(&#x27;make request&#x27;, self.uri.href)
+  debug('make request', self.uri.href)
 
   // node v6.8.0 now supports a `timeout` value in `http.request()`, but we
   // should delete it for now since we handle timeouts manually for better
@@ -6399,7 +6392,7 @@ self.redirectsFollowed += 1
   try {
     self.req = self.httpModule.request(reqOptions)
   } catch (err) {
-    self.emit(&#x27;error&#x27;, err)
+    self.emit('error', err)
     return
   }
 
@@ -6413,20 +6406,20 @@ self.redirectsFollowed += 1
   }
 
   var timeout
-  if (self.timeout &#x26;&#x26; !self.timeoutTimer) {
-    if (self.timeout &#x3c; 0) {
+  if (self.timeout &amp;&amp; !self.timeoutTimer) {
+    if (self.timeout &lt; 0) {
       timeout = 0
-    } else if (typeof self.timeout === &#x27;number&#x27; &#x26;&#x26; isFinite(self.timeout)) {
+    } else if (typeof self.timeout === 'number' &amp;&amp; isFinite(self.timeout)) {
       timeout = self.timeout
     }
   }
 
-  self.req.on(&#x27;response&#x27;, self.onRequestResponse.bind(self))
-  self.req.on(&#x27;error&#x27;, self.onRequestError.bind(self))
-  self.req.on(&#x27;drain&#x27;, function() {
-    self.emit(&#x27;drain&#x27;)
+  self.req.on('response', self.onRequestResponse.bind(self))
+  self.req.on('error', self.onRequestError.bind(self))
+  self.req.on('drain', function() {
+    self.emit('drain')
   })
-  self.req.on(&#x27;socket&#x27;, function(socket) {
+  self.req.on('socket', function(socket) {
     // `._connecting` was the old property which was made public in node v6.1.0
     var isConnecting = socket._connecting || socket.connecting
     if (self.timing) {
@@ -6441,13 +6434,13 @@ self.redirectsFollowed += 1
           self.timings.connect = now() - self.startTimeNow
         }
 
-        socket.once(&#x27;lookup&#x27;, onLookupTiming)
-        socket.once(&#x27;connect&#x27;, onConnectTiming)
+        socket.once('lookup', onLookupTiming)
+        socket.once('connect', onConnectTiming)
 
         // clean up timing event listeners if needed on error
-        self.req.once(&#x27;error&#x27;, function() {
-          socket.removeListener(&#x27;lookup&#x27;, onLookupTiming)
-          socket.removeListener(&#x27;connect&#x27;, onConnectTiming)
+        self.req.once('error', function() {
+          socket.removeListener('lookup', onLookupTiming)
+          socket.removeListener('connect', onConnectTiming)
         })
       }
     }
@@ -6456,23 +6449,23 @@ self.redirectsFollowed += 1
       // This timeout sets the amount of time to wait *between* bytes sent
       // from the server once connected.
       //
-      // In particular, it&#x27;s useful for erroring if the server fails to send
+      // In particular, it's useful for erroring if the server fails to send
       // data halfway through streaming a response.
       self.req.setTimeout(timeout, function () {
         if (self.req) {
           self.abort()
-          var e = new Error(&#x27;ESOCKETTIMEDOUT&#x27;)
-          e.code = &#x27;ESOCKETTIMEDOUT&#x27;
+          var e = new Error('ESOCKETTIMEDOUT')
+          e.code = 'ESOCKETTIMEDOUT'
           e.connect = false
-          self.emit(&#x27;error&#x27;, e)
+          self.emit('error', e)
         }
       })
     }
     if (timeout !== undefined) {
-      // Only start the connection timer if we&#x27;re actually connecting a new
-      // socket, otherwise if we&#x27;re already connected (because this is a
-      // keep-alive connection) do not bother. This is important since we won&#x27;t
-      // get a &#x27;connect&#x27; event for an already connected socket.
+      // Only start the connection timer if we're actually connecting a new
+      // socket, otherwise if we're already connected (because this is a
+      // keep-alive connection) do not bother. This is important since we won't
+      // get a 'connect' event for an already connected socket.
       if (isConnecting) {
         var onReqSockConnect = function() { ...</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -6582,7 +6575,7 @@ request.get(url)
 Function that creates a new cookie.
 
 ```js
-request.<span class="apidocCodeKeywordSpan">cookie</span>(&#x27;key1=value1&#x27;)
+request.<span class="apidocCodeKeywordSpan">cookie</span>('key1=value1')
 ```
 ### request.jar()
 
@@ -6616,7 +6609,7 @@ request.jar()
 Function that creates a new cookie.
 
 ```js
-request.cookie(&#x27;key1=value1&#x27;)
+request.cookie('key1=value1')
 ```
 ### request.<span class="apidocCodeKeywordSpan">jar</span>()
 
@@ -6638,25 +6631,25 @@ request.jar()
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">parse = function (str) {
-  if (str &#x26;&#x26; str.uri) {
+  if (str &amp;&amp; str.uri) {
     str = str.uri
   }
-  if (typeof str !== &#x27;string&#x27;) {
-    throw new Error(&#x27;The cookie function only accepts STRING as param&#x27;)
+  if (typeof str !== 'string') {
+    throw new Error('The cookie function only accepts STRING as param')
   }
   return Cookie.parse(str, {loose: true})
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
   headers: {
-    &#x27;User-Agent&#x27;: &#x27;request&#x27;
+    'User-Agent': 'request'
   }
 };
 
 function callback(error, response, body) {
-  if (!error &#x26;&#x26; response.statusCode == 200) {
+  if (!error &amp;&amp; response.statusCode == 200) {
     var info = JSON.<span class="apidocCodeKeywordSpan">parse</span>(body);
-    console.log(info.stargazers_count + &#x22; Stars&#x22;);
-    console.log(info.forks_count + &#x22; Forks&#x22;);
+    console.log(info.stargazers_count + " Stars");
+    console.log(info.forks_count + " Forks");
   }
 }
 
@@ -6684,14 +6677,14 @@ request(options, callback);
 
   options = options || {}
 
-  if (typeof options === &#x27;function&#x27;) {
+  if (typeof options === 'function') {
     requester = options
     options = {}
   }
 
   var defaults      = wrapRequestMethod(self, options, requester)
 
-  var verbs = [&#x27;get&#x27;, &#x27;head&#x27;, &#x27;post&#x27;, &#x27;put&#x27;, &#x27;patch&#x27;, &#x27;del&#x27;, &#x27;delete&#x27;]
+  var verbs = ['get', 'head', 'post', 'put', 'patch', 'del', 'delete']
   verbs.forEach(function(verb) {
     defaults[verb]  = wrapRequestMethod(self[verb], options, requester, verb)
   })
@@ -6703,17 +6696,17 @@ request(options, callback);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 ```js
-req.pipe(request(&#x27;http://mysite.com/doodle.png&#x27;)).pipe(resp)
+req.pipe(request('http://mysite.com/doodle.png')).pipe(resp)
 ```
 
 Also, none of this new functionality conflicts with requests previous features, it just expands them.
 
 ```js
-var r = request.<span class="apidocCodeKeywordSpan">defaults</span>({&#x27;proxy&#x27;:&#x27;http://localproxy.com&#x27;})
+var r = request.<span class="apidocCodeKeywordSpan">defaults</span>({'proxy':'http://localproxy.com'})
 
 http.createServer(function (req, resp) {
-  if (req.url === &#x27;/doodle.png&#x27;) {
-    r.get(&#x27;http://google.com/doodle.png&#x27;).pipe(resp)
+  if (req.url === '/doodle.png') {
+    r.get('http://google.com/doodle.png').pipe(resp)
   }
 })
 ```
@@ -6744,7 +6737,7 @@ http.createServer(function (req, resp) {
 
 ### request.del / request.delete
 
-Same as `request()`, but defaults to `method: &#x22;DELETE&#x22;`.
+Same as `request()`, but defaults to `method: "DELETE"`.
 
 ```js
 request.<span class="apidocCodeKeywordSpan">del</span>(url)
@@ -6780,7 +6773,7 @@ Same as `request()` (for uniformity).
 
 ### request.del / request.delete
 
-Same as `request()`, but defaults to `method: &#x22;DELETE&#x22;`.
+Same as `request()`, but defaults to `method: "DELETE"`.
 
 ```js
 request.del(url)
@@ -6845,22 +6838,22 @@ Same as `request()` (for uniformity).
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 ```js
-fs.createReadStream(&#x27;file.json&#x27;).pipe(request.put(&#x27;http://mysite.com/obj.json&#x27;))
+fs.createReadStream('file.json').pipe(request.put('http://mysite.com/obj.json'))
 ```
 
 Request can also `pipe` to itself. When doing so, `content-type` and `content-length` are preserved in the PUT headers.
 
 ```js
-request.<span class="apidocCodeKeywordSpan">get</span>(&#x27;http://google.com/img.png&#x27;).pipe(request.put(&#x27;http://mysite
-.com/img.png&#x27;))
+request.<span class="apidocCodeKeywordSpan">get</span>('http://google.com/img.png').pipe(request.put('http://mysite
+.com/img.png'))
 ```
 
-Request emits a &#x22;response&#x22; event when a response is received. The `response` argument will be an instance of [http.IncomingMessage
+Request emits a "response" event when a response is received. The `response` argument will be an instance of [http.IncomingMessage
 ](https://nodejs.org/api/http.html#http_class_http_incomingmessage).
 
 ```js
 request
-.get(&#x27;http://google.com/img.png&#x27;)
+.get('http://google.com/img.png')
 ...</pre></li>
     </ul>
 
@@ -6883,28 +6876,28 @@ request
   // environmental variables (NO_PROXY, HTTP_PROXY, etc.)
   // respect NO_PROXY environment variables (see: http://lynx.isc.org/current/breakout/lynx_help/keystrokes/environments.html)
 
-  var noProxy = process.env.NO_PROXY || process.env.no_proxy || &#x27;&#x27;
+  var noProxy = process.env.NO_PROXY || process.env.no_proxy || ''
 
   // if the noProxy is a wildcard then return null
 
-  if (noProxy === &#x27;*&#x27;) {
+  if (noProxy === '*') {
     return null
   }
 
   // if the noProxy is not empty and the uri is found return null
 
-  if (noProxy !== &#x27;&#x27; &#x26;&#x26; uriInNoProxy(uri, noProxy)) {
+  if (noProxy !== '' &amp;&amp; uriInNoProxy(uri, noProxy)) {
     return null
   }
 
   // Check for HTTP or HTTPS Proxy in environment Else default to null
 
-  if (uri.protocol === &#x27;http:&#x27;) {
+  if (uri.protocol === 'http:') {
     return process.env.HTTP_PROXY ||
            process.env.http_proxy || null
   }
 
-  if (uri.protocol === &#x27;https:&#x27;) {
+  if (uri.protocol === 'https:') {
     return process.env.HTTPS_PROXY ||
            process.env.https_proxy ||
            process.env.HTTP_PROXY  ||
@@ -6963,7 +6956,7 @@ request
 
 ### request.head
 
-Same as `request()`, but defaults to `method: &#x22;HEAD&#x22;`.
+Same as `request()`, but defaults to `method: "HEAD"`.
 
 ```js
 request.<span class="apidocCodeKeywordSpan">head</span>(url)
@@ -6971,7 +6964,7 @@ request.<span class="apidocCodeKeywordSpan">head</span>(url)
 
 ### request.del / request.delete
 
-Same as `request()`, but defaults to `method: &#x22;DELETE&#x22;`.
+Same as `request()`, but defaults to `method: "DELETE"`.
 
 ```js
 ...</pre></li>
@@ -7011,8 +7004,8 @@ Same as `request()`, but defaults to `method: &#x22;DELETE&#x22;`.
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">defer = function (callback, arg1, arg2, arg3) {
-  if (typeof callback !== &#x27;function&#x27;) {
-    throw new TypeError(&#x27;&#x22;callback&#x22; argument must be a function&#x27;);
+  if (typeof callback !== 'function') {
+    throw new TypeError('"callback" argument must be a function');
   }
 
   var i, args;
@@ -7029,7 +7022,7 @@ Same as `request()`, but defaults to `method: &#x22;DELETE&#x22;`.
       break;
     default:
       args = [arg1, arg2, arg3];
-      for (i = 4; i &#x3c; arguments.length; i++)
+      for (i = 4; i &lt; arguments.length; i++)
         // extend array dynamically, makes .apply run much faster in v6.0.0
         args[i - 1] = arguments[i];
       break;
@@ -7049,7 +7042,7 @@ Same as `request()`, but defaults to `method: &#x22;DELETE&#x22;`.
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function isReadStream(rs) {
-  return rs.readable &#x26;&#x26; rs.path &#x26;&#x26; rs.mode
+  return rs.readable &amp;&amp; rs.path &amp;&amp; rs.mode
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -7064,7 +7057,7 @@ Same as `request()`, but defaults to `method: &#x22;DELETE&#x22;`.
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function md5(str) {
-  return crypto.createHash(&#x27;md5&#x27;).update(str).digest(&#x27;hex&#x27;)
+  return crypto.createHash('md5').update(str).digest('hex')
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -7082,7 +7075,7 @@ Same as `request()`, but defaults to `method: &#x22;DELETE&#x22;`.
   return (
     params.body ||
     params.requestBodyStream ||
-    (params.json &#x26;&#x26; typeof params.json !== &#x27;boolean&#x27;) ||
+    (params.json &amp;&amp; typeof params.json !== 'boolean') ||
     params.multipart
   )
 }</pre></li>
@@ -7120,7 +7113,7 @@ Same as `request()`, but defaults to `method: &#x22;DELETE&#x22;`.
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function toBase64(str) {
-  return Buffer.from(str || &#x27;&#x27;, &#x27;utf8&#x27;).toString(&#x27;base64&#x27;)
+  return Buffer.from(str || '', 'utf8').toString('base64')
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -7135,7 +7128,7 @@ Same as `request()`, but defaults to `method: &#x22;DELETE&#x22;`.
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function version() {
-  var numbers = process.version.replace(&#x27;v&#x27;, &#x27;&#x27;).split(&#x27;.&#x27;)
+  var numbers = process.version.replace('v', '').split('.')
   return {
     major: parseInt(numbers[0], 10),
     minor: parseInt(numbers[1], 10),
@@ -7160,14 +7153,14 @@ Same as `request()`, but defaults to `method: &#x22;DELETE&#x22;`.
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function initParams(uri, options, callback) {
-  if (typeof options === &#x27;function&#x27;) {
+  if (typeof options === 'function') {
     callback = options
   }
 
   var params = {}
-  if (typeof options === &#x27;object&#x27;) {
+  if (typeof options === 'object') {
     extend(params, options, {uri: uri})
-  } else if (typeof uri === &#x27;string&#x27;) {
+  } else if (typeof uri === 'string') {
     extend(params, {uri: uri})
   } else {
     extend(params, uri)
@@ -7202,7 +7195,7 @@ Same as `request()`, but defaults to `method: &#x22;DELETE&#x22;`.
 Function that creates a new cookie.
 
 ```js
-request.cookie(&#x27;key1=value1&#x27;)
+request.cookie('key1=value1')
 ```
 ### request.<span class="apidocCodeKeywordSpan">jar</span>()
 
@@ -7282,7 +7275,7 @@ request.jar()
 
 ### request.patch
 
-Same as `request()`, but defaults to `method: &#x22;PATCH&#x22;`.
+Same as `request()`, but defaults to `method: "PATCH"`.
 
 ```js
 request.<span class="apidocCodeKeywordSpan">patch</span>(url)
@@ -7290,7 +7283,7 @@ request.<span class="apidocCodeKeywordSpan">patch</span>(url)
 
 ### request.post
 
-Same as `request()`, but defaults to `method: &#x22;POST&#x22;`.
+Same as `request()`, but defaults to `method: "POST"`.
 
 ```js
 ...</pre></li>
@@ -7323,11 +7316,11 @@ Same as `request()`, but defaults to `method: &#x22;POST&#x22;`.
 URL-encoded forms are simple.
 
 ```js
-request.<span class="apidocCodeKeywordSpan">post</span>(&#x27;http://service.com/upload&#x27;, {form:{key:&#x27;value&#x27;}})
+request.<span class="apidocCodeKeywordSpan">post</span>('http://service.com/upload', {form:{key:'value'}})
 // or
-request.post(&#x27;http://service.com/upload&#x27;).form({key:&#x27;value&#x27;})
+request.post('http://service.com/upload').form({key:'value'})
 // or
-request.post({url:&#x27;http://service.com/upload&#x27;, form: {key:&#x27;value&#x27;}}, function(err,httpResponse,body){ /* ... */ })
+request.post({url:'http://service.com/upload', form: {key:'value'}}, function(err,httpResponse,body){ /* ... */ })
 ```
 ...</pre></li>
     </ul>
@@ -7353,22 +7346,22 @@ request.post({url:&#x27;http://service.com/upload&#x27;, form: {key:&#x27;value&
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 ```js
-request(&#x27;http://google.com/doodle.png&#x27;).pipe(fs.createWriteStream(&#x27;doodle.png&#x27;))
+request('http://google.com/doodle.png').pipe(fs.createWriteStream('doodle.png'))
 ```
 
 You can also stream a file to a PUT or POST request. This method will also check the file extension against a mapping of file extensions
- to content-types (in this case `application/json`) and use the proper `content-type` in the PUT request (if the headers don’t already
+ to content-types (in this case `application/json`) and use the proper `content-type` in the PUT request (if the headers donâ€™t already
  provide one).
 
 ```js
-fs.createReadStream(&#x27;file.json&#x27;).pipe(request.<span class="apidocCodeKeywordSpan">put</span>(&#x27;http://mysite.com/obj
-.json&#x27;))
+fs.createReadStream('file.json').pipe(request.<span class="apidocCodeKeywordSpan">put</span>('http://mysite.com/obj
+.json'))
 ```
 
 Request can also `pipe` to itself. When doing so, `content-type` and `content-length` are preserved in the PUT headers.
 
 ```js
-request.get(&#x27;http://google.com/img.png&#x27;).pipe(request.put(&#x27;http://mysite.com/img.png&#x27;))
+request.get('http://google.com/img.png').pipe(request.put('http://mysite.com/img.png'))
 ```
 ...</pre></li>
     </ul>
@@ -7448,16 +7441,16 @@ request.get(&#x27;http://google.com/img.png&#x27;).pipe(request.put(&#x27;http:/
 ## Examples:
 
 ```js
-var request = require(&#x27;request&#x27;)
+var request = require('request')
   , rand = Math.floor(Math.random()*100000000).<span class="apidocCodeKeywordSpan">toString</span>()
   ;
 request(
-  { method: &#x27;PUT&#x27;
-  , uri: &#x27;http://mikeal.iriscouch.com/testjs/&#x27; + rand
+  { method: 'PUT'
+  , uri: 'http://mikeal.iriscouch.com/testjs/' + rand
   , multipart:
-    [ { &#x27;content-type&#x27;: &#x27;application/json&#x27;
-      ,  body: JSON.stringify({foo: &#x27;bar&#x27;, _attachments: {&#x27;message.txt&#x27;: {follows: true, length: 18, &#x27;content_type
-&#x27;: &#x27;text/plain&#x27; }}})
+    [ { 'content-type': 'application/json'
+      ,  body: JSON.stringify({foo: 'bar', _attachments: {'message.txt': {follows: true, length: 18, 'content_type
+': 'text/plain' }}})
 ...</pre></li>
     </ul>
 
@@ -7479,7 +7472,7 @@ request(
   this.request = request
   this.proxyHeaderWhiteList = defaultProxyHeaderWhiteList
   this.proxyHeaderExclusiveList = []
-  if (typeof request.tunnel !== &#x27;undefined&#x27;) {
+  if (typeof request.tunnel !== 'undefined') {
     this.tunnelOverride = request.tunnel
   }
 }</pre></li>
@@ -7495,3 +7488,4 @@ request(
     ]
 </div>
 </div>
+</body></html>
