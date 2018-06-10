@@ -1,0 +1,251 @@
+<svg height="2350" width="720" xmlns="http://www.w3.org/2000/svg">
+<rect height="2350" fill="#555" width="720"></rect>
+<text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
+<tspan x="10" y="26"></tspan>
+
+<tspan x="10" y="42">[MODE_BUILD=buildApp] - 2018-06-10T18:27:00.185Z - npm-testing /home/travis/build/npmdoc/node-np\</tspan>
+<tspan x="10" y="58">mdoc-request</tspan>
+
+<tspan x="10" y="74"></tspan>
+
+<tspan x="10" y="90"></tspan>
+
+<tspan x="10" y="106">buildApp - merged test-report from file /home/travis/build/npmdoc/node-npmdoc-request/tmp/build/\</tspan>
+<tspan x="10" y="122">test-report.json</tspan>
+
+<tspan x="10" y="138">&gt; server listening on http-port 46293</tspan>
+
+<tspan x="10" y="154">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-request/node_modules/request/pa\</tspan>
+<tspan x="10" y="170">ckage.json</tspan>
+
+<tspan x="10" y="186">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-request/node_modules/request/CH\</tspan>
+<tspan x="10" y="202">ANGELOG.md</tspan>
+
+<tspan x="10" y="218">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-request/node_modules/request/.g\</tspan>
+<tspan x="10" y="234">itignore</tspan>
+
+<tspan x="10" y="250">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-request/node_modules/request/in\</tspan>
+<tspan x="10" y="266">dex.js</tspan>
+
+<tspan x="10" y="282">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-request/node_modules/request/LI\</tspan>
+<tspan x="10" y="298">CENSE</tspan>
+
+<tspan x="10" y="314">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-request/node_modules/request/pa\</tspan>
+<tspan x="10" y="330">ckage.json</tspan>
+
+<tspan x="10" y="346">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-request/node_modules/request/RE\</tspan>
+<tspan x="10" y="362">ADME.md</tspan>
+
+<tspan x="10" y="378">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-request/node_modules/request/re\</tspan>
+<tspan x="10" y="394">quest.js</tspan>
+
+<tspan x="10" y="410">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-request/node_modules/request/li\</tspan>
+<tspan x="10" y="426">b/auth.js</tspan>
+
+<tspan x="10" y="442">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-request/node_modules/request/li\</tspan>
+<tspan x="10" y="458">b/cookies.js</tspan>
+
+<tspan x="10" y="474">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-request/node_modules/request/li\</tspan>
+<tspan x="10" y="490">b/getProxyFromURI.js</tspan>
+
+<tspan x="10" y="506">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-request/node_modules/request/li\</tspan>
+<tspan x="10" y="522">b/har.js</tspan>
+
+<tspan x="10" y="538">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-request/node_modules/request/li\</tspan>
+<tspan x="10" y="554">b/hawk.js</tspan>
+
+<tspan x="10" y="570">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-request/node_modules/request/li\</tspan>
+<tspan x="10" y="586">b/helpers.js</tspan>
+
+<tspan x="10" y="602">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-request/node_modules/request/li\</tspan>
+<tspan x="10" y="618">b/multipart.js</tspan>
+
+<tspan x="10" y="634">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-request/node_modules/request/li\</tspan>
+<tspan x="10" y="650">b/oauth.js</tspan>
+
+<tspan x="10" y="666">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-request/node_modules/request/li\</tspan>
+<tspan x="10" y="682">b/querystring.js</tspan>
+
+<tspan x="10" y="698">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-request/node_modules/request/li\</tspan>
+<tspan x="10" y="714">b/redirect.js</tspan>
+
+<tspan x="10" y="730">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-request/node_modules/request/li\</tspan>
+<tspan x="10" y="746">b/tunnel.js</tspan>
+
+<tspan x="10" y="762">apidocCreate - requiring /home/travis/build/npmdoc/node-npmdoc-request/node_modules/request ...</tspan>
+
+<tspan x="10" y="778">apidocCreate - ... required /home/travis/build/npmdoc/node-npmdoc-request/node_modules/request</tspan>
+
+<tspan x="10" y="794">apidocCreate - libFile request.js</tspan>
+
+<tspan x="10" y="810">apidocCreate - libFile lib/auth.js</tspan>
+
+<tspan x="10" y="826">apidocCreate - libFile lib/cookies.js</tspan>
+
+<tspan x="10" y="842">apidocCreate - libFile lib/getProxyFromURI.js</tspan>
+
+<tspan x="10" y="858">apidocCreate - libFile lib/har.js</tspan>
+
+<tspan x="10" y="874">apidocCreate - libFile lib/hawk.js</tspan>
+
+<tspan x="10" y="890">apidocCreate - libFile lib/helpers.js</tspan>
+
+<tspan x="10" y="906">apidocCreate - libFile lib/multipart.js</tspan>
+
+<tspan x="10" y="922">apidocCreate - libFile lib/oauth.js</tspan>
+
+<tspan x="10" y="938">apidocCreate - libFile lib/querystring.js</tspan>
+
+<tspan x="10" y="954">apidocCreate - libFile lib/redirect.js</tspan>
+
+<tspan x="10" y="970">apidocCreate - libFile lib/tunnel.js</tspan>
+
+<tspan x="10" y="986">created apidoc file /home/travis/build/npmdoc/node-npmdoc-request/tmp/build/apidoc.html</tspan>
+
+<tspan x="10" y="1002"></tspan>
+
+<tspan x="10" y="1018">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-request/node_modules/request/pa\</tspan>
+<tspan x="10" y="1034">ckage.json</tspan>
+
+<tspan x="10" y="1050">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-request/node_modules/request/CH\</tspan>
+<tspan x="10" y="1066">ANGELOG.md</tspan>
+
+<tspan x="10" y="1082">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-request/node_modules/request/.g\</tspan>
+<tspan x="10" y="1098">itignore</tspan>
+
+<tspan x="10" y="1114">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-request/node_modules/request/in\</tspan>
+<tspan x="10" y="1130">dex.js</tspan>
+
+<tspan x="10" y="1146">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-request/node_modules/request/LI\</tspan>
+<tspan x="10" y="1162">CENSE</tspan>
+
+<tspan x="10" y="1178">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-request/node_modules/request/pa\</tspan>
+<tspan x="10" y="1194">ckage.json</tspan>
+
+<tspan x="10" y="1210">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-request/node_modules/request/RE\</tspan>
+<tspan x="10" y="1226">ADME.md</tspan>
+
+<tspan x="10" y="1242">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-request/node_modules/request/re\</tspan>
+<tspan x="10" y="1258">quest.js</tspan>
+
+<tspan x="10" y="1274">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-request/node_modules/request/li\</tspan>
+<tspan x="10" y="1290">b/auth.js</tspan>
+
+<tspan x="10" y="1306">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-request/node_modules/request/li\</tspan>
+<tspan x="10" y="1322">b/cookies.js</tspan>
+
+<tspan x="10" y="1338">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-request/node_modules/request/li\</tspan>
+<tspan x="10" y="1354">b/getProxyFromURI.js</tspan>
+
+<tspan x="10" y="1370">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-request/node_modules/request/li\</tspan>
+<tspan x="10" y="1386">b/har.js</tspan>
+
+<tspan x="10" y="1402">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-request/node_modules/request/li\</tspan>
+<tspan x="10" y="1418">b/hawk.js</tspan>
+
+<tspan x="10" y="1434">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-request/node_modules/request/li\</tspan>
+<tspan x="10" y="1450">b/helpers.js</tspan>
+
+<tspan x="10" y="1466">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-request/node_modules/request/li\</tspan>
+<tspan x="10" y="1482">b/multipart.js</tspan>
+
+<tspan x="10" y="1498">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-request/node_modules/request/li\</tspan>
+<tspan x="10" y="1514">b/oauth.js</tspan>
+
+<tspan x="10" y="1530">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-request/node_modules/request/li\</tspan>
+<tspan x="10" y="1546">b/querystring.js</tspan>
+
+<tspan x="10" y="1562">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-request/node_modules/request/li\</tspan>
+<tspan x="10" y="1578">b/redirect.js</tspan>
+
+<tspan x="10" y="1594">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-request/node_modules/request/li\</tspan>
+<tspan x="10" y="1610">b/tunnel.js</tspan>
+
+<tspan x="10" y="1626">apidocCreate - requiring /home/travis/build/npmdoc/node-npmdoc-request/node_modules/request ...</tspan>
+
+<tspan x="10" y="1642">apidocCreate - ... required /home/travis/build/npmdoc/node-npmdoc-request/node_modules/request</tspan>
+
+<tspan x="10" y="1658">apidocCreate - libFile request.js</tspan>
+
+<tspan x="10" y="1674">apidocCreate - libFile lib/auth.js</tspan>
+
+<tspan x="10" y="1690">apidocCreate - libFile lib/cookies.js</tspan>
+
+<tspan x="10" y="1706">apidocCreate - libFile lib/getProxyFromURI.js</tspan>
+
+<tspan x="10" y="1722">apidocCreate - libFile lib/har.js</tspan>
+
+<tspan x="10" y="1738">apidocCreate - libFile lib/hawk.js</tspan>
+
+<tspan x="10" y="1754">apidocCreate - libFile lib/helpers.js</tspan>
+
+<tspan x="10" y="1770">apidocCreate - libFile lib/multipart.js</tspan>
+
+<tspan x="10" y="1786">apidocCreate - libFile lib/oauth.js</tspan>
+
+<tspan x="10" y="1802">apidocCreate - libFile lib/querystring.js</tspan>
+
+<tspan x="10" y="1818">apidocCreate - libFile lib/redirect.js</tspan>
+
+<tspan x="10" y="1834">apidocCreate - libFile lib/tunnel.js</tspan>
+
+<tspan x="10" y="1850">created customOrg file /home/travis/build/npmdoc/node-npmdoc-request/README.md</tspan>
+
+<tspan x="10" y="1866"></tspan>
+
+<tspan x="10" y="1882">(node:5680) DeprecationWarning: _linklist module is deprecated. Please use a userland alternativ\</tspan>
+<tspan x="10" y="1898">e.</tspan>
+
+<tspan x="10" y="1914">(node:5680) DeprecationWarning: sys is deprecated. Use util instead.</tspan>
+
+<tspan x="10" y="1930">&gt; server listening on http-port 63921</tspan>
+
+<tspan x="10" y="1946">[node test-case 1 of 1 passed] - testCase_buildApp_default</tspan>
+
+<tspan x="10" y="1962"></tspan>
+
+<tspan x="10" y="1978">buildApp - merged test-report from file /home/travis/build/npmdoc/node-npmdoc-request/tmp/build/\</tspan>
+<tspan x="10" y="1994">test-report.json</tspan>
+
+<tspan x="10" y="2010"></tspan>
+
+<tspan x="10" y="2026">-------------------------------------------------------</tspan>
+
+<tspan x="10" y="2042">| test-report - buildApidoc - node - linux v6.14.2 - 2018-06-10T18:26:34.770Z</tspan>
+
+<tspan x="10" y="2058">|   31857 ms            0 failed        1 passed      |</tspan>
+
+<tspan x="10" y="2074">-------------------------------------------------------</tspan>
+
+<tspan x="10" y="2090">| test-report - buildApp - node - linux v6.14.2 - 2018-06-10T18:26:05.338Z</tspan>
+
+<tspan x="10" y="2106">|   26583 ms            0 failed        8 passed      |</tspan>
+
+<tspan x="10" y="2122">-------------------------------------------------------</tspan>
+
+<tspan x="10" y="2138">| test-report - npmTest - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTM\</tspan>
+<tspan x="10" y="2154">L, like Gecko) Chrome/58.0.3029.110 Electron/1.7.15 Safari/537.36 - 2018-06-10T18:26:17.299Z</tspan>
+
+<tspan x="10" y="2170">|      47 ms            0 failed        8 passed      |</tspan>
+
+<tspan x="10" y="2186">-------------------------------------------------------</tspan>
+
+<tspan x="10" y="2202"></tspan>
+
+<tspan x="10" y="2218">created test-report file /home/travis/build/npmdoc/node-npmdoc-request/tmp/build/test-report.htm\</tspan>
+<tspan x="10" y="2234">l</tspan>
+
+<tspan x="10" y="2250"></tspan>
+
+<tspan x="10" y="2266"></tspan>
+
+<tspan x="10" y="2282">buildApp - 0 failed tests</tspan>
+
+<tspan x="10" y="2298"></tspan>
+
+<tspan x="10" y="2314"></tspan>
+
+<tspan x="10" y="2330">[MODE_BUILD=buildApp] - 2018-06-10T18:27:08.118Z - EXIT_CODE - 0</tspan>
+
+</text>
+</svg>

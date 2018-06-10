@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -48,17 +48,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://github.com/request/request#readme"
-
-    >request (2.87.0)</a>
+    <a href="https://github.com/request/request#readme">request (2.87.0)</a>
 </h1>
 <h4>Simplified HTTP request client.</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.request">module request</a><ol>
 
@@ -403,11 +396,11 @@
   return new RequestJar(store)
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-request.post = verbFunc(&apos;post&apos;)
-request.put = verbFunc(&apos;put&apos;)
-request.patch = verbFunc(&apos;patch&apos;)
-request.del = verbFunc(&apos;delete&apos;)
-request[&apos;delete&apos;] = verbFunc(&apos;delete&apos;)
+request.post = verbFunc('post')
+request.put = verbFunc('put')
+request.patch = verbFunc('patch')
+request.del = verbFunc('delete')
+request['delete'] = verbFunc('delete')
 
 request.jar = function (store) {
   return cookies.<span class="apidocCodeKeywordSpan">jar</span>(store)
@@ -434,8 +427,8 @@ function wrapRequestMethod (method, options, requester, verb) {
   if (str &amp;&amp; str.uri) {
     str = str.uri
   }
-  if (typeof str !== &apos;string&apos;) {
-    throw new Error(&apos;The cookie function only accepts STRING as param&apos;)
+  if (typeof str !== 'string') {
+    throw new Error('The cookie function only accepts STRING as param')
   }
   return Cookie.parse(str, {loose: true})
 }</pre></li>
@@ -497,46 +490,46 @@ Forever option defaults to using http(s).Agent in node 0.12+ (@simov)
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">calculateMac = function (credentials, opts) {
-  var normalized = &apos;hawk.1.header\n&apos; +
-    opts.ts + &apos;\n&apos; +
-    opts.nonce + &apos;\n&apos; +
-    (opts.method || &apos;&apos;).toUpperCase() + &apos;\n&apos; +
-    opts.resource + &apos;\n&apos; +
-    opts.host.toLowerCase() + &apos;\n&apos; +
-    opts.port + &apos;\n&apos; +
-    (opts.hash || &apos;&apos;) + &apos;\n&apos;
+  var normalized = 'hawk.1.header\n' +
+    opts.ts + '\n' +
+    opts.nonce + '\n' +
+    (opts.method || '').toUpperCase() + '\n' +
+    opts.resource + '\n' +
+    opts.host.toLowerCase() + '\n' +
+    opts.port + '\n' +
+    (opts.hash || '') + '\n'
 
   if (opts.ext) {
-    normalized = normalized + opts.ext.replace(&apos;\\&apos;, &apos;\\\\&apos;).replace(&apos;\n&apos;, &apos;\\n&apos;)
+    normalized = normalized + opts.ext.replace('\\', '\\\\').replace('\n', '\\n')
   }
 
-  normalized = normalized + &apos;\n&apos;
+  normalized = normalized + '\n'
 
   if (opts.app) {
-    normalized = normalized + opts.app + &apos;\n&apos; + (opts.dlg || &apos;&apos;) + &apos;\n&apos;
+    normalized = normalized + opts.app + '\n' + (opts.dlg || '') + '\n'
   }
 
   var hmac = crypto.createHmac(credentials.algorithm, credentials.key).update(normalized)
-  var digest = hmac.digest(&apos;base64&apos;)
+  var digest = hmac.digest('base64')
   return digest
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
   dlg: opts.dlg
 }
 
-if (!artifacts.hash &amp;&amp; (opts.payload || opts.payload === &apos;&apos;)) {
+if (!artifacts.hash &amp;&amp; (opts.payload || opts.payload === '')) {
   artifacts.hash = calculatePayloadHash(opts.payload, credentials.algorithm, opts.contentType)
 }
 
 var mac = exports.<span class="apidocCodeKeywordSpan">calculateMac</span>(credentials, artifacts)
 
-var hasExt = artifacts.ext !== null &amp;&amp; artifacts.ext !== undefined &amp;&amp; artifacts.ext !== &apos;&apos;
-var header = &apos;Hawk id=&quot;&apos; + credentials.id +
-  &apos;&quot;, ts=&quot;&apos; + artifacts.ts +
-  &apos;&quot;, nonce=&quot;&apos; + artifacts.nonce +
-  (artifacts.hash ? &apos;&quot;, hash=&quot;&apos; + artifacts.hash : &apos;&apos;) +
-  (hasExt ? &apos;&quot;, ext=&quot;&apos; + artifacts.ext.replace(/\\/g, &apos;\\\\&apos;).replace(/&quot;/g, &apos;\\&quot;&apos
-;) : &apos;&apos;) +
+var hasExt = artifacts.ext !== null &amp;&amp; artifacts.ext !== undefined &amp;&amp; artifacts.ext !== ''
+var header = 'Hawk id="' + credentials.id +
+  '", ts="' + artifacts.ts +
+  '", nonce="' + artifacts.nonce +
+  (artifacts.hash ? '", hash="' + artifacts.hash : '') +
+  (hasExt ? '", ext="' + artifacts.ext.replace(/\\/g, '\\\\').replace(/"/g, '\\"&amp;apos
+;) : '') +
 ...</pre></li>
     </ul>
 
@@ -553,55 +546,55 @@ var header = &apos;Hawk id=&quot;&apos; + credentials.id +
   var timestamp = opts.timestamp || Math.floor((Date.now() + (opts.localtimeOffsetMsec || 0)) / 1000)
   var credentials = opts.credentials
   if (!credentials || !credentials.id || !credentials.key || !credentials.algorithm) {
-    return &apos;&apos;
+    return ''
   }
 
-  if ([&apos;sha1&apos;, &apos;sha256&apos;].indexOf(credentials.algorithm) === -1) {
-    return &apos;&apos;
+  if (['sha1', 'sha256'].indexOf(credentials.algorithm) === -1) {
+    return ''
   }
 
   var artifacts = {
     ts: timestamp,
     nonce: opts.nonce || randomString(6),
     method: method,
-    resource: uri.pathname + (uri.search || &apos;&apos;),
+    resource: uri.pathname + (uri.search || ''),
     host: uri.hostname,
-    port: uri.port || (uri.protocol === &apos;http:&apos; ? 80 : 443),
+    port: uri.port || (uri.protocol === 'http:' ? 80 : 443),
     hash: opts.hash,
     ext: opts.ext,
     app: opts.app,
     dlg: opts.dlg
   }
 
-  if (!artifacts.hash &amp;&amp; (opts.payload || opts.payload === &apos;&apos;)) {
+  if (!artifacts.hash &amp;&amp; (opts.payload || opts.payload === '')) {
     artifacts.hash = calculatePayloadHash(opts.payload, credentials.algorithm, opts.contentType)
   }
 
   var mac = exports.calculateMac(credentials, artifacts)
 
-  var hasExt = artifacts.ext !== null &amp;&amp; artifacts.ext !== undefined &amp;&amp; artifacts.ext !== &apos;&apos;
-  var header = &apos;Hawk id=&quot;&apos; + credentials.id +
-    &apos;&quot;, ts=&quot;&apos; + artifacts.ts +
-    &apos;&quot;, nonce=&quot;&apos; + artifacts.nonce +
-    (artifacts.hash ? &apos;&quot;, hash=&quot;&apos; + artifacts.hash : &apos;&apos;) +
-    (hasExt ? &apos;&quot;, ext=&quot;&apos; + artifacts.ext.replace(/\\/g, &apos;\\\\&apos;).replace(/&quot;/g, &apos;\\&quot;&apos;) : &apos;&apos;) +
-    &apos;&quot;, mac=&quot;&apos; + mac + &apos;&quot;&apos;
+  var hasExt = artifacts.ext !== null &amp;&amp; artifacts.ext !== undefined &amp;&amp; artifacts.ext !== ''
+  var header = 'Hawk id="' + credentials.id +
+    '", ts="' + artifacts.ts +
+    '", nonce="' + artifacts.nonce +
+    (artifacts.hash ? '", hash="' + artifacts.hash : '') +
+    (hasExt ? '", ext="' + artifacts.ext.replace(/\\/g, '\\\\').replace(/"/g, '\\"') : '') +
+    '", mac="' + mac + '"'
 
   if (artifacts.app) {
-    header = header + &apos;, app=&quot;&apos; + artifacts.app + (artifacts.dlg ? &apos;&quot;, dlg=&quot;&apos; + artifacts.dlg : &apos;&apos;) + &apos;&quot;&apos;
+    header = header + ', app="' + artifacts.app + (artifacts.dlg ? '", dlg="' + artifacts.dlg : '') + '"'
   }
 
   return header
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 }, opts)
-debug(&apos;httpSignature authorization&apos;, self.getHeader(&apos;authorization&apos;))
+debug('httpSignature authorization', self.getHeader('authorization'))
 
 return self
 }
 Request.prototype.hawk = function (opts) {
 var self = this
-self.setHeader(&apos;Authorization&apos;, hawk.<span class="apidocCodeKeywordSpan">header</span>(self.uri, self.method, opts))
+self.setHeader('Authorization', hawk.<span class="apidocCodeKeywordSpan">header</span>(self.uri, self.method, opts))
 }
 Request.prototype.oauth = function (_oauth) {
 var self = this
@@ -679,7 +672,7 @@ return self
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function md5(str) {
-  return crypto.createHash(&apos;md5&apos;).update(str).digest(&apos;hex&apos;)
+  return crypto.createHash('md5').update(str).digest('hex')
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -697,7 +690,7 @@ return self
   return (
     params.body ||
     params.requestBodyStream ||
-    (params.json &amp;&amp; typeof params.json !== &apos;boolean&apos;) ||
+    (params.json &amp;&amp; typeof params.json !== 'boolean') ||
     params.multipart
   )
 }</pre></li>
@@ -735,7 +728,7 @@ return self
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function toBase64(str) {
-  return Buffer.from(str || &apos;&apos;, &apos;utf8&apos;).toString(&apos;base64&apos;)
+  return Buffer.from(str || '', 'utf8').toString('base64')
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -750,7 +743,7 @@ return self
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function version() {
-  var numbers = process.version.replace(&apos;v&apos;, &apos;&apos;).split(&apos;.&apos;)
+  var numbers = process.version.replace('v', '').split('.')
   return {
     major: parseInt(numbers[0], 10),
     minor: parseInt(numbers[1], 10),
@@ -875,7 +868,7 @@ return self
   this.request = request
   this.proxyHeaderWhiteList = defaultProxyHeaderWhiteList
   this.proxyHeaderExclusiveList = []
-  if (typeof request.tunnel !== &apos;undefined&apos;) {
+  if (typeof request.tunnel !== 'undefined') {
     this.tunnelOverride = request.tunnel
   }
 }</pre></li>
@@ -891,3 +884,4 @@ return self
     ]
 </div>
 </div>
+</body></html>

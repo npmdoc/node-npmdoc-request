@@ -1,0 +1,103 @@
+<svg height="814" width="720" xmlns="http://www.w3.org/2000/svg">
+<rect height="814" fill="#555" width="720"></rect>
+<text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
+<tspan x="10" y="26">npm install - 6 megabytes</tspan>
+
+<tspan x="10" y="42"></tspan>
+
+<tspan x="10" y="58">node_modules</tspan>
+
+<tspan x="10" y="74">└─┬ request@2.87.0</tspan>
+
+<tspan x="10" y="90">  ├── aws-sign2@0.7.0</tspan>
+
+<tspan x="10" y="106">  ├── aws4@1.7.0</tspan>
+
+<tspan x="10" y="122">  ├── caseless@0.12.0</tspan>
+
+<tspan x="10" y="138">  ├─┬ combined-stream@1.0.6</tspan>
+
+<tspan x="10" y="154">  │ └── delayed-stream@1.0.0</tspan>
+
+<tspan x="10" y="170">  ├── extend@3.0.1</tspan>
+
+<tspan x="10" y="186">  ├── forever-agent@0.6.1</tspan>
+
+<tspan x="10" y="202">  ├─┬ form-data@2.3.2</tspan>
+
+<tspan x="10" y="218">  │ └── asynckit@0.4.0</tspan>
+
+<tspan x="10" y="234">  ├─┬ har-validator@5.0.3</tspan>
+
+<tspan x="10" y="250">  │ ├─┬ ajv@5.5.2</tspan>
+
+<tspan x="10" y="266">  │ │ ├── co@4.6.0</tspan>
+
+<tspan x="10" y="282">  │ │ ├── fast-deep-equal@1.1.0</tspan>
+
+<tspan x="10" y="298">  │ │ ├── fast-json-stable-stringify@2.0.0</tspan>
+
+<tspan x="10" y="314">  │ │ └── json-schema-traverse@0.3.1</tspan>
+
+<tspan x="10" y="330">  │ └── har-schema@2.0.0</tspan>
+
+<tspan x="10" y="346">  ├─┬ http-signature@1.2.0</tspan>
+
+<tspan x="10" y="362">  │ ├── assert-plus@1.0.0</tspan>
+
+<tspan x="10" y="378">  │ ├─┬ jsprim@1.4.1</tspan>
+
+<tspan x="10" y="394">  │ │ ├── extsprintf@1.3.0</tspan>
+
+<tspan x="10" y="410">  │ │ ├── json-schema@0.2.3</tspan>
+
+<tspan x="10" y="426">  │ │ └─┬ verror@1.10.0</tspan>
+
+<tspan x="10" y="442">  │ │   └── core-util-is@1.0.2</tspan>
+
+<tspan x="10" y="458">  │ └─┬ sshpk@1.14.2</tspan>
+
+<tspan x="10" y="474">  │   ├── asn1@0.2.3</tspan>
+
+<tspan x="10" y="490">  │   ├── bcrypt-pbkdf@1.0.1</tspan>
+
+<tspan x="10" y="506">  │   ├── dashdash@1.14.1</tspan>
+
+<tspan x="10" y="522">  │   ├── ecc-jsbn@0.1.1</tspan>
+
+<tspan x="10" y="538">  │   ├── getpass@0.1.7</tspan>
+
+<tspan x="10" y="554">  │   ├── jsbn@0.1.1</tspan>
+
+<tspan x="10" y="570">  │   ├── safer-buffer@2.1.2</tspan>
+
+<tspan x="10" y="586">  │   └── tweetnacl@0.14.5</tspan>
+
+<tspan x="10" y="602">  ├── is-typedarray@1.0.0</tspan>
+
+<tspan x="10" y="618">  ├── isstream@0.1.2</tspan>
+
+<tspan x="10" y="634">  ├── json-stringify-safe@5.0.1</tspan>
+
+<tspan x="10" y="650">  ├─┬ mime-types@2.1.18</tspan>
+
+<tspan x="10" y="666">  │ └── mime-db@1.33.0</tspan>
+
+<tspan x="10" y="682">  ├── oauth-sign@0.8.2</tspan>
+
+<tspan x="10" y="698">  ├── performance-now@2.1.0</tspan>
+
+<tspan x="10" y="714">  ├── qs@6.5.2</tspan>
+
+<tspan x="10" y="730">  ├── safe-buffer@5.1.2</tspan>
+
+<tspan x="10" y="746">  ├─┬ tough-cookie@2.3.4</tspan>
+
+<tspan x="10" y="762">  │ └── punycode@1.4.1</tspan>
+
+<tspan x="10" y="778">  ├── tunnel-agent@0.6.0</tspan>
+
+<tspan x="10" y="794">  └── uuid@3.2.1</tspan>
+
+</text>
+</svg>
