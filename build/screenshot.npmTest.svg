@@ -1,9 +1,9 @@
-<svg height="5662" width="720" xmlns="http://www.w3.org/2000/svg">
-<rect height="5662" fill="#555" width="720"></rect>
+<svg height="5726" width="720" xmlns="http://www.w3.org/2000/svg">
+<rect height="5726" fill="#555" width="720"></rect>
 <text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
 <tspan x="10" y="26"></tspan>
 
-<tspan x="10" y="42">[MODE_BUILD=npmTest] - 2018-06-10T18:28:15.578Z - npm-testing /home/travis/build/npmdoc/node-npm\</tspan>
+<tspan x="10" y="42">[MODE_BUILD=npmTest] - 2018-06-10T18:31:34.953Z - npm-testing /home/travis/build/npmdoc/node-npm\</tspan>
 <tspan x="10" y="58">doc-request</tspan>
 
 <tspan x="10" y="74"></tspan>
@@ -13,7 +13,7 @@
 <tspan x="10" y="106">npmTest - merged test-report from file /home/travis/build/npmdoc/node-npmdoc-request/tmp/build/t\</tspan>
 <tspan x="10" y="122">est-report.json</tspan>
 
-<tspan x="10" y="138">&gt; server listening on http-port 55925</tspan>
+<tspan x="10" y="138">&gt; server listening on http-port 54339</tspan>
 
 <tspan x="10" y="154">[node test-case 1 of 8 passed] - testCase_buildApidoc_default</tspan>
 
@@ -372,14 +372,14 @@
 <tspan x="10" y="3562"></tspan>
 
 <tspan x="10" y="3578">browserTest - created electron entry-page /home/travis/build/npmdoc/node-npmdoc-request/tmp/elec\</tspan>
-<tspan x="10" y="3594">tron.163eaf4b92d0.f840592f980d8.html</tspan>
+<tspan x="10" y="3594">tron.163eaf7c3e60.020d3555f6985.html</tspan>
 
 <tspan x="10" y="3610"></tspan>
 
-<tspan x="10" y="3626">(node:6697) DeprecationWarning: _linklist module is deprecated. Please use a userland alternativ\</tspan>
+<tspan x="10" y="3626">(node:8803) DeprecationWarning: _linklist module is deprecated. Please use a userland alternativ\</tspan>
 <tspan x="10" y="3642">e.</tspan>
 
-<tspan x="10" y="3658">(node:6697) DeprecationWarning: sys is deprecated. Use util instead.</tspan>
+<tspan x="10" y="3658">(node:8803) DeprecationWarning: sys is deprecated. Use util instead.</tspan>
 
 <tspan x="10" y="3674">[node test-case 6 of 8 passed] - testCase_buildCustomOrg_default</tspan>
 
@@ -387,109 +387,109 @@
 
 <tspan x="10" y="3706">Xlib:  extension "RANDR" missing on display ":99.0".</tspan>
 
-<tspan x="10" y="3722">[6909:0610/182817.622772:WARNING:audio_manager.cc(295)] Multiple instances of AudioManager detec\</tspan>
+<tspan x="10" y="3722">[9015:0610/183136.855475:WARNING:audio_manager.cc(295)] Multiple instances of AudioManager detec\</tspan>
 <tspan x="10" y="3738">ted</tspan>
 
-<tspan x="10" y="3754">[6909:0610/182817.622870:WARNING:audio_manager.cc(254)] Multiple instances of AudioManager detec\</tspan>
+<tspan x="10" y="3754">[9015:0610/183136.855549:WARNING:audio_manager.cc(254)] Multiple instances of AudioManager detec\</tspan>
 <tspan x="10" y="3770">ted</tspan>
 
-<tspan x="10" y="3786">[6938:0610/182817.664612:ERROR:sandbox_linux.cc(343)] InitializeSandbox() called with multiple t\</tspan>
+<tspan x="10" y="3786">[9046:0610/183136.959111:ERROR:sandbox_linux.cc(343)] InitializeSandbox() called with multiple t\</tspan>
 <tspan x="10" y="3802">hreads in process gpu-process. </tspan>
 
-<tspan x="10" y="3818">[6909:0610/182817.766942:ERROR:browser_gpu_channel_host_factory.cc(125)] Failed to create channe\</tspan>
+<tspan x="10" y="3818">[9015:0610/183136.979922:ERROR:browser_gpu_channel_host_factory.cc(125)] Failed to create channe\</tspan>
 <tspan x="10" y="3834">l.</tspan>
 
-<tspan x="10" y="3850">[6909:0610/182817.768072:ERROR:browser_gpu_channel_host_factory.cc(125)] Failed to create channe\</tspan>
+<tspan x="10" y="3850">[9015:0610/183136.988816:ERROR:browser_gpu_channel_host_factory.cc(125)] Failed to create channe\</tspan>
 <tspan x="10" y="3866">l.</tspan>
 
-<tspan x="10" y="3882">[6909:0610/182817.769056:ERROR:browser_gpu_channel_host_factory.cc(125)] Failed to create channe\</tspan>
+<tspan x="10" y="3882">[9015:0610/183136.991781:ERROR:browser_gpu_channel_host_factory.cc(125)] Failed to create channe\</tspan>
 <tspan x="10" y="3898">l.</tspan>
 
-<tspan x="10" y="3914">[6909:0610/182817.770262:ERROR:browser_gpu_channel_host_factory.cc(125)] Failed to create channe\</tspan>
+<tspan x="10" y="3914">[9015:0610/183136.998815:ERROR:browser_gpu_channel_host_factory.cc(125)] Failed to create channe\</tspan>
 <tspan x="10" y="3930">l.</tspan>
 
-<tspan x="10" y="3946">[6909:0610/182817.772491:ERROR:browser_gpu_channel_host_factory.cc(125)] Failed to create channe\</tspan>
+<tspan x="10" y="3946">[9015:0610/183136.999869:ERROR:browser_gpu_channel_host_factory.cc(125)] Failed to create channe\</tspan>
 <tspan x="10" y="3962">l.</tspan>
 
-<tspan x="10" y="3978">&gt; server listening on http-port 52332</tspan>
+<tspan x="10" y="3978">&gt; server listening on http-port 56002</tspan>
 
 <tspan x="10" y="3994"></tspan>
 
-<tspan x="10" y="4010">browserTest - opened http://127.0.0.1:55925?modeTest=1&amp;timeoutDefault=120000</tspan>
+<tspan x="10" y="4010">browserTest - opened http://127.0.0.1:54339?modeTest=1&amp;timeoutDefault=120000</tspan>
 
 <tspan x="10" y="4026"></tspan>
 
-<tspan x="10" y="4042">[6909:0610/182818.415562:INFO:CONSOLE(266)] "[browser test-case 1 of 8 passed] - testCase_buildA\</tspan>
+<tspan x="10" y="4042">[9015:0610/183137.725953:INFO:CONSOLE(266)] "[browser test-case 1 of 8 passed] - testCase_buildA\</tspan>
 <tspan x="10" y="4058">pidoc_default", source: file:///home/travis/build/npmdoc/node-npmdoc-request/tmp/electron.163eaf\</tspan>
-<tspan x="10" y="4074">4b92d0.f840592f980d8.html (266)</tspan>
+<tspan x="10" y="4074">7c3e60.020d3555f6985.html (266)</tspan>
 
-<tspan x="10" y="4090">[6909:0610/182818.425677:INFO:CONSOLE(266)] "[browser test-case 2 of 8 passed] - testCase_buildA\</tspan>
-<tspan x="10" y="4106">pp_default", source: file:///home/travis/build/npmdoc/node-npmdoc-request/tmp/electron.163eaf4b9\</tspan>
-<tspan x="10" y="4122">2d0.f840592f980d8.html (266)</tspan>
+<tspan x="10" y="4090">[9015:0610/183137.736449:INFO:CONSOLE(266)] "[browser test-case 2 of 8 passed] - testCase_buildA\</tspan>
+<tspan x="10" y="4106">pp_default", source: file:///home/travis/build/npmdoc/node-npmdoc-request/tmp/electron.163eaf7c3\</tspan>
+<tspan x="10" y="4122">e60.020d3555f6985.html (266)</tspan>
 
-<tspan x="10" y="4138">[6909:0610/182818.427483:INFO:CONSOLE(266)] "[browser test-case 3 of 8 passed] - testCase_buildC\</tspan>
+<tspan x="10" y="4138">[9015:0610/183137.744031:INFO:CONSOLE(266)] "[browser test-case 3 of 8 passed] - testCase_buildC\</tspan>
 <tspan x="10" y="4154">ustomOrg_default", source: file:///home/travis/build/npmdoc/node-npmdoc-request/tmp/electron.163\</tspan>
-<tspan x="10" y="4170">eaf4b92d0.f840592f980d8.html (266)</tspan>
+<tspan x="10" y="4170">eaf7c3e60.020d3555f6985.html (266)</tspan>
 
-<tspan x="10" y="4186">[6909:0610/182818.428929:INFO:CONSOLE(266)] "[browser test-case 4 of 8 passed] - testCase_buildL\</tspan>
-<tspan x="10" y="4202">ib_default", source: file:///home/travis/build/npmdoc/node-npmdoc-request/tmp/electron.163eaf4b9\</tspan>
-<tspan x="10" y="4218">2d0.f840592f980d8.html (266)</tspan>
+<tspan x="10" y="4186">[9015:0610/183137.744099:INFO:CONSOLE(266)] "[browser test-case 4 of 8 passed] - testCase_buildL\</tspan>
+<tspan x="10" y="4202">ib_default", source: file:///home/travis/build/npmdoc/node-npmdoc-request/tmp/electron.163eaf7c3\</tspan>
+<tspan x="10" y="4218">e60.020d3555f6985.html (266)</tspan>
 
-<tspan x="10" y="4234">[6909:0610/182818.430499:INFO:CONSOLE(266)] "[browser test-case 5 of 8 passed] - testCase_buildR\</tspan>
+<tspan x="10" y="4234">[9015:0610/183137.744118:INFO:CONSOLE(266)] "[browser test-case 5 of 8 passed] - testCase_buildR\</tspan>
 <tspan x="10" y="4250">eadme_default", source: file:///home/travis/build/npmdoc/node-npmdoc-request/tmp/electron.163eaf\</tspan>
-<tspan x="10" y="4266">4b92d0.f840592f980d8.html (266)</tspan>
+<tspan x="10" y="4266">7c3e60.020d3555f6985.html (266)</tspan>
 
-<tspan x="10" y="4282">[6909:0610/182818.432189:INFO:CONSOLE(266)] "[browser test-case 6 of 8 passed] - testCase_buildT\</tspan>
-<tspan x="10" y="4298">est_default", source: file:///home/travis/build/npmdoc/node-npmdoc-request/tmp/electron.163eaf4b\</tspan>
-<tspan x="10" y="4314">92d0.f840592f980d8.html (266)</tspan>
+<tspan x="10" y="4282">[9015:0610/183137.744133:INFO:CONSOLE(266)] "[browser test-case 6 of 8 passed] - testCase_buildT\</tspan>
+<tspan x="10" y="4298">est_default", source: file:///home/travis/build/npmdoc/node-npmdoc-request/tmp/electron.163eaf7c\</tspan>
+<tspan x="10" y="4314">3e60.020d3555f6985.html (266)</tspan>
 
-<tspan x="10" y="4330">[6909:0610/182818.433796:INFO:CONSOLE(266)] "[browser test-case 7 of 8 passed] - testCase_nop_de\</tspan>
-<tspan x="10" y="4346">fault", source: file:///home/travis/build/npmdoc/node-npmdoc-request/tmp/electron.163eaf4b92d0.f\</tspan>
-<tspan x="10" y="4362">840592f980d8.html (266)</tspan>
+<tspan x="10" y="4330">[9015:0610/183137.744149:INFO:CONSOLE(266)] "[browser test-case 7 of 8 passed] - testCase_nop_de\</tspan>
+<tspan x="10" y="4346">fault", source: file:///home/travis/build/npmdoc/node-npmdoc-request/tmp/electron.163eaf7c3e60.0\</tspan>
+<tspan x="10" y="4362">20d3555f6985.html (266)</tspan>
 
-<tspan x="10" y="4378">[6909:0610/182818.436665:INFO:CONSOLE(266)] "domStyleValidateUnmatched 0. 0 .testReportDiv .test\</tspan>
-<tspan x="10" y="4394">Failed {", source: file:///home/travis/build/npmdoc/node-npmdoc-request/tmp/electron.163eaf4b92d\</tspan>
-<tspan x="10" y="4410">0.f840592f980d8.html (266)</tspan>
+<tspan x="10" y="4378">[9015:0610/183137.746175:INFO:CONSOLE(266)] "domStyleValidateUnmatched 0. 0 .testReportDiv .test\</tspan>
+<tspan x="10" y="4394">Failed {", source: file:///home/travis/build/npmdoc/node-npmdoc-request/tmp/electron.163eaf7c3e6\</tspan>
+<tspan x="10" y="4410">0.020d3555f6985.html (266)</tspan>
 
-<tspan x="10" y="4426">[6909:0610/182818.438106:INFO:CONSOLE(266)] "domStyleValidateUnmatched 1. 0 .testReportDiv img {\</tspan>
-<tspan x="10" y="4442">", source: file:///home/travis/build/npmdoc/node-npmdoc-request/tmp/electron.163eaf4b92d0.f84059\</tspan>
-<tspan x="10" y="4458">2f980d8.html (266)</tspan>
+<tspan x="10" y="4426">[9015:0610/183137.747699:INFO:CONSOLE(266)] "domStyleValidateUnmatched 1. 0 .testReportDiv img {\</tspan>
+<tspan x="10" y="4442">", source: file:///home/travis/build/npmdoc/node-npmdoc-request/tmp/electron.163eaf7c3e60.020d35\</tspan>
+<tspan x="10" y="4458">55f6985.html (266)</tspan>
 
-<tspan x="10" y="4474">[6909:0610/182818.439474:INFO:CONSOLE(266)] "domStyleValidateUnmatched 2. 1 .testReportDiv .disp\</tspan>
-<tspan x="10" y="4490">layNone {", source: file:///home/travis/build/npmdoc/node-npmdoc-request/tmp/electron.163eaf4b92\</tspan>
-<tspan x="10" y="4506">d0.f840592f980d8.html (266)</tspan>
+<tspan x="10" y="4474">[9015:0610/183137.749107:INFO:CONSOLE(266)] "domStyleValidateUnmatched 2. 1 .testReportDiv .disp\</tspan>
+<tspan x="10" y="4490">layNone {", source: file:///home/travis/build/npmdoc/node-npmdoc-request/tmp/electron.163eaf7c3e\</tspan>
+<tspan x="10" y="4506">60.020d3555f6985.html (266)</tspan>
 
-<tspan x="10" y="4522">[6909:0610/182818.441256:INFO:CONSOLE(266)] "domStyleValidateUnmatched 3. 1 .testReportDiv .foot\</tspan>
-<tspan x="10" y="4538">er {", source: file:///home/travis/build/npmdoc/node-npmdoc-request/tmp/electron.163eaf4b92d0.f8\</tspan>
-<tspan x="10" y="4554">40592f980d8.html (266)</tspan>
+<tspan x="10" y="4522">[9015:0610/183137.751339:INFO:CONSOLE(266)] "domStyleValidateUnmatched 3. 1 .testReportDiv .foot\</tspan>
+<tspan x="10" y="4538">er {", source: file:///home/travis/build/npmdoc/node-npmdoc-request/tmp/electron.163eaf7c3e60.02\</tspan>
+<tspan x="10" y="4554">0d3555f6985.html (266)</tspan>
 
-<tspan x="10" y="4570">[6909:0610/182818.442846:INFO:CONSOLE(266)] "domStyleValidateUnmatched 4. 1 .testReportDiv .summ\</tspan>
-<tspan x="10" y="4586">ary {", source: file:///home/travis/build/npmdoc/node-npmdoc-request/tmp/electron.163eaf4b92d0.f\</tspan>
-<tspan x="10" y="4602">840592f980d8.html (266)</tspan>
+<tspan x="10" y="4570">[9015:0610/183137.752700:INFO:CONSOLE(266)] "domStyleValidateUnmatched 4. 1 .testReportDiv .summ\</tspan>
+<tspan x="10" y="4586">ary {", source: file:///home/travis/build/npmdoc/node-npmdoc-request/tmp/electron.163eaf7c3e60.0\</tspan>
+<tspan x="10" y="4602">20d3555f6985.html (266)</tspan>
 
-<tspan x="10" y="4618">[6909:0610/182818.444307:INFO:CONSOLE(266)] "domStyleValidateUnmatched 5. 1 .testReportDiv pre {\</tspan>
-<tspan x="10" y="4634">", source: file:///home/travis/build/npmdoc/node-npmdoc-request/tmp/electron.163eaf4b92d0.f84059\</tspan>
-<tspan x="10" y="4650">2f980d8.html (266)</tspan>
+<tspan x="10" y="4618">[9015:0610/183137.754248:INFO:CONSOLE(266)] "domStyleValidateUnmatched 5. 1 .testReportDiv pre {\</tspan>
+<tspan x="10" y="4634">", source: file:///home/travis/build/npmdoc/node-npmdoc-request/tmp/electron.163eaf7c3e60.020d35\</tspan>
+<tspan x="10" y="4650">55f6985.html (266)</tspan>
 
-<tspan x="10" y="4666">[6909:0610/182818.448253:INFO:CONSOLE(266)] "domStyleValidateUnmatched 6. 1 body &gt; pre,", source\</tspan>
-<tspan x="10" y="4682">: file:///home/travis/build/npmdoc/node-npmdoc-request/tmp/electron.163eaf4b92d0.f840592f980d8.h\</tspan>
+<tspan x="10" y="4666">[9015:0610/183137.755708:INFO:CONSOLE(266)] "domStyleValidateUnmatched 6. 1 body &gt; pre,", source\</tspan>
+<tspan x="10" y="4682">: file:///home/travis/build/npmdoc/node-npmdoc-request/tmp/electron.163eaf7c3e60.020d3555f6985.h\</tspan>
 <tspan x="10" y="4698">tml (266)</tspan>
 
-<tspan x="10" y="4714">[6909:0610/182818.449385:INFO:CONSOLE(266)] "domStyleValidateUnmatched 7. 1 body &gt; pre,", source\</tspan>
-<tspan x="10" y="4730">: file:///home/travis/build/npmdoc/node-npmdoc-request/tmp/electron.163eaf4b92d0.f840592f980d8.h\</tspan>
+<tspan x="10" y="4714">[9015:0610/183137.757488:INFO:CONSOLE(266)] "domStyleValidateUnmatched 7. 1 body &gt; pre,", source\</tspan>
+<tspan x="10" y="4730">: file:///home/travis/build/npmdoc/node-npmdoc-request/tmp/electron.163eaf7c3e60.020d3555f6985.h\</tspan>
 <tspan x="10" y="4746">tml (266)</tspan>
 
-<tspan x="10" y="4762">[6909:0610/182818.450771:INFO:CONSOLE(266)] "domStyleValidateUnmatched 8. 1 body {", source: fil\</tspan>
-<tspan x="10" y="4778">e:///home/travis/build/npmdoc/node-npmdoc-request/tmp/electron.163eaf4b92d0.f840592f980d8.html (\</tspan>
+<tspan x="10" y="4762">[9015:0610/183137.773688:INFO:CONSOLE(266)] "domStyleValidateUnmatched 8. 1 body {", source: fil\</tspan>
+<tspan x="10" y="4778">e:///home/travis/build/npmdoc/node-npmdoc-request/tmp/electron.163eaf7c3e60.020d3555f6985.html (\</tspan>
 <tspan x="10" y="4794">266)</tspan>
 
-<tspan x="10" y="4810">[6909:0610/182818.451885:INFO:CONSOLE(266)] "domStyleValidateUnmatched 9. 1 body {", source: fil\</tspan>
-<tspan x="10" y="4826">e:///home/travis/build/npmdoc/node-npmdoc-request/tmp/electron.163eaf4b92d0.f840592f980d8.html (\</tspan>
+<tspan x="10" y="4810">[9015:0610/183137.773846:INFO:CONSOLE(266)] "domStyleValidateUnmatched 9. 1 body {", source: fil\</tspan>
+<tspan x="10" y="4826">e:///home/travis/build/npmdoc/node-npmdoc-request/tmp/electron.163eaf7c3e60.020d3555f6985.html (\</tspan>
 <tspan x="10" y="4842">266)</tspan>
 
-<tspan x="10" y="4858">[6909:0610/182818.452928:INFO:CONSOLE(266)] "[browser test-case 8 of 8 passed] - testCase_webpag\</tspan>
-<tspan x="10" y="4874">e_default", source: file:///home/travis/build/npmdoc/node-npmdoc-request/tmp/electron.163eaf4b92\</tspan>
-<tspan x="10" y="4890">d0.f840592f980d8.html (266)</tspan>
+<tspan x="10" y="4858">[9015:0610/183137.773867:INFO:CONSOLE(266)] "[browser test-case 8 of 8 passed] - testCase_webpag\</tspan>
+<tspan x="10" y="4874">e_default", source: file:///home/travis/build/npmdoc/node-npmdoc-request/tmp/electron.163eaf7c3e\</tspan>
+<tspan x="10" y="4890">60.020d3555f6985.html (266)</tspan>
 
 <tspan x="10" y="4906">[node test-case 7 of 8 passed] - testCase_buildApp_default</tspan>
 
@@ -505,7 +505,7 @@
 
 <tspan x="10" y="5018"></tspan>
 
-<tspan x="10" y="5034">browserTest - exit-code 0 - http://127.0.0.1:55925?modeTest=1&amp;timeoutDefault=120000</tspan>
+<tspan x="10" y="5034">browserTest - exit-code 0 - http://127.0.0.1:54339?modeTest=1&amp;timeoutDefault=120000</tspan>
 
 <tspan x="10" y="5050"></tspan>
 
@@ -536,7 +536,7 @@
 
 <tspan x="10" y="5290">| test-report - buildApidoc - node - linux v6.14.2 - 2018-06-10T18:26:34.770Z</tspan>
 
-<tspan x="10" y="5306">|  118259 ms            0 failed        8 passed      |</tspan>
+<tspan x="10" y="5306">|  317574 ms            0 failed        8 passed      |</tspan>
 
 <tspan x="10" y="5322">-------------------------------------------------------</tspan>
 
@@ -560,22 +560,29 @@
 
 <tspan x="10" y="5498">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="5514"></tspan>
+<tspan x="10" y="5514">| test-report - npmTest - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTM\</tspan>
+<tspan x="10" y="5530">L, like Gecko) Chrome/58.0.3029.110 Electron/1.7.15 Safari/537.36 - 2018-06-10T18:31:37.670Z</tspan>
 
-<tspan x="10" y="5530">created test-report file /home/travis/build/npmdoc/node-npmdoc-request/tmp/build/test-report.htm\</tspan>
-<tspan x="10" y="5546">l</tspan>
+<tspan x="10" y="5546">|      49 ms            0 failed        8 passed      |</tspan>
 
-<tspan x="10" y="5562"></tspan>
+<tspan x="10" y="5562">-------------------------------------------------------</tspan>
 
 <tspan x="10" y="5578"></tspan>
 
-<tspan x="10" y="5594">npmTest - 0 failed tests</tspan>
-
-<tspan x="10" y="5610"></tspan>
+<tspan x="10" y="5594">created test-report file /home/travis/build/npmdoc/node-npmdoc-request/tmp/build/test-report.htm\</tspan>
+<tspan x="10" y="5610">l</tspan>
 
 <tspan x="10" y="5626"></tspan>
 
-<tspan x="10" y="5642">[MODE_BUILD=npmTest] - 2018-06-10T18:28:34.506Z - EXIT_CODE - 0</tspan>
+<tspan x="10" y="5642"></tspan>
+
+<tspan x="10" y="5658">npmTest - 0 failed tests</tspan>
+
+<tspan x="10" y="5674"></tspan>
+
+<tspan x="10" y="5690"></tspan>
+
+<tspan x="10" y="5706">[MODE_BUILD=npmTest] - 2018-06-10T18:31:53.847Z - EXIT_CODE - 0</tspan>
 
 </text>
 </svg>
